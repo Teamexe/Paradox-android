@@ -4,9 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -40,52 +42,31 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
     private int RC_SIGN_IN = 0;
     private GoogleApiClient mGoogleApiClient;
     private SignInButton signInButton;
-    private Button signOutButton;
-    private Button disconnectButton;
-    private LinearLayout signOutView;
-    private TextView mStatusTextView;
+    private String mStatusTextView;
     private ProgressDialog mProgressDialog;
-    private ImageView imgProfilePic;
-
-
-
+    private String imgProfilePic = "null";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        // Configure sign-in to request the user's ID, email address, and basic
-        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-
-        // Build a GoogleApiClient with access to the Google Sign-In API and the
-// options specified by gso.
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
-                .enableAutoManage(getActivity() /* FragmentActivity */, this /* OnConnectionFailedListener */)
+                .enableAutoManage(getActivity() , this )
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
-
-
     }
-
 
     @Override
     public void onStart() {
         super.onStart();
-
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
         if (opr.isDone()) {
-            // If the user's cached credentials are valid, the OptionalPendingResult will be "done"
-            // and the GoogleSignInResult will be available instantly.
             Log.d(TAG, "Got cached sign-in");
             GoogleSignInResult result = opr.get();
             handleSignInResult(result);
         } else {
-            // If the user has not previously signed in on this device or the sign-in has expired,
-            // this asynchronous branch will attempt to sign in the user silently.  Cross-device
-            // single sign-on will occur in this branch.
             showProgressDialog();
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
@@ -97,19 +78,12 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         }
     }
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_gplus, parent, false);
-
         signInButton = (SignInButton) v.findViewById(R.id.sign_in_button);
-        signOutButton = (Button) v.findViewById(R.id.sign_out_button);
-        imgProfilePic = (ImageView) v.findViewById(R.id.img_profile_pic);
-
-        mStatusTextView = (TextView) v.findViewById(R.id.status);
-        //Bitmap icon = BitmapFactory.decodeResource(getContext().getResources(),R.drawable.user_default);
-        imgProfilePic.setImageDrawable(getResources().getDrawable(R.drawable.user_default));
+        imgProfilePic="null";
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,79 +92,52 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
             }
 
         });
-
-
-        signOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                        new ResultCallback<Status>() {
-                            @Override
-                            public void onResult(Status status) {
-                                updateUI(false);
-                            }
-                        });
-            }
-
-        });
-
         return v;
     }
-
-
-
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleSignInResult(result);
         }
     }
 
-
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
-            // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
-            mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
-            //Similarly you can get the email and photourl using acct.getEmail() and  acct.getPhotoUrl()
-
+            mStatusTextView=acct.getDisplayName();
             if(acct.getPhotoUrl() != null)
-                new LoadProfileImage(imgProfilePic).execute(acct.getPhotoUrl().toString());
-
+                imgProfilePic=acct.getPhotoUrl().toString();
             updateUI(true);
         } else {
-            // Signed out, show unauthenticated UI.
             updateUI(false);
         }
     }
 
-
-
-
     private void updateUI(boolean signedIn) {
         if (signedIn) {
+
+            final Handler handler = new Handler();
+            final Runnable r = new Runnable() {
+                public void run() {
+                    Intent intent = new Intent(getContext(),main.class);
+                    startActivity(intent);
+                }
+            };
+            handler.postDelayed(r, 3000);
+
             signInButton.setVisibility(View.GONE);
-            signOutButton.setVisibility(View.VISIBLE);
         } else {
-            mStatusTextView.setText(R.string.signed_out);
-            //Bitmap icon = BitmapFactory.decodeResource(getContext().getResources(),R.drawable.user_default);
-            imgProfilePic.setImageDrawable(getResources().getDrawable(R.drawable.user_default));
+            imgProfilePic="null";
             signInButton.setVisibility(View.VISIBLE);
-            signOutButton.setVisibility(View.GONE);
         }
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
-        // be available.
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
     }
 
@@ -200,7 +147,6 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
             mProgressDialog.setMessage(getString(R.string.loading));
             mProgressDialog.setIndeterminate(true);
         }
-
         mProgressDialog.show();
     }
 
@@ -208,13 +154,14 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.hide();
         }
-
     }
 
-
-    /**
+/*
+    */
+/**
      * Background Async task to load user profile picture from url
-     * */
+     * *//*
+
     private class LoadProfileImage extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 
@@ -247,5 +194,6 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         }
     }
 
+*/
 
 }
