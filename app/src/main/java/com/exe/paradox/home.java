@@ -1,12 +1,12 @@
-package com.exe.paradox.activity;
+package com.exe.paradox;
 
-import android.os.Bundle;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
-import com.exe.paradox.R;
-
-public class HomeActivity extends AppCompatActivity {
+public class home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

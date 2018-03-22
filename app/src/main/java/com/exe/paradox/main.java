@@ -1,23 +1,25 @@
-package com.exe.paradox.fragment;
+package com.exe.paradox;
 
 import android.graphics.Color;
-import android.os.Bundle;
+import android.os.Build;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-
-import com.exe.paradox.R;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import devlight.io.library.ntb.NavigationTabBar;
 
-public class HomeFragment extends AppCompatActivity {
+public class main extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +31,14 @@ public class HomeFragment extends AppCompatActivity {
         initUI();
     }
 
-    private void initUI() {
+    private void initUI()  {
 
         final int[] mIDs = {
-                R.layout.activity_home,
-                R.layout.activity_question,
-                R.layout.activity_leaderboard,
-                R.layout.activity_stats,
-                R.layout.activity_members
+                        R.layout.activity_home,
+                        R.layout.activity_question,
+                        R.layout.activity_leaderboard,
+                        R.layout.activity_stats,
+                        R.layout.activity_members
 
         };
         final ViewPager viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);

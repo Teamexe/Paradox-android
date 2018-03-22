@@ -1,12 +1,10 @@
-package com.exe.paradox.fragment;
+package com.exe.paradox;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-import com.exe.paradox.R;
-
-public class StatsFragment extends AppCompatActivity {
+public class stats extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
