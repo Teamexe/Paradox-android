@@ -19,12 +19,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main"       />
-        <activity android:name=".home" />
-        <activity android:name=".question" />
-        <activity android:name=".leaderboard" />
-        <activity android:name=".stats" />
-        <activity android:name=".members" ></activity>
+            android:name=".MainActivity"       />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".QuestionActivity" />
+        <activity android:name=".LeaderboardActivity" />
+        <activity android:name=".StatsActivity" />
+        <activity android:name=".MembersActivity" ></activity>
     </application>
 
 </manifest>
