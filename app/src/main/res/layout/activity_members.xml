@@ -5,35 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.exe.paradox.members">
-    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_members"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Members"
                 android:fontFamily="@font/psb"
+                android:text="Members"
                 android:textColor="#72d3b4"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <!--Do not change above this-->
-
-
-    <?xml version="1.0" encoding="utf-8"?>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         tools:context="com.exe.paradox.Contributors">
 
@@ -42,22 +40,20 @@
             android:layout_width="1000dp"
             android:layout_height="match_parent"
             android:layout_marginTop="-48dp"
-            android:scaleX="2"
             android:clickable="false"
-            />
+            android:scaleX="2" />
         <!--android:background="@drawable/gradient"-->
 
         <TextView
             android:id="@+id/members"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:elevation="8dp"
+            android:fontFamily="@font/psb"
             android:text="MEMBERS"
-            android:fontFamily="@font/saucerbb"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="50dp"
-            android:elevation="8dp"
-            />
+            android:textSize="50dp" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -70,19 +66,16 @@
                 android:orientation="vertical">
 
 
-
-
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="FINAL YEAR"
+                    android:background="@drawable/gradient"
                     android:fontFamily="@font/ordinary"
-                    android:textSize="40dp"
-                    android:textAlignment="center"
                     android:padding="4dp"
+                    android:text="FINAL YEAR"
+                    android:textAlignment="center"
                     android:textColor="@android:color/white"
-                    android:background="@drawable/gradient"/>
+                    android:textSize="40dp" />
 
 
                 <LinearLayout
@@ -93,31 +86,28 @@
                         android:id="@+id/image1"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image2"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image3"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -129,32 +119,35 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Pooja \nSaini"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Rishabh \n Chaudhary"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Gurpreet\n Singh"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -164,29 +157,28 @@
                         android:id="@+id/image4"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image5"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image6"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -200,29 +192,31 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Sheweta \nKhattri"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Mahima \nMahant"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Mayank\n Kahyap"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
@@ -236,30 +230,27 @@
                         android:id="@+id/image7"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image8"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
-
-
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -273,27 +264,28 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Jalaz\n Kumar"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Milindra\n Pratap"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/psbbold"/>
-
+                        android:fontFamily="@font/psbbold"
+                        android:textAlignment="center" />
 
 
                 </LinearLayout>
@@ -301,14 +293,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="COORDINATORS"
+                    android:background="@drawable/gradient"
+                    android:fontFamily="@font/ordinary"
                     android:padding="4dp"
-                    android:textSize="40dp"
+                    android:text="COORDINATORS"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
-                    android:fontFamily="@font/ordinary"
-                    android:background="@drawable/gradient"
-                    />
+                    android:textSize="40dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -319,29 +310,28 @@
                         android:id="@+id/image9"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image10"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image11"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -355,29 +345,31 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Ankit \nGuleria"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Vaibhav \nSharma"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Vishal\nChoudhary"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
@@ -391,29 +383,28 @@
                         android:id="@+id/image12"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image13"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image14"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -427,29 +418,31 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Kumar \nShashwat"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Sarabjit\n Cheema"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Nimit\n Bhardwaj"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
@@ -463,29 +456,28 @@
                         android:id="@+id/image15"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image16"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image17"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -499,29 +491,31 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Rashi \nShah"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Amit\n Chambial"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Anant \nKabra"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
@@ -535,29 +529,28 @@
                         android:id="@+id/image18"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image19"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image20"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -571,42 +564,45 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Divyansh\n Sharma"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Apoorva \nSharma"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Sourav \nSahoo"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="EXECUTIVES"
-                    android:textSize="40dp"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
+                    android:background="@drawable/gradient"
                     android:fontFamily="@font/ordinary"
                     android:padding="4dp"
-                    android:background="@drawable/gradient" />
+                    android:text="EXECUTIVES"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="40dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -616,29 +612,28 @@
                         android:id="@+id/image21"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image22"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image23"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -652,32 +647,35 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Akanksha \nGahalot"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Ekta \nTyagi"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Gopesh\n Singhal"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -687,29 +685,28 @@
                         android:id="@+id/image24"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image25"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image26"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -723,29 +720,31 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Gunjan\n Agrawal"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Nidhi\n Singh"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Pranjal\n Thakur"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
@@ -759,29 +758,28 @@
                         android:id="@+id/image27"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image28"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image29"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -795,29 +793,31 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Ranjeet\n Walia"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Simpy\n Kumari"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Udit \nGulati"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
@@ -825,15 +825,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="VOLUNTREERS"
-                    android:textSize="40dp"
-                    android:padding="4dp"
-                    android:textAlignment="center"
-
-                    android:textColor="@android:color/white"
+                    android:background="@drawable/gradient"
                     android:fontFamily="@font/ordinary"
-                    android:background="@drawable/gradient"/>
+                    android:padding="4dp"
+                    android:text="VOLUNTREERS"
 
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="40dp" />
 
 
                 <LinearLayout
@@ -844,29 +843,28 @@
                         android:id="@+id/image30"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image31"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image32"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -880,32 +878,35 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Aman \nGupta"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Anany \nSharma"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Ayush\n Jain"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -915,29 +916,28 @@
                         android:id="@+id/image33"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image34"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image35"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -951,32 +951,35 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Jatin \nNagpal"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Kashish\n Kalsi"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Lakshay \nGupta"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -986,29 +989,28 @@
                         android:id="@+id/image36"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image37"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image38"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -1022,29 +1024,31 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Muskan \nMangal"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Nishant\n Hada"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Nitika"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
@@ -1059,29 +1063,28 @@
                         android:id="@+id/image39"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image40"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image41"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -1095,29 +1098,31 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Priyank \nKumar"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Rohit \nHill"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Shivam\n Sood"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
@@ -1131,29 +1136,28 @@
                         android:id="@+id/image42"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image43"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image44"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -1167,29 +1171,31 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Shruti \nSharma"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Vasu \nJain"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Veedant \nRajoo"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
@@ -1202,31 +1208,27 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/image45"
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        app:civ_border_color="@android:color/white"
-                        app:civ_border_width="3dp"
                         android:layout_weight="1"
                         android:padding="2dp"
-                        />
-
+                        app:civ_border_color="@android:color/white"
+                        app:civ_border_width="3dp" />
 
 
                 </LinearLayout>
@@ -1241,35 +1243,32 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/psbbold"/>
+                        android:fontFamily="@font/psbbold"
+                        android:textAlignment="center" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/psbbold"/>
+                        android:fontFamily="@font/psbbold"
+                        android:textAlignment="center" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:fontFamily="@font/psbbold"
                         android:text="Vishal\n Kumar"
                         android:textAlignment="center"
-                        android:background="@drawable/rounded_corner"
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/psbbold"/>
+                        android:textColor="@android:color/black" />
 
 
                 </LinearLayout>
-
-
-
-
-
-
 
 
             </LinearLayout>
 
         </ScrollView>
     </RelativeLayout>
+</RelativeLayout>
