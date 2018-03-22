@@ -1,12 +1,15 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.exe.paradox.fragment.GPlusFragment;
+import com.exe.paradox.R;
 
 public class LoginActivity extends AppCompatActivity {
 

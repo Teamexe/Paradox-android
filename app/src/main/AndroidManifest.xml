@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:theme="@style/Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,12 +19,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main"       />
-        <activity android:name=".home" />
-        <activity android:name=".question" />
-        <activity android:name=".leaderboard" />
-        <activity android:name=".stats" />
-        <activity android:name=".members" ></activity>
+            android:name=".fragment.HomeFragment"       />
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.QuestionActivity" />
+        <activity android:name=".fragment.LeaderboardFragment" />
+        <activity android:name=".fragment.StatsFragment" />
+        <activity android:name=".fragment.MembersFragment" ></activity>
     </application>
 
 </manifest>

@@ -1,10 +1,12 @@
-package com.exe.paradox;
+package com.exe.paradox.fragment;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-public class leaderboard extends AppCompatActivity {
+import com.exe.paradox.R;
+
+public class LeaderboardFragment extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
