@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.exe.paradox.HomeActivity">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,5 +30,27 @@
     </android.support.v7.widget.Toolbar>
     <!--Do not change above this-->
 
+    <RelativeLayout
+        android:layout_below="@+id/toolbar_home"
+        android:layout_width="match_parent"
+        android:layout_height="180sp"
+        android:background="@drawable/u1">
 
+        <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="180sp" />
+
+        <com.pixelcan.inkpageindicator.InkPageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10sp"
+            app:ipi_animationDuration="320"
+            app:ipi_currentPageIndicatorColor="@android:color/holo_red_light"
+            app:ipi_dotDiameter="8dp"
+            app:ipi_dotGap="8dp"
+            app:ipi_pageIndicatorColor="#FFF" />
+    </RelativeLayout>
 </RelativeLayout>
