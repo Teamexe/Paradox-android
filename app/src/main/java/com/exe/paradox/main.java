@@ -8,12 +8,16 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import com.mxn.soul.flowingdrawer_core.ElasticDrawer;
+import com.mxn.soul.flowingdrawer_core.FlowingDrawer;
 
 import java.util.ArrayList;
 
@@ -29,6 +33,23 @@ public class main extends AppCompatActivity{
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         initUI();
+
+        FlowingDrawer mDrawer;
+        mDrawer = (FlowingDrawer) findViewById(R.id.drawerlayout);
+        mDrawer.setTouchMode(ElasticDrawer.TOUCH_MODE_BEZEL);
+        mDrawer.setOnDrawerStateChangeListener(new ElasticDrawer.OnDrawerStateChangeListener() {
+            @Override
+            public void onDrawerStateChange(int oldState, int newState) {
+                if (newState == ElasticDrawer.STATE_CLOSED) {
+                    Log.i("MainActivity", "Drawer STATE_CLOSED");
+                }
+            }
+
+            @Override
+            public void onDrawerSlide(float openRatio, int offsetPixels) {
+                Log.i("MainActivity", "openRatio=" + openRatio + " ,offsetPixels=" + offsetPixels);
+            }
+        });
     }
 
     private void initUI()  {
