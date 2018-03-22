@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.exe.paradox.question">
-
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -26,11 +25,10 @@
                 android:text="Question"
                 android:textColor="#f9bb72"
                 android:textSize="25sp" />
+
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <!--Do not change above this-->
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

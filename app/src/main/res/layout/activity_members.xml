@@ -26,9 +26,6 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <!--Do not change above this-->
-
-
-    <?xml version="1.0" encoding="utf-8"?>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -36,8 +33,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         tools:context="com.exe.paradox.Contributors">
-
-
         <LinearLayout
             android:layout_width="1000dp"
             android:layout_height="match_parent"
@@ -45,24 +40,11 @@
             android:scaleX="2"
             android:clickable="false"
             />
-        <!--android:background="@drawable/gradient"-->
-
-        <TextView
-            android:id="@+id/members"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MEMBERS"
-            android:fontFamily="@font/saucerbb"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="50dp"
-            android:elevation="8dp"
-            />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/members">
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"

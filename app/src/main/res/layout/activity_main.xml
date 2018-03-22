@@ -1,43 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mxn.soul.flowingdrawer_core.FlowingDrawer xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
-    android:fitsSystemWindows="true"
-    tools:context="com.exe.paradox.main">
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    app:edMenuBackground="#fff"
+    app:edMenuSize="260dp"
+    app:edPosition="1">
 
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-
         android:layout_height="match_parent"
-        android:background="#f3f3f3"
-        android:orientation="vertical">
+        android:background="#fff"
+        android:fitsSystemWindows="true"
+        tools:context="com.exe.paradox.main">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/vp_horizontal_ntb"
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
 
-        <devlight.io.library.ntb.NavigationTabBar
-            android:id="@+id/ntb_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            app:ntb_badge_gravity="top"
-            app:ntb_badge_position="right"
-            app:ntb_badged="true"
-            app:ntb_bg_color="#fff"
-            app:ntb_scaled="true"
-            app:ntb_swiped="true"
-            app:ntb_tinted="true"
-            app:ntb_title_mode="all"
-            app:ntb_titled="true" />
+            android:layout_height="match_parent"
+            android:background="#f3f3f3"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_horizontal_ntb"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
-</RelativeLayout>
+            <devlight.io.library.ntb.NavigationTabBar
+                android:id="@+id/ntb_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:ntb_badge_gravity="top"
+                app:ntb_badge_position="right"
+                app:ntb_badged="true"
+                app:ntb_bg_color="#fff"
+                app:ntb_scaled="true"
+                app:ntb_swiped="true"
+                app:ntb_tinted="true"
+                app:ntb_title_mode="all"
+                app:ntb_titled="true" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.mxn.soul.flowingdrawer_core.FlowingMenuLayout
+        android:id="@+id/menulayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/drawer" />
+
+    </com.mxn.soul.flowingdrawer_core.FlowingMenuLayout>
+
+</com.mxn.soul.flowingdrawer_core.FlowingDrawer>
