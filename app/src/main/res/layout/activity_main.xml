@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:fitsSystemWindows="true"
-    tools:context="com.exe.paradox.fragment.HomeFragment">
+    tools:context="com.exe.paradox.main">
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

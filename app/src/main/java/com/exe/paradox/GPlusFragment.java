@@ -1,17 +1,26 @@
-package com.exe.paradox.fragment;
+package com.exe.paradox;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.exe.paradox.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -21,6 +30,10 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+
+import java.io.InputStream;
+import java.net.URL;
 
 
 public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnectionFailedListener {
@@ -40,8 +53,8 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
                 .requestEmail()
                 .build();
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
-                .enableAutoManage(getActivity(), this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .enableAutoManage(getActivity() , this )
+                .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
     }
 
@@ -70,7 +83,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_gplus, parent, false);
         signInButton = (SignInButton) v.findViewById(R.id.sign_in_button);
-        imgProfilePic = "null";
+        imgProfilePic="null";
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,9 +108,9 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             GoogleSignInAccount acct = result.getSignInAccount();
-            mStatusTextView = acct.getDisplayName();
-            if (acct.getPhotoUrl() != null)
-                imgProfilePic = acct.getPhotoUrl().toString();
+            mStatusTextView=acct.getDisplayName();
+            if(acct.getPhotoUrl() != null)
+                imgProfilePic=acct.getPhotoUrl().toString();
             updateUI(true);
         } else {
             updateUI(false);
@@ -110,7 +123,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
             final Handler handler = new Handler();
             final Runnable r = new Runnable() {
                 public void run() {
-                    Intent intent = new Intent(getContext(), HomeFragment.class);
+                    Intent intent = new Intent(getContext(),main.class);
                     startActivity(intent);
                 }
             };
@@ -118,7 +131,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
 
             signInButton.setVisibility(View.GONE);
         } else {
-            imgProfilePic = "null";
+            imgProfilePic="null";
             signInButton.setVisibility(View.VISIBLE);
         }
     }
@@ -146,8 +159,8 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
 /*
     */
 /**
- * Background Async task to load user profile picture from url
- * *//*
+     * Background Async task to load user profile picture from url
+     * *//*
 
     private class LoadProfileImage extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
@@ -175,7 +188,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
 
 
                 Bitmap resized = Bitmap.createScaledBitmap(result,200,200, true);
-                bmImage.setImageBitmap(com.exe.paradox.Util.ImageHelper.getRoundedCornerBitmap(getContext(),resized,250,200,200, false, false, false, false));
+                bmImage.setImageBitmap(com.exe.paradox.ImageHelper.getRoundedCornerBitmap(getContext(),resized,250,200,200, false, false, false, false));
 
             }
         }
