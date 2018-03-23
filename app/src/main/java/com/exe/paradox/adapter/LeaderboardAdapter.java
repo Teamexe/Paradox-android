@@ -22,7 +22,7 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
     @NonNull
     @Override
     public LeaderboardViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new LeaderboardViewholder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_featured_projects, parent, false));
+        return new LeaderboardViewholder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_leaderboard, parent, false));
     }
 
     @Override
