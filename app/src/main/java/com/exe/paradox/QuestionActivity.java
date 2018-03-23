@@ -13,8 +13,9 @@ import android.widget.Toast;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 public class QuestionActivity extends AppCompatActivity {
-public class question extends AppCompatActivity {
-    public int c=0;
+
+    public int c = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,22 +29,22 @@ public class question extends AppCompatActivity {
         hintText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(c==0) {
-                    AlphaAnimation animObj = new AlphaAnimation(0,1);
+                if (c == 0) {
+                    AlphaAnimation animObj = new AlphaAnimation(0, 1);
                     animObj.setDuration(1000);
                     hintText.startAnimation(animObj);
                     hintText.setText("back to Question!!");
-                    c=1;
-                }
-                else{
-                    AlphaAnimation animObj = new AlphaAnimation(0,1);
+                    c = 1;
+                } else {
+                    AlphaAnimation animObj = new AlphaAnimation(0, 1);
                     animObj.setDuration(1000);
                     hintText.startAnimation(animObj);
                     hintText.setText("Go for Hints!!");
-                    c=0;
+                    c = 0;
                 }
                 flip.flipTheView(true);
             }
         });
     }
+}
 
