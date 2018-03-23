@@ -14,15 +14,20 @@
             android:theme="@style/Transparent">
         </activity>
         <activity android:name=".HomeActivity">
-            <intent-filter>
+            <!--intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter-->
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".QuestionActivity" />
-        <activity android:name=".LeaderboardActivity" />
+        <activity android:name=".LeaderboardActivity" >  <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+        </activity>
         <activity android:name=".StatsActivity" />
         <activity android:name=".MembersActivity" />
     </application>
