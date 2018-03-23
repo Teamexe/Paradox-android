@@ -5,11 +5,18 @@ import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.mxn.soul.flowingdrawer_core.ElasticDrawer;
+import com.mxn.soul.flowingdrawer_core.FlowingDrawer;
 
 import java.util.ArrayList;
 
@@ -25,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         initUI();
+
+
     }
 
     private void initUI()  {
@@ -33,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
                         R.layout.activity_home,
                         R.layout.activity_question,
                         R.layout.activity_leaderboard,
-                        R.layout.activity_stats,
-                        R.layout.activity_members
+                        R.layout.activity_stats
 
         };
         final ViewPager viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
@@ -47,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean isViewFromObject(final View view, final Object object) {
                 return view.equals(object);
+
             }
 
             @Override
