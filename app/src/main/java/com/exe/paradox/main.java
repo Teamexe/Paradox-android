@@ -34,22 +34,7 @@ public class main extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         initUI();
 
-        FlowingDrawer mDrawer;
-        mDrawer = (FlowingDrawer) findViewById(R.id.drawerlayout);
-        mDrawer.setTouchMode(ElasticDrawer.TOUCH_MODE_BEZEL);
-        mDrawer.setOnDrawerStateChangeListener(new ElasticDrawer.OnDrawerStateChangeListener() {
-            @Override
-            public void onDrawerStateChange(int oldState, int newState) {
-                if (newState == ElasticDrawer.STATE_CLOSED) {
-                    Log.i("MainActivity", "Drawer STATE_CLOSED");
-                }
-            }
 
-            @Override
-            public void onDrawerSlide(float openRatio, int offsetPixels) {
-                Log.i("MainActivity", "openRatio=" + openRatio + " ,offsetPixels=" + offsetPixels);
-            }
-        });
     }
 
     private void initUI()  {
@@ -58,8 +43,7 @@ public class main extends AppCompatActivity{
                         R.layout.activity_home,
                         R.layout.activity_question,
                         R.layout.activity_leaderboard,
-                        R.layout.activity_stats,
-                        R.layout.activity_members
+                        R.layout.activity_stats
 
         };
         final ViewPager viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
@@ -72,6 +56,7 @@ public class main extends AppCompatActivity{
             @Override
             public boolean isViewFromObject(final View view, final Object object) {
                 return view.equals(object);
+
             }
 
             @Override
