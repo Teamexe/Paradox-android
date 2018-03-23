@@ -11,24 +11,20 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Transparent">
+            android:theme="@style/Transparent"/>
+        <activity android:name=".HomeActivity"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".QuestionActivity" />
+        <activity android:name=".LeaderboardActivity">
+
         </activity>
-        <activity android:name=".HomeActivity">
-            <!--intent-filter>
+        <activity android:name=".StatsActivity">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter-->
+            </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".QuestionActivity" />
-        <activity android:name=".LeaderboardActivity" >  <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-        </activity>
-        <activity android:name=".StatsActivity" />
         <activity android:name=".MembersActivity" />
     </application>
 
