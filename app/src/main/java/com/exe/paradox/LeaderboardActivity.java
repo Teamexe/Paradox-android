@@ -1,8 +1,13 @@
 package com.exe.paradox;
 
 import android.os.Bundle;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+
+import com.exe.paradox.adapter.LeaderboardAdapter;
 
 public class LeaderboardActivity extends AppCompatActivity {
 
@@ -12,5 +17,12 @@ public class LeaderboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_leaderboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_leaderboard);
         setSupportActionBar(toolbar);
+        RecyclerView recyclerView = findViewById(R.id.recv_leaderboard);
+        NestedScrollView nestedScrollView = findViewById(R.id.nested_scroll_view);
+        recyclerView.setFocusable(false);
+        nestedScrollView.requestFocus();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new LeaderboardAdapter());
+        recyclerView.setNestedScrollingEnabled(false);
     }
 }
