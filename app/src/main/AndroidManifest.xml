@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.exe.paradox">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,8 +24,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StatsActivity"></activity>
-        <activity android:name=".MembersActivity" />
+        <activity android:name=".StatsActivity">
+
+
+        </activity>
+
+        <activity android:name=".layout_back">
+
+
+        </activity>
+
+        <activity android:name=".MembersActivity" ></activity>
+
+>>>>>>> 5d27d08c5880133a4db70b9124e43c3a51522034
     </application>
 
 </manifest>

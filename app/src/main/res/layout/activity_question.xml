@@ -3,7 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:background="#eee"
+
     tools:context="com.exe.paradox.QuestionActivity">
+
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -24,75 +29,47 @@
                 android:text="Question"
                 android:textColor="#f9bb72"
                 android:textSize="25sp" />
+
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <!--Do not change above this-->
 
 
-    <RelativeLayout
+    <com.wajahatkarim3.easyflipview.EasyFlipView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:flipOnTouch="false"
+        android:id="@+id/flip"
+        app:flipEnabled="true"
+        app:flipDuration="400"
+        android:layout_below="@id/toolbar_question"
+        app:flipType="horizontal">
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="120dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="66dp"
-            card_view:cardCornerRadius="8dp"
-            card_view:cardElevation="16dp">
+        <!-- Back Layout Goes Here -->
+        <include layout="@layout/activity_layout_back"/>
 
-            <RelativeLayout
-                android:id="@+id/relative"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+        <!-- Front Layout Goes Here -->
+        <include layout="@layout/activity_layout_front"/>
 
-                <ImageView
-                    android:id="@+id/i1"
-                    android:layout_width="match_parent"
-                    android:layout_height="230dp"
-                    android:src="@color/colorPrimary" />
+    </com.wajahatkarim3.easyflipview.EasyFlipView>
+    <TextView
+        android:id="@+id/t2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/flip"
+android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:padding="4dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/ps"
+        android:textAllCaps="true"
+        android:clickable="true"
+        android:textAlignment="center"
+        android:text="Go for Hints"
+        android:textColor="#000" />
 
-                <TextView
-                    android:id="@+id/t1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/i1"
-                    android:layout_margin="10dp"
-                    android:text="Are you up for\nthis Question ?"
-                    android:textColor="#000"
-                    android:textSize="28sp" />
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:hint="Answer Here"
-                    android:paddingLeft="130dp" />
-            </RelativeLayout>
 
-        </android.support.v7.widget.CardView>
-
-        <TextView
-            android:id="@+id/t2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="80dp"
-            android:text="Stuck with the question ? Go for Hints !"
-            android:textColor="#000" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="40dp"
-            android:text="Available Hints 3"
-            android:textColor="#000" />
-    </RelativeLayout>
 </RelativeLayout>
+
