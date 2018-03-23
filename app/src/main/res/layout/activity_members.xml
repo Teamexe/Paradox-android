@@ -6,11 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee"
-    tools:context="com.exe.paradox.members">
+    tools:context="com.exe.paradox.MembersActivity">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+
         android:id="@+id/toolbar_members"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,6 +30,7 @@
                 android:textColor="#72d3b4"
                 android:textSize="25sp" />
 
+
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <!--Do not change above this-->
@@ -39,6 +41,7 @@
         android:layout_below="@id/toolbar_members">
 
         <RelativeLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -46,6 +49,7 @@
                 android:id="@+id/folding_cell"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_margin="16dp"
                 android:background="#fff"
                 folding-cell:animationDuration="1000"
@@ -69,6 +73,7 @@
                         android:id="@+id/f1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_margin="8dp">
 
                         <de.hdodenhof.circleimageview.CircleImageView
@@ -192,7 +197,9 @@
                         android:id="@+id/f4"
                         android:layout_width="wrap_content"
 
+
                         android:layout_height="wrap_content"
+
                         android:layout_margin="8dp">
 
                         <de.hdodenhof.circleimageview.CircleImageView
@@ -394,6 +401,7 @@
                 <RelativeLayout
                     android:id="@+id/cell_title_view"
                     android:layout_width="match_parent"
+
                     android:layout_height="100dp"
                     android:background="#fff"
                     android:paddingLeft="8dp"
@@ -408,10 +416,12 @@
                         app:lottie_loop="true"
                         app:lottie_rawRes="@raw/data1" />
 
+
                     <TextView
                         android:id="@+id/title1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/psb"
@@ -424,6 +434,7 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_below="@id/title1"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="-8dp"
@@ -437,6 +448,8 @@
                 </RelativeLayout>
                 ​
             </com.ramotion.foldingcell.FoldingCell>
+
+
 
 
             <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
@@ -467,6 +480,7 @@
                         android:id="@+id/t1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_margin="8dp">
 
                         <de.hdodenhof.circleimageview.CircleImageView
@@ -961,6 +975,7 @@
                 <RelativeLayout
                     android:id="@+id/cell_title_view1"
                     android:layout_width="match_parent"
+
                     android:layout_height="100dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
@@ -978,10 +993,12 @@
                         app:lottie_loop="true"
                         app:lottie_rawRes="@raw/data2" />
 
+
                     <TextView
                         android:id="@+id/title2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="16dp"
                         android:layout_marginTop="16dp"
@@ -995,6 +1012,7 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_alignParentRight="true"
                         android:layout_below="@id/title2"
                         android:layout_marginRight="16dp"
@@ -1009,7 +1027,6 @@
                 </RelativeLayout>
                 ​
             </com.ramotion.foldingcell.FoldingCell>
-
 
             <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/folding_cell2"
@@ -1038,6 +1055,7 @@
                         android:id="@+id/s1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_margin="8dp">
 
                         <de.hdodenhof.circleimageview.CircleImageView
@@ -1393,8 +1411,10 @@
                             android:text="Github"
                             android:textSize="20sp" />
                     </RelativeLayout>
+
                 </LinearLayout>
                 ​
+
 
                 <RelativeLayout
                     android:id="@+id/cell_title_view2"
@@ -1417,6 +1437,7 @@
                         android:id="@+id/title3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/psb"
@@ -1429,6 +1450,7 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_below="@id/title3"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="-8dp"
@@ -1442,7 +1464,6 @@
                 </RelativeLayout>
                 ​
             </com.ramotion.foldingcell.FoldingCell>
-
 
             <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/folding_cell3"
@@ -1473,6 +1494,7 @@
                         android:id="@+id/a1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_margin="8dp">
 
                         <de.hdodenhof.circleimageview.CircleImageView
@@ -2122,6 +2144,7 @@
                     </RelativeLayout>
 
 
+
                 </LinearLayout>
                 ​
 
@@ -2141,6 +2164,7 @@
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true"
                         app:lottie_rawRes="@raw/data2" />
+
 
                     <TextView
                         android:id="@+id/title4"

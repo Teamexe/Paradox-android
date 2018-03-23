@@ -3,20 +3,16 @@ package com.exe.paradox;
 import android.animation.ObjectAnimator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
-import nl.dionsegijn.steppertouch.OnStepCallback;
-import nl.dionsegijn.steppertouch.StepperTouch;
-
-import static java.sql.Types.INTEGER;
-
+public class QuestionActivity extends AppCompatActivity {
 public class question extends AppCompatActivity {
     public int c=0;
     @Override

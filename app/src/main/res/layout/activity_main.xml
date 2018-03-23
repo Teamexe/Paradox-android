@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.mxn.soul.flowingdrawer_core.FlowingDrawer xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +9,11 @@
     android:clipToPadding="false"
     app:edMenuBackground="#fff"
     app:edMenuSize="260dp"
-    app:edPosition="1">
+    app:edPosition="1"
+    android:background="#fff"
+    android:fitsSystemWindows="true"
+    tools:context="com.exe.paradox.MainActivity">
+
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
