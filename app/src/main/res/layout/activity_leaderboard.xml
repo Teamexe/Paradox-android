@@ -137,5 +137,12 @@
         </RelativeLayout>
     </com.github.florent37.diagonallayout.DiagonalLayout>
 
-
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/diagonal_drawer"
+        android:layout_width="match_parent"
+        android:id="@+id/recv_leaderboard"
+        android:layout_marginLeft="16sp"
+        android:layout_marginRight="16sp"
+        android:layout_marginBottom="16sp"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>
