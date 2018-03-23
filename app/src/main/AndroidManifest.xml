@@ -35,7 +35,7 @@
 
         </activity>
 
-        <activity android:name=".MembersActivity" />
+        <activity android:name=".MembersActivity" ></activity>
 
     </application>
 
