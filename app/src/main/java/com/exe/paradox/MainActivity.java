@@ -5,18 +5,11 @@ import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-
-import com.mxn.soul.flowingdrawer_core.ElasticDrawer;
-import com.mxn.soul.flowingdrawer_core.FlowingDrawer;
 
 import java.util.ArrayList;
 
@@ -36,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void initUI()  {
+    private void initUI() {
 
         final int[] mIDs = {
-                        R.layout.activity_home,
-                        R.layout.activity_question,
-                        R.layout.activity_leaderboard,
-                        R.layout.activity_stats
+                R.layout.activity_home,
+                R.layout.activity_question,
+                R.layout.activity_leaderboard,
+                R.layout.activity_stats
 
         };
         final ViewPager viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);

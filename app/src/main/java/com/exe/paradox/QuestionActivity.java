@@ -1,15 +1,12 @@
 package com.exe.paradox;
 
-import android.animation.ObjectAnimator;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 public class QuestionActivity extends AppCompatActivity {

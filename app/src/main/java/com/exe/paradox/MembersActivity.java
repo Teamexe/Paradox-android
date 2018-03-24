@@ -1,24 +1,11 @@
 package com.exe.paradox;
 
 
-import android.app.Fragment;
-import android.app.ProgressDialog;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-
-import android.widget.ImageView;
-
 import com.ramotion.foldingcell.FoldingCell;
-import com.squareup.picasso.Picasso;
 
 
 public class MembersActivity extends AppCompatActivity {
