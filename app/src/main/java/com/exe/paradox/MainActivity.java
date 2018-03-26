@@ -25,16 +25,17 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         initUI();
+
+
     }
 
-    private void initUI()  {
+    private void initUI() {
 
         final int[] mIDs = {
-                        R.layout.activity_home,
-                        R.layout.activity_question,
-                        R.layout.activity_leaderboard,
-                        R.layout.activity_stats,
-                        R.layout.activity_members
+                R.layout.activity_home,
+                R.layout.activity_question,
+                R.layout.activity_leaderboard,
+                R.layout.activity_stats
 
         };
         final ViewPager viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean isViewFromObject(final View view, final Object object) {
                 return view.equals(object);
+
             }
 
             @Override
