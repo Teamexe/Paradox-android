@@ -12,6 +12,7 @@ import com.exe.paradox.adapter.LeaderboardAdapter;
 import com.exe.paradox.api.model.CreateNew;
 import com.exe.paradox.api.model.Hints;
 import com.exe.paradox.api.model.Rank;
+import com.exe.paradox.api.model.Referral;
 import com.exe.paradox.api.model.User;
 import com.exe.paradox.api.response.HintResponse;
 import com.exe.paradox.api.response.LeaderboardResponse;
@@ -100,13 +101,30 @@ public class LeaderboardActivity extends AppCompatActivity {
             }
         });
 
+        // REFERRAL
+        Call<Referral> referralCall = apiService.getResponse("","");
+        referralCall.enqueue(new Callback<Referral>() {
+            @Override
+            public void onResponse(Call<Referral> call, Response<Referral> response) {
+                if(response.isSuccessful()){
+                    Log.d("REFERRAL", response.body().getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Referral> call, Throwable t) {
+
+            }
+        });
+
         // CREATE NEW ACCOUNT
-        Call<CreateNew> createNewCall = apiService.getResponse();
+        Call<CreateNew> createNewCall = apiService.getResponse("123","name","email","link","pic");
         createNewCall.enqueue(new Callback<CreateNew>() {
             @Override
             public void onResponse(Call<CreateNew> call, Response<CreateNew> response) {
                 if (response.isSuccessful()) {
                     Log.d("CREATE NEW", response.body().getMessage());
+                    // if new tuple has been inserted then proceed further else don't
                 }
             }
 
