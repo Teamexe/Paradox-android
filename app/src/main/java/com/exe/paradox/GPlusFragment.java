@@ -39,8 +39,8 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
                 .requestEmail()
                 .build();
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
-                .enableAutoManage(getActivity() , this )
-                .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
+                .enableAutoManage(getActivity(), this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
     }
 
@@ -69,7 +69,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_gplus, parent, false);
         signInButton = (SignInButton) v.findViewById(R.id.sign_in_button);
-        imgProfilePic="null";
+        imgProfilePic = "null";
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,9 +94,9 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             GoogleSignInAccount acct = result.getSignInAccount();
-            mStatusTextView=acct.getDisplayName();
-            if(acct.getPhotoUrl() != null)
-                imgProfilePic=acct.getPhotoUrl().toString();
+            mStatusTextView = acct.getDisplayName();
+            if (acct.getPhotoUrl() != null)
+                imgProfilePic = acct.getPhotoUrl().toString();
             updateUI(true);
         } else {
             updateUI(false);
@@ -117,7 +117,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
 
             signInButton.setVisibility(View.GONE);
         } else {
-            imgProfilePic="null";
+            imgProfilePic = "null";
             signInButton.setVisibility(View.VISIBLE);
         }
     }
@@ -145,8 +145,8 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
 /*
     */
 /**
-     * Background Async task to load user profile picture from url
-     * *//*
+ * Background Async task to load user profile picture from url
+ * *//*
 
     private class LoadProfileImage extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;

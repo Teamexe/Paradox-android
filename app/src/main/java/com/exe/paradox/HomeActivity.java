@@ -6,13 +6,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.widget.VideoView;
 
 import com.exe.paradox.adapter.FeaturedAdapter;
 import com.exe.paradox.adapter.HomeNavItemsAdapter;
@@ -38,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //NAV ITEMS
         RecyclerView homeNavRecv = findViewById(R.id.nav_recv);
-        homeNavRecv.setLayoutManager(new GridLayoutManager(HomeActivity.this, 5){
+        homeNavRecv.setLayoutManager(new GridLayoutManager(HomeActivity.this, 5) {
             @Override
             public boolean canScrollHorizontally() {
                 return false;
@@ -70,10 +68,12 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+        int[] drawables = {R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6, R.drawable.u7, R.drawable.u8};
+
         ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }
-        int[] drawables = {R.drawable.u1,R.drawable.u2,R.drawable.u3,R.drawable.u4,R.drawable.u5,R.drawable.u6,R.drawable.u7,R.drawable.u8};
+
         @Override
         public Fragment getItem(int position) {
             return new MyFragment(drawables[position]);
