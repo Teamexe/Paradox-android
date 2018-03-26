@@ -1,32 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
- xmlns:tools="http://schemas.android.com/tools"
- android:layout_width="match_parent"
- android:layout_height="match_parent"
- tools:context="com.exe.paradox.LeaderboardActivity">
 
- <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-     xmlns:tools="http://schemas.android.com/tools"
-     android:id="@+id/toolbar_leaderboard"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:background="#fff"
-     android:orientation="vertical">
-     <RelativeLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content">
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="Leaderboard"
-             android:fontFamily="@font/psb"
-             android:textColor="#76afcf"
-             android:textSize="25sp"/>
-     </RelativeLayout>
- </android.support.v7.widget.Toolbar>
-</RelativeLayout>-->
- <!--Do not change above this-->
 
  <android.support.design.widget.CoordinatorLayout
          xmlns:android="http://schemas.android.com/apk/res/android"
@@ -70,12 +43,9 @@
                  app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                  app:layout_collapseMode="pin" />
 
-
-
-
          </android.support.design.widget.CollapsingToolbarLayout>
          </android.support.design.widget.AppBarLayout>
-    <android.support.v4.widget.NestedScrollView
+         <android.support.v4.widget.NestedScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -104,6 +74,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/spacing_large"
                         android:layout_marginRight="@dimen/spacing_large"
+                        android:text="First Place"
                         android:layout_marginTop="@dimen/spacing_large"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
 
