@@ -50,7 +50,11 @@ public class LeaderboardActivity extends AppCompatActivity {
         call.enqueue(new Callback<HintResponse>() {
             @Override
             public void onResponse(Call<HintResponse> call, Response<HintResponse> response) {
-                Log.d(getClass().getSimpleName(), "SUCCESS");
+                if(response.isSuccessful()) {
+                    Log.d("SUCCESS", "SUCCESS");
+                    ArrayList<Hints> hints = response.body().getList();
+                    Log.d("WORKING", hints.get(0).getHint1()+" "+hints.get(0).getHint2()+" "+hints.get(0).getHint3());
+                }
             }
 
             @Override
