@@ -46,26 +46,9 @@ public class LeaderboardActivity extends AppCompatActivity {
         * Debug code to test the APIs
         * */
 
-        // FETCHING HINTS
+
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<HintResponse> call = apiService.getHints(1);
-        Log.d(getClass().getSimpleName(), call.request().url().toString());
-        call.enqueue(new Callback<HintResponse>() {
-            @Override
-            public void onResponse(Call<HintResponse> call, Response<HintResponse> response) {
-                if (response.isSuccessful()) {
-                    Log.d("SUCCESS", "SUCCESS");
-                    ArrayList<Hints> hints = response.body().getList();
-                    Log.d("WORKING", hints.get(0).getHint1() + " " + hints.get(0).getHint2() + " " + hints.get(0).getHint3());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<HintResponse> call, Throwable t) {
-                Log.d(getClass().getSimpleName(), "ERROR");
-            }
-        });
 
         // FETCHING LEADERBOARD
         Call<LeaderboardResponse> leaderboardResponseCall = apiService.getLeaderboard();
