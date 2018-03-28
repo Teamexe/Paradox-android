@@ -32,9 +32,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             card_view:cardCornerRadius="4dp">
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -45,126 +46,19 @@
                     android:textColor="#ffff00"
                     android:textColorHighlight="@color/colorAccent"
                     android:id="@+id/ThirdYear"
-                    android:layout_alignParentTop="true"
                    android:layout_margin="5dp"
-
                     />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo11"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_below="@+id/ThirdYear"
-                    android:layout_alignParentLeft="true"
-                    android:src="@drawable/u2"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo12"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_toRightOf="@id/person_photo11"
-                    android:layout_alignBottom="@id/person_photo11"
-                    android:src="@drawable/u3"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo13"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
+
+                <GridView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/ThirdYear"
-                    android:layout_alignParentRight="true"
-                    android:layout_toRightOf="@id/person_photo12"
-                    android:layout_alignBottom="@id/person_photo11"
-                    android:src="@drawable/u3"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo14"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_below="@id/person_photo11"
-                    android:src="@drawable/u2"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo15"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_below="@id/person_photo12"
-                    android:layout_toRightOf="@id/person_photo14"
-                    android:src="@drawable/u3"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo16"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_toRightOf="@id/person_photo15"
-                    android:src="@drawable/u3"
-                    android:layout_below="@id/person_photo13"
-                    android:layout_alignParentRight="true"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo17"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_below="@id/person_photo14"
-
-                    android:src="@drawable/u2"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo18"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_below="@id/person_photo15"
-                    android:layout_toRightOf="@id/person_photo17"
-                    android:src="@drawable/u3"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo19"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_below="@id/person_photo16"
-                    android:layout_toRightOf="@id/person_photo18"
-                    android:src="@drawable/u3"
-                    android:layout_alignParentRight="true"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo110"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_below="@id/person_photo17"
-                    android:layout_alignParentLeft="true"
-                    android:src="@drawable/u2"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo111"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_below="@id/person_photo18"
-                    android:layout_toRightOf="@id/person_photo110"
-                    android:src="@drawable/u3"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/person_photo112"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:src="@drawable/u3"
-                    android:layout_below="@id/person_photo19"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_toRightOf="@id/person_photo111"/>
-
-
-
-            </RelativeLayout>
+                    android:numColumns="auto_fit"
+                    android:gravity="center"
+                    android:columnWidth="100dp"
+                    android:stretchMode="columnWidth"
+                    android:id="@+id/grid"></GridView>
+            </LinearLayout>
         </android.support.v7.widget.CardView>
 
 
