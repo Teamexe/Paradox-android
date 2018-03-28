@@ -4,11 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginRight="6sp"
     app:cardCornerRadius="3sp"
+    app:cardBackgroundColor="#fff"
     android:layout_marginTop="6sp"
     android:layout_marginBottom="6sp"
     android:layout_height="130sp">
 
     <ImageView
+        android:layout_margin="4dp"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:id="@+id/image"
