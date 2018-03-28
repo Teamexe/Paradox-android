@@ -1,156 +1,327 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:diagonal="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/nested_scroll_view"
     android:layout_height="match_parent"
-    tools:context="com.exe.paradox.LeaderboardActivity">
+    android:background="#eee">
 
-    <RelativeLayout
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/toolbar_leaderboard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/toolbar_leaderboard"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/psb"
+                android:text="Leaderboard"
+                android:textColor="#76afcf"
+                android:textSize="25sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_leaderboard">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#fff"
             android:orientation="vertical">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/psb"
-                    android:text="Leaderboard"
-                    android:textColor="#76afcf"
-                    android:textSize="25sp" />
-            </RelativeLayout>
-        </android.support.v7.widget.Toolbar>
+                    android:layout_marginBottom="8sp"
+                    android:layout_marginLeft="8sp"
+                    android:layout_marginRight="8sp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="#fff"
+                    app:cardCornerRadius="20dp">
 
-        <com.github.florent37.diagonallayout.DiagonalLayout
-            android:id="@+id/diagonal_drawer"
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:layout_below="@+id/toolbar_leaderboard"
-            android:elevation="8dp"
-            app:diagonal_angle="10"
-            diagonal:diagonal_direction="left"
-            diagonal:diagonal_position="bottom">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/toolbar_leaderboard"
-                android:background="@android:color/holo_blue_bright">
-
-                <RelativeLayout
-                    android:id="@+id/rank_one_holder"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:id="@+id/holder_one"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8sp"
-                        android:layout_marginStart="8sp"
-                        android:layout_marginTop="20sp"
-                        android:orientation="horizontal">
+                        android:padding="8dp">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/one_pic"
-                            android:layout_width="60sp"
-                            android:layout_height="60sp"
-                            android:layout_margin="8sp"
-                            android:layout_weight="1"
-                            android:src="@mipmap/ic_launcher" />
+                        <RelativeLayout
+                            android:id="@+id/image_holder1"
+                            android:layout_width="80dp"
+                            android:layout_height="85dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image1"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/user_default" />
+
+                            <TextView
+                                android:id="@+id/level1"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:elevation="4dp"
+                                android:fontFamily="@font/psb"
+                                android:gravity="center"
+                                android:text="4"
+                                android:textColor="#fff" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:src="#ffc400"
+                                app:civ_border_color="#fff"
+                                app:civ_border_width="2dp" />
+                        </RelativeLayout>
 
                         <TextView
+                            android:id="@+id/name1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="16dp"
+                            android:layout_toRightOf="@id/image_holder1"
                             android:fontFamily="@font/psb"
-                            android:gravity="center_vertical"
-                            android:text="79"
-                            android:textSize="50sp" />
-                    </LinearLayout>
+                            android:text="Name"
+                            android:textSize="25sp" />
 
-                    <TextView
-                        android:id="@+id/rank_one_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/holder_one"
-                        android:layout_marginLeft="16sp"
-                        android:layout_marginTop="6sp"
-                        android:fontFamily="@font/psb"
-                        android:text="Sexy Bacha"
-                        android:textSize="20sp" />
-                </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="8dp"
+                            android:background="@drawable/rank_background"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp">
 
-                <RelativeLayout
-                    android:id="@+id/rank_two_holder"
-                    android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="-8dp"
+                                android:text="Score"
+                                android:textColor="#fff" />
+
+                            <TextView
+                                android:id="@+id/score1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/psb"
+                                android:text="523"
+                                android:textColor="#fff"
+                                android:textSize="25sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="16sp">
+                    android:layout_marginBottom="8sp"
+                    android:layout_marginLeft="8sp"
+                    android:layout_marginRight="8sp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="#fff"
+                    app:cardCornerRadius="20dp">
 
-                    <LinearLayout
-                        android:id="@+id/holder_two"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8sp"
-                        android:layout_marginStart="8sp"
-                        android:layout_marginTop="20sp"
-                        android:orientation="horizontal">
+                        android:padding="8dp">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/two_pic"
-                            android:layout_width="60sp"
-                            android:layout_height="60sp"
-                            android:layout_margin="8sp"
-                            android:layout_weight="1"
-                            android:src="@mipmap/ic_launcher" />
+                        <RelativeLayout
+                            android:id="@+id/image_holder2"
+                            android:layout_width="80dp"
+                            android:layout_height="85dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image2"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/user_default" />
+
+                            <TextView
+                                android:id="@+id/level2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:elevation="4dp"
+                                android:fontFamily="@font/psb"
+                                android:gravity="center"
+                                android:text="4"
+                                android:textColor="#fff" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:src="#78909c"
+                                app:civ_border_color="#fff"
+                                app:civ_border_width="2dp" />
+                        </RelativeLayout>
 
                         <TextView
+                            android:id="@+id/name2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="16dp"
+                            android:layout_toRightOf="@id/image_holder2"
                             android:fontFamily="@font/psb"
-                            android:gravity="center_vertical"
-                            android:text="69"
-                            android:textSize="50sp" />
-                    </LinearLayout>
+                            android:text="Name"
+                            android:textSize="25sp" />
 
-                    <TextView
-                        android:id="@+id/rank_two_name"
-                        android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="8dp"
+                            android:background="@drawable/rank_background"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="-8dp"
+                                android:text="Score"
+                                android:textColor="#fff" />
+
+                            <TextView
+                                android:id="@+id/score2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/psb"
+                                android:text="523"
+                                android:textColor="#fff"
+                                android:textSize="25sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8sp"
+                    android:layout_marginLeft="8sp"
+                    android:layout_marginRight="8sp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="#fff"
+                    app:cardCornerRadius="20dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/holder_two"
-                        android:layout_marginLeft="16sp"
-                        android:layout_marginTop="6sp"
-                        android:fontFamily="@font/psb"
-                        android:text="Sexy Bachi"
-                        android:textSize="20sp" />
-                </RelativeLayout>
-            </RelativeLayout>
-        </com.github.florent37.diagonallayout.DiagonalLayout>
+                        android:padding="8dp">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recv_leaderboard"
-            android:layout_width="match_parent"
-            android:focusableInTouchMode="true"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/diagonal_drawer"
-            android:layout_marginBottom="16sp"
-            android:layout_marginLeft="16sp"
-            android:layout_marginRight="16sp"
-            android:layout_marginTop="16sp" />
-    </RelativeLayout>
-</android.support.v4.widget.NestedScrollView>
+                        <RelativeLayout
+                            android:id="@+id/image_holder3"
+                            android:layout_width="80dp"
+                            android:layout_height="85dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image3"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/user_default" />
+
+                            <TextView
+                                android:id="@+id/level3"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:elevation="4dp"
+                                android:fontFamily="@font/psb"
+                                android:gravity="center"
+                                android:text="4"
+                                android:textColor="#fff" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:src="#bf360c"
+                                app:civ_border_color="#fff"
+                                app:civ_border_width="2dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/name3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="16dp"
+                            android:layout_toRightOf="@id/image_holder3"
+                            android:fontFamily="@font/psb"
+                            android:text="Name"
+                            android:textSize="25sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="8dp"
+                            android:background="@drawable/rank_background"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="-8dp"
+                                android:text="Score"
+                                android:textColor="#fff" />
+
+                            <TextView
+                                android:id="@+id/score3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/psb"
+                                android:text="523"
+                                android:textColor="#fff"
+                                android:textSize="25sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recv_leaderboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:focusableInTouchMode="true" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -35,9 +35,8 @@ public class LeaderboardActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_leaderboard);
         setSupportActionBar(toolbar);
         RecyclerView recyclerView = findViewById(R.id.recv_leaderboard);
-        NestedScrollView nestedScrollView = findViewById(R.id.nested_scroll_view);
+
         recyclerView.setFocusable(false);
-        nestedScrollView.requestFocus();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new LeaderboardAdapter());
         recyclerView.setNestedScrollingEnabled(false);
