@@ -18,11 +18,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".QuestionActivity" />
         <activity android:name=".LeaderboardActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".StatsActivity">
 
@@ -34,9 +30,11 @@
 
         </activity>
 
-        <activity android:name=".MembersActivity" ></activity>
+        <activity android:name=".MembersActivity" >   <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
->>>>>>> 5d27d08c5880133a4db70b9124e43c3a51522034
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
     </application>
 
 </manifest>
