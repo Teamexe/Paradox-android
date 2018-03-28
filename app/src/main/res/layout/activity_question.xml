@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:background="#eee"
-
     tools:context="com.exe.paradox.QuestionActivity">
-
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -33,43 +30,39 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <!--Do not change above this-->
-
-
     <com.wajahatkarim3.easyflipview.EasyFlipView
+        android:id="@+id/flip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:flipOnTouch="false"
-        android:id="@+id/flip"
-        app:flipEnabled="true"
-        app:flipDuration="400"
         android:layout_below="@id/toolbar_question"
+        android:layout_margin="16dp"
+        app:flipDuration="400"
+        app:flipEnabled="true"
+        app:flipOnTouch="false"
         app:flipType="horizontal">
 
         <!-- Back Layout Goes Here -->
-        <include layout="@layout/activity_layout_back"/>
+        <include layout="@layout/activity_layout_back" />
 
         <!-- Front Layout Goes Here -->
-        <include layout="@layout/activity_layout_front"/>
+        <include layout="@layout/activity_layout_front" />
 
     </com.wajahatkarim3.easyflipview.EasyFlipView>
+
     <TextView
         android:id="@+id/t2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/flip"
-android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:padding="4dp"
         android:layout_centerHorizontal="true"
         android:layout_margin="16dp"
-        android:fontFamily="@font/ps"
-        android:textAllCaps="true"
         android:clickable="true"
-        android:textAlignment="center"
+        android:fontFamily="@font/ps"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:padding="4dp"
         android:text="Go for Hints"
+        android:textAlignment="center"
+        android:textAllCaps="true"
         android:textColor="#000" />
-
-
-
 </RelativeLayout>
 
