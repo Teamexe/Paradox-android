@@ -13,6 +13,7 @@ import com.exe.paradox.api.model.Hints;
 import com.exe.paradox.api.response.HintResponse;
 import com.exe.paradox.api.rest.ApiClient;
 import com.exe.paradox.api.rest.ApiInterface;
+import com.exe.paradox.util.Constants;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.ArrayList;
@@ -63,7 +64,7 @@ public class QuestionActivity extends AppCompatActivity {
         //Fetching Hints
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
-        Call<HintResponse> call = apiService.getHints(1);
+        Call<HintResponse> call = apiService.getHints(1, Constants.FETCH_TOKEN, Constants.FETCH_TYPE);
         Log.d(getClass().getSimpleName(), call.request().url().toString());
         call.enqueue(new Callback<HintResponse>() {
             @Override

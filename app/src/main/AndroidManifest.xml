@@ -12,15 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity" android:theme="@style/Transparent" >
+        </activity>
+        <activity android:name=".HomeActivity">
+        </activity>
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".QuestionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".QuestionActivity"/>
         <activity android:name=".LeaderboardActivity">
 
         </activity>
