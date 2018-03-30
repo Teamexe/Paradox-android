@@ -10,7 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.exe.paradox.api.response.AcknowedgementResponse;
+import com.exe.paradox.api.rest.ApiClient;
+import com.exe.paradox.api.rest.ApiInterface;
+import com.exe.paradox.util.Constants;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -20,6 +25,10 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnectionFailedListener {
@@ -97,10 +106,28 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
             mStatusTextView = acct.getDisplayName();
             if (acct.getPhotoUrl() != null)
                 imgProfilePic = acct.getPhotoUrl().toString();
+            appLoginIn();
             updateUI(true);
         } else {
             updateUI(false);
         }
+    }
+
+    private void appLoginIn(){
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<AcknowedgementResponse> acknowedgementResponseCall = apiService.createProfile(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), Constants.GOOGLE_ID, "Sexy bacha", "iamsexy@bacha.com", "sexybachakiphoto.jpg");
+        acknowedgementResponseCall.enqueue(new Callback<AcknowedgementResponse>() {
+            @Override
+            public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
+                if(response.body().getMessage().matches("true") || response.body().getMessage().matches("already_logged_in"))
+                startActivity(new Intent(getContext(), HomeActivity.class));
+            }
+
+            @Override
+            public void onFailure(Call<AcknowedgementResponse> call, Throwable t) {
+                Toast.makeText(getContext(), "Login failed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void updateUI(boolean signedIn) {
