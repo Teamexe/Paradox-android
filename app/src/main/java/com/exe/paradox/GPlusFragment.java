@@ -107,7 +107,6 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
             mStatusTextView = acct.getDisplayName();
             if (acct.getPhotoUrl() != null)
                 imgProfilePic = acct.getPhotoUrl().toString();
-            appLoginIn();
             updateUI(true);
         } else {
             updateUI(false);
@@ -120,8 +119,8 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         acknowedgementResponseCall.enqueue(new Callback<AcknowedgementResponse>() {
             @Override
             public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
-                if(response.body().getMessage().matches("true") || response.body().getMessage().matches("already_logged_in"))
-                startActivity(new Intent(getContext(), HomeActivity.class));
+                if(response.body().getMessage().matches("true") || response.body().getMessage().matches("account already exists"))
+                    startActivity(new Intent(getContext(), HomeActivity.class));
             }
 
             @Override
@@ -133,15 +132,13 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
 
     private void updateUI(boolean signedIn) {
         if (signedIn) {
-
             final Handler handler = new Handler();
             final Runnable r = new Runnable() {
                 public void run() {
-                    Intent intent = new Intent(getContext(), HomeActivity.class);
-                    startActivity(intent);
+                    appLoginIn();
                 }
             };
-            handler.postDelayed(r, 3000);
+            handler.postDelayed(r, 1000);
             signInButton.setVisibility(View.GONE);
         } else {
             imgProfilePic = "null";
