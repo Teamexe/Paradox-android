@@ -9,10 +9,6 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-/**
- * Created by shasha on 26/3/18.
- */
-
 public interface ApiInterface {
     @POST("hints/read.php")
     @FormUrlEncoded
@@ -23,7 +19,14 @@ public interface ApiInterface {
     Call<ReadOneResponse> getProfile(@Field("google_id") String googleId, @Field("req_type") int type, @Field("live_token") String token);
 
     //RESPONSE FOR SUBMIT AN ANSWER IS MISSING
+
     @POST("profile/read.php")
     @FormUrlEncoded
     Call<LeaderboardResponse> getLeaderboard(@Field("live_token") String loveToken, @Field("req_type") int type);
+
+    //RESPONSE FOR CREATING A NEW ACCOUNT
+
+    //RESPONSE FOR REFERRAL IS MISSING
+
+    //RESPONSE FOR FETCHING LEVEL IMAGE
 }

@@ -16,6 +16,27 @@ public class Profile {
     @SerializedName("level")
     String level;
 
+    @SerializedName("ref_code")
+    String refCode;
+
+    @SerializedName("name")
+    String name;
+
+    @SerializedName("reg_time")
+    String regTime;
+
+    public String getRefCode() {
+        return refCode;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRegTime() {
+        return regTime;
+    }
+
     public String getPictureUrl() {
         return pictureUrl;
     }
@@ -26,5 +47,9 @@ public class Profile {
 
     public String getLevel() {
         return level;
+    }
+
+    public String getString() {
+        return name+" "+refCode+" "+regTime+" "+pictureUrl+" "+score+" "+level;
     }
 }
