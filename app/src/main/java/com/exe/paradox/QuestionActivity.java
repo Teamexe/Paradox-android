@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.exe.paradox.api.model.Hints;
 import com.exe.paradox.api.model.Profile;
+import com.exe.paradox.api.response.AcknowedgementResponse;
 import com.exe.paradox.api.response.HintResponse;
 import com.exe.paradox.api.response.LevelResponse;
 import com.exe.paradox.api.response.ReadOneResponse;
@@ -89,7 +90,7 @@ public class QuestionActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<LevelResponse> call, Throwable t) {
-                                
+
                             }
                         });
                     }
@@ -99,6 +100,36 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ReadOneResponse> call, Throwable t) {
                 Log.d(getClass().getSimpleName(), "FAIL");
+            }
+        });
+
+        // Submitting an answer
+        responseCall.clone().enqueue(new Callback<ReadOneResponse>() {
+            @Override
+            public void onResponse(Call<ReadOneResponse> call, Response<ReadOneResponse> response) {
+                Profile profile = response.body().getProfileData().get(0);
+                Call<AcknowedgementResponse> acknowedgementResponseCall = apiService.submitAnswer(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), profile.getLevel(), "fuck you", Constants.GOOGLE_ID);
+                acknowedgementResponseCall.enqueue(new Callback<AcknowedgementResponse>() {
+                    @Override
+                    public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
+                        if(response.body().getMessage().matches("true")){
+                            //CORRECT
+                        }
+                        else {
+                            // WRONG ANSWER
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<AcknowedgementResponse> call, Throwable t) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<ReadOneResponse> call, Throwable t) {
+
             }
         });
 
