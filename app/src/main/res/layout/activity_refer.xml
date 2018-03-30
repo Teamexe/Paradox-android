@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     tools:context="com.exe.paradox.ReferActivity">
 
+    <TextView
+        android:id="@+id/ref_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/ref_code"
+        android:text="You referral code is: gulluBhadwa" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
