@@ -101,7 +101,7 @@
             </FrameLayout>
         </RelativeLayout>
 
-        <HorizontalScrollView
+        <LinearLayout
             android:id="@+id/nav_recv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -114,19 +114,20 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
+                android:orientation="horizontal"
                 android:layout_height="wrap_content">
 
                 <LinearLayout
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingLeft="16dp">
+                    android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@drawable/user_default" />
 
                     <TextView
@@ -134,21 +135,22 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/ps"
-                        android:text="Question"
+                        android:text="Leaderboard"
                         android:textColor="#333"
                         android:textSize="15sp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@drawable/user_default" />
 
                     <TextView
@@ -156,21 +158,22 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/ps"
-                        android:text="Question"
+                        android:text="Paradox"
                         android:textColor="#333"
                         android:textSize="15sp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@drawable/user_default" />
 
                     <TextView
@@ -178,21 +181,23 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/ps"
-                        android:text="Question"
+                        android:text="Stats"
                         android:textColor="#333"
                         android:textSize="15sp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16sp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@drawable/user_default" />
 
                     <TextView
@@ -200,37 +205,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/ps"
-                        android:text="Question"
+                        android:text="Members"
                         android:textColor="#333"
                         android:textSize="15sp" />
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/user_default" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/ps"
-                        android:text="Question"
-                        android:textColor="#333"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
 
             </LinearLayout>
 
-        </HorizontalScrollView>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/two_tags_holder"
@@ -284,6 +266,7 @@
 
         <LinearLayout
             android:id="@+id/one"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:visibility="invisible"

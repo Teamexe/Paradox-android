@@ -8,12 +8,24 @@ import android.view.ViewGroup;
 
 import com.exe.paradox.R;
 
+import java.util.ArrayList;
+
 
 public class HomeNavItemsAdapter extends RecyclerView.Adapter<HomeNavItemsAdapter.HomeNavViewHolder> {
     class HomeNavViewHolder extends RecyclerView.ViewHolder{
         public HomeNavViewHolder(View itemView) {
             super(itemView);
         }
+    }
+    ArrayList<String> titles;
+
+    public HomeNavItemsAdapter() {
+        titles = new ArrayList<>();
+        titles.add("Home");
+        titles.add("Leaderboard");
+        titles.add("Paradox");
+        titles.add("Stats");
+        titles.add("Members");
     }
 
     @NonNull
