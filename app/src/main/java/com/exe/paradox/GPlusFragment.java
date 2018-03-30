@@ -37,7 +37,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
     private int RC_SIGN_IN = 0;
     private GoogleApiClient mGoogleApiClient;
     private SignInButton signInButton;
-    public static String mStatusTextView;
+    public static String mStatusTextView, mEmail, mGoogleId;
     private ProgressDialog mProgressDialog;
     public static String imgProfilePic = "null";
     GoogleSignInAccount acct;
@@ -104,10 +104,11 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             acct = result.getSignInAccount();
+            mEmail = acct.getEmail();
+            mGoogleId = acct.getId();
             mStatusTextView = acct.getDisplayName();
             if (acct.getPhotoUrl() != null)
                 imgProfilePic = acct.getPhotoUrl().toString();
-            appLoginIn();
             updateUI(true);
         } else {
             updateUI(false);
@@ -116,12 +117,13 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
 
     private void appLoginIn(){
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<AcknowedgementResponse> acknowedgementResponseCall = apiService.createProfile(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), Constants.GOOGLE_ID, "Sexy bacha", "iamsexy@bacha.com", "sexybachakiphoto.jpg");
+        Call<AcknowedgementResponse> acknowedgementResponseCall = apiService.createProfile(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), getSignId(), getDisplayName(), getEmail(), getImg());
         acknowedgementResponseCall.enqueue(new Callback<AcknowedgementResponse>() {
             @Override
             public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
-                if(response.body().getMessage().matches("true") || response.body().getMessage().matches("already_logged_in"))
-                startActivity(new Intent(getContext(), HomeActivity.class));
+                Log.d(getClass().getSimpleName(), response.body().toString());
+                if(response.body().getMessage().matches("true") || response.body().getMessage().matches("account already exists"))
+                    startActivity(new Intent(getContext(), HomeActivity.class));
             }
 
             @Override
@@ -133,15 +135,13 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
 
     private void updateUI(boolean signedIn) {
         if (signedIn) {
-
             final Handler handler = new Handler();
             final Runnable r = new Runnable() {
                 public void run() {
-                    Intent intent = new Intent(getContext(), HomeActivity.class);
-                    startActivity(intent);
+                    appLoginIn();
                 }
             };
-            handler.postDelayed(r, 3000);
+            handler.postDelayed(r, 1000);
             signInButton.setVisibility(View.GONE);
         } else {
             imgProfilePic = "null";
@@ -157,7 +157,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
     private void showProgressDialog() {
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(getActivity());
-            mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(true);
         }
         mProgressDialog.show();
@@ -173,13 +173,13 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         return imgProfilePic;
     }
     public String getEmail(){
-        return acct.getEmail().toString();
+        return mEmail;
     }
     public String getDisplayName(){
         return mStatusTextView;
     }
     public String getSignId(){
-        return acct.getId().toString();
+        return mGoogleId;
     }
 
 

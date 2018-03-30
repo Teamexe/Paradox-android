@@ -20,17 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".QuestionActivity">
-        </activity>
-        <activity android:name=".LeaderboardActivity"></activity>
-        <activity android:name=".StatsActivity"></activity>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".QuestionActivity"></activity>
+        <activity android:name=".LeaderboardActivity" />
+        <activity android:name=".StatsActivity" />
         <activity android:name=".layout_back" />
         <activity android:name=".MembersActivity" />
         <!-- >>>>>>> 5d27d08c5880133a4db70b9124e43c3a51522034 -->
-        <activity android:name=".ReferActivity">
-        </activity>
+        <activity android:name=".ReferActivity"></activity>
     </application>
 
 </manifest>
