@@ -13,7 +13,12 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Transparent" />
+            android:theme="@style/Transparent" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".QuestionActivity" />
@@ -30,11 +35,7 @@
 
         </activity>
 
-        <activity android:name=".MembersActivity" >   <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+        <activity android:name=".MembersActivity" />
     </application>
 
 </manifest>
