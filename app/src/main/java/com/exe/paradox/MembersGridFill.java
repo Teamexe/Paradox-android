@@ -52,7 +52,7 @@ public class MembersGridFill extends BaseAdapter {
 
             grid = new View(mContext);
             grid = inflater.inflate(R.layout.members_helper, null);
-            ImageView imageView = (ImageView)grid.findViewById(R.id.person_photo);
+            ImageView imageView = (ImageView) grid.findViewById(R.id.person_photo);
             imageView.setImageResource(Imageid[position]);
         } else {
             grid = (View) convertView;
