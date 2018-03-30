@@ -50,7 +50,7 @@ public class StatsActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     if (response.body().getProfileData().size() > 0) {
                         Profile profile = response.body().getProfileData().get(0);
-                        Toast.makeText(StatsActivity.this, profile.getLevel() + "/" + profile.getPictureUrl() + "/" + profile.getScore(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StatsActivity.this, profile.getString(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
