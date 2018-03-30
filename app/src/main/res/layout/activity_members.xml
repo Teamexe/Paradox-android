@@ -35,7 +35,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#e5e5e5"
-            card_view:cardCornerRadius="4dp">
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="4dp"
+            android:layout_margin="6dp"
+            android:padding="3dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,7 +60,7 @@
                 <com.example.GridViewScrollable
                     android:id="@+id/grid1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="340dp"
                     android:layout_below="@id/FinalYear"
                     android:columnWidth="100dp"
                     android:gravity="center"
@@ -73,7 +76,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#e5e5e5"
-            card_view:cardCornerRadius="4dp">
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="4dp"
+            android:layout_margin="6dp"
+            android:padding="3dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,7 +101,7 @@
                 <com.example.GridViewScrollable
                     android:id="@+id/grid2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="400dp"
                     android:layout_below="@id/ThirdYear"
                     android:columnWidth="100dp"
                     android:gravity="center"
@@ -110,7 +116,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#e5e5e5"
-            card_view:cardCornerRadius="4dp">
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="4dp"
+            android:layout_margin="6dp"
+            android:padding="3dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -132,7 +141,7 @@
                 <com.example.GridViewScrollable
                     android:id="@+id/grid3"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="400dp"
                     android:layout_below="@id/SecondYear"
                     android:columnWidth="100dp"
                     android:gravity="center"
@@ -148,7 +157,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#e5e5e5"
-            card_view:cardCornerRadius="4dp">
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="4dp"
+            android:layout_margin="6dp"
+            android:padding="3dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -170,7 +182,7 @@
                 <com.example.GridViewScrollable
                     android:id="@+id/grid4"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="400dp"
                     android:layout_below="@id/FirstYear"
                     android:columnWidth="100dp"
                     android:gravity="center"
