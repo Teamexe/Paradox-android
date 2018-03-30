@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
+import com.example.GridViewScrollable;
 
 
 
@@ -78,13 +79,13 @@ public class MembersActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        GridView grid;
+        GridViewScrollable grid;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_members);
 
         MembersGridFill adapter = new MembersGridFill(MembersActivity.this, web, imageId);
 
-        grid = (GridView) findViewById(R.id.grid1);
+        grid = (GridViewScrollable) findViewById(R.id.grid1);
         grid.setAdapter(adapter);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -96,7 +97,7 @@ public class MembersActivity extends AppCompatActivity {
             }
         });
         MembersGridFill adapter2 = new MembersGridFill(MembersActivity.this, web, imageId2);
-        grid = (GridView) findViewById(R.id.grid2);
+        grid = (GridViewScrollable) findViewById(R.id.grid2);
         grid.setAdapter(adapter2);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -108,7 +109,7 @@ public class MembersActivity extends AppCompatActivity {
             }
         });
         MembersGridFill adapter3 = new MembersGridFill(MembersActivity.this, web3, imageId3);
-        grid = (GridView) findViewById(R.id.grid3);
+        grid = (GridViewScrollable) findViewById(R.id.grid3);
         grid.setAdapter(adapter2);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -120,7 +121,7 @@ public class MembersActivity extends AppCompatActivity {
             }
         });
         MembersGridFill adapter4 = new MembersGridFill(MembersActivity.this, web4, imageId4);
-        grid = (GridView) findViewById(R.id.grid4);
+        grid = (GridViewScrollable) findViewById(R.id.grid4);
         grid.setAdapter(adapter4);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
