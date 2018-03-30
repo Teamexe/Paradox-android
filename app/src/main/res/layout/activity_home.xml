@@ -32,46 +32,12 @@
             android:translationX="150dp"
             android:translationZ="-10dp" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="700dp"
-            android:scaleX="3"
-            android:src="@drawable/red_circle"
-
-            android:translationY="-420dp" />
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/home_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:fontFamily="@font/psb"
-                    android:text="Home"
-
-                    android:textColor="#fff"
-                    android:textSize="25sp" />
-            </RelativeLayout>
-        </android.support.v7.widget.Toolbar>
-        <!--Do not change above this-->
 
         <RelativeLayout
             android:id="@+id/pager_holder"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar_home"
             android:layout_marginTop="48dp"
+            android:layout_height="wrap_content"
             android:tag="parallax=0.3">
 
 
@@ -82,7 +48,7 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="60dp"
-
+                    android:id="@+id/acc_img"
                     android:layout_height="60dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
@@ -96,7 +62,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="16sp"
-                    android:fontFamily="@font/psb"
+                    android:fontFamily="@font/ps"
+                    android:textAllCaps="true"
                     android:text="Sexy Bacha"
                     android:textColor="#fff"
                     android:textSize="25sp" />

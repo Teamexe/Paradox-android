@@ -1,5 +1,8 @@
 package com.exe.paradox;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,24 +18,36 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.exe.paradox.adapter.FeaturedAdapter;
 import com.exe.paradox.adapter.HomeNavItemsAdapter;
 import com.exe.paradox.adapter.ProjectAdapter;
 import com.pixelcan.inkpageindicator.InkPageIndicator;
+import com.squareup.picasso.Picasso;
+
+
+import java.io.InputStream;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeActivity extends AppCompatActivity {
+
+    CircleImageView img;
+    TextView name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Toolbar toolbar = findViewById(R.id.toolbar_home);
-        setSupportActionBar(toolbar);
+
+        GPlusFragment beta = new GPlusFragment();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow(); // in Activity's onCreate() for instance
@@ -45,29 +60,16 @@ public class HomeActivity extends AppCompatActivity {
         pager.setClipToPadding(false);
         pager.setPadding(60, 0, 60, 0);
         pager.setPageMargin(20);
-
-
-
         InkPageIndicator inkPageIndicator = findViewById(R.id.indicator);
         inkPageIndicator.setViewPager(pager);
 
-        //NAV ITEMS
-        /*RecyclerView homeNavRecv = findViewById(R.id.nav_recv);
-        homeNavRecv.setLayoutManager(new GridLayoutManager(HomeActivity.this, 5) {
-            @Override
-            public boolean canScrollHorizontally() {
-                return false;
-            }
+        name = findViewById(R.id.title_name);
+        img = findViewById(R.id.acc_img);
 
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        });
-        HomeNavItemsAdapter homeNavItemsAdapter = new HomeNavItemsAdapter();
-        homeNavRecv.setAdapter(homeNavItemsAdapter);*/
+        if(beta.getImg()!="null")
+        Picasso.get().load(beta.getImg()).placeholder(R.drawable.user_icon).into(img);
+        name.setText(beta.getDisplayName());
 
-        //ORANGE
         RecyclerView recv = findViewById(R.id.recv_orange);
         ProjectAdapter projectAdapter = new ProjectAdapter(this);
         recv.setLayoutManager(new GridLayoutManager(HomeActivity.this, 3) {
