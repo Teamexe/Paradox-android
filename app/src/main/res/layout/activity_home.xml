@@ -123,6 +123,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:id="@+id/rankings_ll"
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -135,12 +136,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/ps"
-                        android:text="Leaderboard"
+                        android:text="Rankings"
+                        android:singleLine="true"
                         android:textColor="#333"
                         android:textSize="15sp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/paradox_ll"
                     android:layout_marginLeft="16sp"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
@@ -164,6 +167,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/stats_ll"
                     android:layout_marginLeft="16sp"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
@@ -187,6 +191,31 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/referral_ll"
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_default" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/ps"
+                        android:text="Referral"
+                        android:textColor="#333"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/members_ll"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -206,6 +235,7 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/ps"
                         android:text="Members"
+                        android:singleLine="true"
                         android:textColor="#333"
                         android:textSize="15sp" />
                 </LinearLayout>

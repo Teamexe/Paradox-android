@@ -1,5 +1,6 @@
 package com.exe.paradox;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -23,6 +24,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.exe.paradox.adapter.FeaturedAdapter;
@@ -40,12 +42,12 @@ public class HomeActivity extends AppCompatActivity {
 
     CircleImageView img;
     TextView name;
+    LinearLayout rankings, paradox, stats, referral, members;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
 
         GPlusFragment beta = new GPlusFragment();
 
@@ -80,10 +82,59 @@ public class HomeActivity extends AppCompatActivity {
         });
         recv.setAdapter(projectAdapter);
 
+        setAllListeners();
+
         RecyclerView featuredProjects = findViewById(R.id.featured_projects);
         FeaturedAdapter featuredAdapter = new FeaturedAdapter(this);
         featuredProjects.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         featuredProjects.setAdapter(featuredAdapter);
+    }
+
+    private void setAllListeners () {
+    //rankings, paradox, stats, referral, members
+        setButtons();
+        rankings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, LeaderboardActivity.class));
+            }
+        });
+
+        paradox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, QuestionActivity.class));
+            }
+        });
+
+        stats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, StatsActivity.class));
+            }
+        });
+
+        referral.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, ReferActivity.class));
+            }
+        });
+
+        members.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, MembersActivity.class));
+            }
+        });
+    }
+
+    private void setButtons () {
+        rankings = findViewById(R.id.rankings_ll);
+        paradox = findViewById(R.id.paradox_ll);
+        stats = findViewById(R.id.stats_ll);
+        referral = findViewById(R.id.referral_ll);
+        members = findViewById(R.id.members_ll);
     }
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
@@ -104,5 +155,4 @@ public class HomeActivity extends AppCompatActivity {
             return drawables.length;
         }
     }
-
 }
