@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
@@ -25,27 +26,37 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.exe.paradox.adapter.FeaturedAdapter;
 import com.exe.paradox.adapter.ProjectAdapter;
+import com.exe.paradox.api.response.ReferralResponse;
+import com.exe.paradox.api.rest.ApiClient;
+import com.exe.paradox.api.rest.ApiInterface;
+import com.exe.paradox.util.Constants;
 import com.exe.paradox.util.Preferences;
 import com.exe.paradox.util.RecyclerItemClickListener;
 import com.github.florent37.parallax.ScrollView;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.google.gson.Gson;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
 import com.pixelcan.inkpageindicator.InkPageIndicator;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity {
 
     CircleImageView img;
-    TextView name,sign_out;
+    TextView name, sign_out;
     LinearLayout rankings, paradox, stats, referral, members;
+    GPlusFragment beta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +85,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
 
-        GPlusFragment beta = new GPlusFragment();
+        beta = new GPlusFragment();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow(); // in Activity's onCreate() for instance
@@ -94,7 +105,7 @@ public class HomeActivity extends AppCompatActivity {
         img = findViewById(R.id.acc_img);
         sign_out = findViewById(R.id.signout);
 
-       final  GPlusFragment gPlusFragment = new GPlusFragment();
+        final GPlusFragment gPlusFragment = new GPlusFragment();
         sign_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,7 +164,7 @@ public class HomeActivity extends AppCompatActivity {
                                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(linkExe[position])));
                             }
                         })
-                        .setNegativeText("Not now");
+                        .setNegativeText("Back");
                 dialog.build().show();
             }
         }));
@@ -213,16 +224,34 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        if (!Preferences.getRef(this)) {
-            referral.setVisibility(View.GONE);
-        }
-
-        referral.setOnClickListener(new View.OnClickListener() {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<ReferralResponse> referralResponseCall = apiService.getReferralData(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), beta.getSignId());
+        referralResponseCall.enqueue(new Callback<ReferralResponse>() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, ReferActivity.class));
+            public void onResponse(Call<ReferralResponse> call, Response<ReferralResponse> response) {
+                if(response.isSuccessful()) {
+                    if(response.body().getReferralList().get(0).getReferredBy() == null) {
+                        referral.setVisibility(View.VISIBLE);
+                        referral.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(new Intent(HomeActivity.this, ReferActivity.class));
+                                finish();
+                            }
+                        });
+                    }
+                    else {
+                        referral.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReferralResponse> call, Throwable t) {
+                referral.setVisibility(View.GONE);
             }
         });
+
 
         members.setOnClickListener(new View.OnClickListener() {
             @Override

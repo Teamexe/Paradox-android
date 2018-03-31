@@ -5,6 +5,7 @@ import com.exe.paradox.api.response.HintResponse;
 import com.exe.paradox.api.response.LeaderboardResponse;
 import com.exe.paradox.api.response.LevelResponse;
 import com.exe.paradox.api.response.ReadOneResponse;
+import com.exe.paradox.api.response.ReferralResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -46,4 +47,9 @@ public interface ApiInterface {
     @POST("questions/read_level.php")
     @FormUrlEncoded
     Call<LevelResponse> getLevelResponse(@Field("live_token") String liveToken, @Field("req_type") String reqType, @Field("level") String level);
+
+    //REFERRAL VALIDATION
+    @POST("referral/ref_success.php")
+    @FormUrlEncoded
+    Call<ReferralResponse>  getReferralData(@Field("live_token") String liveToken, @Field("req_type") String reqType, @Field("google_id") String googleId);
 }

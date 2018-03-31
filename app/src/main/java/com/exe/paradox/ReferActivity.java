@@ -1,9 +1,8 @@
 package com.exe.paradox;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -47,7 +46,7 @@ public class ReferActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ReadOneResponse> call, Response<ReadOneResponse> response) {
                 Profile profile = response.body().getProfileData().get(0);
-                String message = "Your referral code is: "+profile.getRefCode();
+                String message = "Your referral code is: " + profile.getRefCode();
                 refTv.setText(message);
             }
 
@@ -58,7 +57,7 @@ public class ReferActivity extends AppCompatActivity {
         });
     }
 
-    private void callReferral (final String googleID, final ApiInterface apiService) {
+    private void callReferral(final String googleID, final ApiInterface apiService) {
         Call<ReadOneResponse> responseCall = apiService.getProfile(googleID, Constants.FETCH_TYPE, Constants.FETCH_TOKEN);
         responseCall.enqueue(new Callback<ReadOneResponse>() {
             @Override
@@ -69,10 +68,14 @@ public class ReferActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
                         //Referral is a success
-                        Toast.makeText(ReferActivity.this, "Referral successfully added", Toast.LENGTH_SHORT).show();
-                        Preferences.seRef(ReferActivity.this, false);
-                        startActivity(new Intent(ReferActivity.this, HomeActivity.class));
-                        finish();
+                        if (response.body().getMessage() == null) {
+                            Toast.makeText(ReferActivity.this, "he maximum referrals allowed limit has been reached or the referral code is incorrect", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(ReferActivity.this, "Referral successfully added", Toast.LENGTH_SHORT).show();
+                            Preferences.seRef(ReferActivity.this, false);
+                            startActivity(new Intent(ReferActivity.this, HomeActivity.class));
+                            finish();
+                        }
                     }
 
                     @Override
