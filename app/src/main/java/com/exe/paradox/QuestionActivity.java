@@ -6,9 +6,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.exe.paradox.api.model.Hints;
 import com.exe.paradox.api.model.Profile;
 import com.exe.paradox.api.response.AcknowedgementResponse;
@@ -18,6 +20,7 @@ import com.exe.paradox.api.response.ReadOneResponse;
 import com.exe.paradox.api.rest.ApiClient;
 import com.exe.paradox.api.rest.ApiInterface;
 import com.exe.paradox.util.Constants;
+import com.google.gson.Gson;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.ArrayList;
@@ -31,6 +34,7 @@ public class QuestionActivity extends AppCompatActivity {
     public int c = 0;
     public int hint_count = 1;
     public String hint1, hint2, hint3;
+    public ImageView imageView;
     TextView hint_number, hint_text, hint_next, hint_prev;
     NoInternetDialog noInternetDialog;
 
@@ -45,11 +49,14 @@ public class QuestionActivity extends AppCompatActivity {
         hint_text = findViewById(R.id.h1);
         hint_next = findViewById(R.id.h2);
         hint_prev = findViewById(R.id.h3);
+        imageView = findViewById(R.id.i1);
         final EasyFlipView flip = findViewById(R.id.flip);
         final TextView hintText = findViewById(R.id.t2);
 
         final ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
+
+        final GPlusFragment gPlusFragment = new GPlusFragment();
 
         hintText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +65,7 @@ public class QuestionActivity extends AppCompatActivity {
                     AlphaAnimation animObj = new AlphaAnimation(0, 1);
                     animObj.setDuration(1000);
                     hintText.startAnimation(animObj);
-                    hintText.setText("back to Question!!");
+                    hintText.setText("Back to Question!!");
                     c = 1;
                 } else {
                     AlphaAnimation animObj = new AlphaAnimation(0, 1);
@@ -71,11 +78,7 @@ public class QuestionActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        *Fetching Picture from level
-        * we need to store the googleID
-        */
-        Call<ReadOneResponse> responseCall = apiService.getProfile(Constants.GOOGLE_ID, Constants.FETCH_TYPE, Constants.FETCH_TOKEN);
+        Call<ReadOneResponse> responseCall = apiService.getProfile(gPlusFragment.getSignId(), Constants.FETCH_TYPE, Constants.FETCH_TOKEN);
         responseCall.enqueue(new Callback<ReadOneResponse>() {
             @Override
             public void onResponse(Call<ReadOneResponse> call, Response<ReadOneResponse> response) {
@@ -83,17 +86,16 @@ public class QuestionActivity extends AppCompatActivity {
                     if (response.body().getProfileData().size() > 0) {
                         Profile profile = response.body().getProfileData().get(0);
                         Call<LevelResponse> levelResponseCall = apiService.getLevelResponse(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), profile.getLevel());
+
                         levelResponseCall.enqueue(new Callback<LevelResponse>() {
                             @Override
                             public void onResponse(Call<LevelResponse> call, Response<LevelResponse> response) {
-                                // URL's HERE
-                                // Toast.makeText(QuestionActivity.this, response.body().getLevelUrlList().get(0).getUrl(), Toast.LENGTH_SHORT).show();
-                                // ^^^^^^^^^^
+                                Glide.with(QuestionActivity.this).load(response.body().getLevelUrlList().get(0).getUrl()).into(imageView);
                             }
 
                             @Override
                             public void onFailure(Call<LevelResponse> call, Throwable t) {
-
+                                Toast.makeText(QuestionActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -115,10 +117,9 @@ public class QuestionActivity extends AppCompatActivity {
                 acknowedgementResponseCall.enqueue(new Callback<AcknowedgementResponse>() {
                     @Override
                     public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
-                        if(response.body().getMessage().matches("true")){
+                        if (response.body().getMessage().matches("true")) {
                             //CORRECT
-                        }
-                        else {
+                        } else {
                             // WRONG ANSWER
                         }
                     }
@@ -138,21 +139,21 @@ public class QuestionActivity extends AppCompatActivity {
 
         //Fetching Hints
         Call<HintResponse> call = apiService.getHints(1, Constants.FETCH_TOKEN, Constants.FETCH_TYPE);
-        Log.d(getClass().getSimpleName(), call.request().url().toString());
         call.enqueue(new Callback<HintResponse>() {
             @Override
             public void onResponse(Call<HintResponse> call, Response<HintResponse> response) {
                 if (response.isSuccessful()) {
-                    Log.d("SUCCESS", "SUCCESS");
                     ArrayList<Hints> hints = response.body().getList();
-                    Log.d("WORKING", hints.get(0).getHint1() + " " + hints.get(0).getHint2() + " " + hints.get(0).getHint3());
-                    hint1 = hints.get(0).getHint1();
+                    if (hints.get(0).getHint1() != null)
+                        hint1 = hints.get(0).getHint1();
                     AlphaAnimation animObj = new AlphaAnimation(0, 1);
                     animObj.setDuration(1000);
                     hint_text.startAnimation(animObj);
                     hint_text.setText(hint1);
-                    hint2 = hints.get(0).getHint2();
-                    hint3 = hints.get(0).getHint3();
+                    if (hints.get(0).getHint2() != null)
+                        hint2 = hints.get(0).getHint2();
+                    if (hints.get(0).getHint3() != null)
+                        hint3 = hints.get(0).getHint3();
                 }
             }
 

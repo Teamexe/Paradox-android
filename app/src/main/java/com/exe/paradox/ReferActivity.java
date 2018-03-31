@@ -72,7 +72,6 @@ public class ReferActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
                             //Referral is a success
-                            Toast.makeText(ReferActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                             if (response.body().getMessage() == null) {
                                 Toast.makeText(ReferActivity.this, "The maximum referrals allowed limit has been reached or the referral code is incorrect", Toast.LENGTH_LONG).show();
                             } else {
