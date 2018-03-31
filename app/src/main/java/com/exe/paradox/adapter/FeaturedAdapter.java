@@ -14,7 +14,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ImageV
     private Context mContext;
     class ImageViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        private int[] drawables = {R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6, R.drawable.u7, R.drawable.u8};
+        private int[] drawables = {R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6, R.drawable.u7, R.drawable.u1};
         ImageViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image);

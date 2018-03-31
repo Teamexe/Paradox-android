@@ -118,7 +118,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
 
     private void appLoginIn() {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<AcknowedgementResponse> acknowedgementResponseCall = apiService.createProfile(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), Constants.GOOGLE_ID, "Sexy bacha", "iamsexy@bacha.com", "sexybachakiphoto.jpg");
+        Call<AcknowedgementResponse> acknowedgementResponseCall = apiService.createProfile(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), getSignId(), getDisplayName(), getEmail(), getImg());
         acknowedgementResponseCall.enqueue(new Callback<AcknowedgementResponse>() {
             @Override
             public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {

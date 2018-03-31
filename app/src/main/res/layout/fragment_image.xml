@@ -3,9 +3,9 @@
     android:layout_width="match_parent" android:layout_height="wrap_content">
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="180sp"
+        android:layout_height="200sp"
         android:id="@+id/image"
-        android:src="@drawable/u1"
+        android:src="@drawable/hu1"
         android:scaleType="centerCrop"
         />
 </FrameLayout>

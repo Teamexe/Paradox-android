@@ -1,2193 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
+<com.github.florent37.parallax.ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eee"
-    tools:context="com.exe.paradox.MembersActivity">
+    tools:context="com.exe.paradox.StatsActivity">
 
-    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-
-        android:id="@+id/toolbar_members"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_members"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/psb"
                 android:text="Members"
-                android:textColor="#72d3b4"
+                android:textColor="#dd6495"
                 android:textSize="25sp" />
+        </android.support.v7.widget.Toolbar>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/final_ll"
+            android:scaleX="1"
+            android:src="@drawable/red_circle"
+            android:tag="parallax=-0.2"
+            android:translationX="150dp"
+            android:translationZ="-10dp" />
 
 
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
-    <!--Do not change above this-->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar_members">
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/second_ll"
+            android:scaleX="1"
+            android:src="@drawable/red_circle"
+            android:tag="parallax=-0.2"
+            android:translationX="150dp"
+            android:translationZ="-10dp" />
 
-        <RelativeLayout
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/mentor_ll"
+            android:scaleX="1"
+            android:src="@drawable/red_circle"
+            android:tag="parallax=-0.2"
+            android:translationX="-39dp"
+            android:translationZ="-10dp" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/third_ll"
+            android:scaleX="1"
+            android:src="@drawable/red_circle"
+            android:tag="parallax=-0.2"
+            android:translationX="-39dp"
+            android:translationZ="-10dp" />
+        <LinearLayout
+            android:id="@+id/mentor_ll"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar_members"
+            android:orientation="vertical">
 
-            <com.ramotion.foldingcell.FoldingCell
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/folding_cell"
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:background="#fff"
-                folding-cell:animationDuration="100"
-                folding-cell:backSideColor="#f3f3f3"
-                folding-cell:cameraHeight="30">
+                android:padding="8sp">
 
-                <LinearLayout
-                    android:id="@+id/cell_content_view"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/exe"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
-                    android:orientation="vertical"
-                    android:paddingBottom="8dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:paddingTop="8dp"
-                    android:visibility="gone">
+                    android:fontFamily="@font/psb"
+                    android:text="Mentors"
+                    android:textAllCaps="true"
+                    android:textColor="#ff1744"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
-                    <RelativeLayout
-                        android:id="@+id/f1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
+            </RelativeLayout>
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image1"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image1"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name1"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image1"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/f2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image2"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image2"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name2"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image2"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/f3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image3"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image3"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name3"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image3"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/f4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image4"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image4"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name4"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image4"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/f5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image5"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image5"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name5"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image5"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/f6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image6"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image6"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name6"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image6"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/f7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image7"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image7"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name7"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image7"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/f8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image8"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image8"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name8"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image8"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-                </LinearLayout>
-
-
-                <RelativeLayout
-                    android:id="@+id/cell_title_view"
-                    android:layout_width="match_parent"
-
-                    android:layout_height="100dp"
-                    android:background="#fff"
-                    android:paddingLeft="8dp"
-                    android:visibility="visible">
-
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/data1" />
-
-
-                    <TextView
-                        android:id="@+id/title1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/psb"
-                        android:text="Final"
-                        android:textAllCaps="true"
-                        android:textColor="#72d3b4"
-                        android:textSize="30sp" />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_below="@id/title1"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="-8dp"
-                        android:fontFamily="@font/ps"
-                        android:text="YEAR"
-                        android:textAllCaps="true"
-                        android:textColor="#72d3b4"
-                        android:textSize="20sp" />
-
-
-                </RelativeLayout>
-                ​
-            </com.ramotion.foldingcell.FoldingCell>
-
-
-            <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/folding_cell1"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recv_mentor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/folding_cell"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:background="#fff"
-                folding-cell:animationDuration="1000"
-                folding-cell:backSideColor="#f3f3f3"
-                folding-cell:cameraHeight="30">
-
-                <LinearLayout
-                    android:id="@+id/cell_content_view1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#fff"
-                    android:orientation="vertical"
-                    android:paddingBottom="8dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:paddingTop="8dp"
-                    android:visibility="gone">
-
-                    <RelativeLayout
-                        android:id="@+id/t1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image9"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image9"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name9"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image9"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/t2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image10"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image10"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name10"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image10"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/t3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image11"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image11"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name11"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image11"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/t4"
-                        android:layout_width="wrap_content"
-
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image12"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image12"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name12"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image12"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/t5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image13"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name13"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image13"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git13"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name13"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image13"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/t6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image14"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name14"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image14"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git14"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name14"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image14"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/t7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image15"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name15"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image15"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git15"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name15"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image15"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/t8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image16"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name16"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image16"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git16"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name16"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image16"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/t9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image17"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name17"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image17"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git17"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name17"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image17"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/t10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image18"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name18"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image18"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git18"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name18"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image18"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/t11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image19"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name19"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image19"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git19"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name19"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image19"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/t12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image20"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name20"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image20"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git20"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name20"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image20"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-                </LinearLayout>
-                ​
-
-                <RelativeLayout
-                    android:id="@+id/cell_title_view1"
-                    android:layout_width="match_parent"
-
-                    android:layout_height="100dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:background="#72d3b4"
-                    android:paddingRight="8dp"
-                    android:visibility="visible">
-
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentLeft="true"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/data2" />
-
-
-                    <TextView
-                        android:id="@+id/title2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/psb"
-                        android:text="Third"
-                        android:textAllCaps="true"
-                        android:textColor="#fff"
-                        android:textSize="30sp" />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@id/title2"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginTop="-8dp"
-                        android:fontFamily="@font/ps"
-                        android:text="YEAR"
-                        android:textAllCaps="true"
-                        android:textColor="#fff"
-                        android:textSize="20sp" />
-
-
-                </RelativeLayout>
-                ​
-            </com.ramotion.foldingcell.FoldingCell>
-
-            <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/folding_cell2"
+                android:layout_gravity="center"
+                android:paddingBottom="16sp"
+                android:paddingLeft="16sp"
+                android:paddingRight="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/final_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mentor_ll"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/folding_cell1"
+                android:layout_below="@+id/orange_holder"
                 android:layout_margin="16dp"
-                android:background="#fff"
-                folding-cell:animationDuration="1000"
-                folding-cell:backSideColor="#f3f3f3"
-                folding-cell:cameraHeight="30">
+                android:padding="8sp">
 
-                <LinearLayout
-                    android:id="@+id/cell_content_view2"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/final_tag"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
-                    android:orientation="vertical"
-                    android:paddingBottom="8dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:paddingTop="8dp"
-                    android:visibility="gone">
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/psb"
+                    android:text="Final year"
+                    android:textAllCaps="true"
+                    android:textColor="#FFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
-                    <RelativeLayout
-                        android:id="@+id/s1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+            </RelativeLayout>
 
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image21"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name21"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image21"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git21"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name21"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image21"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/s2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image22"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name22"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image22"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git22"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name22"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image22"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/s3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image23"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name23"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image23"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git23"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name23"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image23"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/s4"
-                        android:layout_width="wrap_content"
-
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image24"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name24"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image24"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git24"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name24"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image24"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/s5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image25"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image25"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name25"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image25"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/s6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image26"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name26"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image26"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git26"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name26"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image26"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/s7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image27"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name27"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image27"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git27"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name27"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image27"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/s8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image28"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name28"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image28"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git28"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name28"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image28"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/s9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image29"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name29"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image29"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git29"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name29"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image29"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                </LinearLayout>
-                ​
-
-
-                <RelativeLayout
-                    android:id="@+id/cell_title_view2"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="#fff"
-                    android:paddingLeft="8dp"
-                    android:visibility="visible">
-
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentRight="true"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/data1" />
-
-                    <TextView
-                        android:id="@+id/title3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/psb"
-                        android:text="Second"
-                        android:textAllCaps="true"
-                        android:textColor="#72d3b4"
-                        android:textSize="30sp" />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_below="@id/title3"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="-8dp"
-                        android:fontFamily="@font/ps"
-                        android:text="YEAR"
-                        android:textAllCaps="true"
-                        android:textColor="#72d3b4"
-                        android:textSize="20sp" />
-
-
-                </RelativeLayout>
-                ​
-            </com.ramotion.foldingcell.FoldingCell>
-
-            <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/folding_cell3"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recv_final"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/folding_cell2"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:background="#fff"
-                folding-cell:animationDuration="1000"
-                folding-cell:backSideColor="#f3f3f3"
-                folding-cell:cameraHeight="30">
+                android:layout_gravity="center"
+                android:paddingBottom="16sp"
+                android:paddingLeft="16sp"
+                android:paddingRight="16sp" />
+        </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/cell_content_view3"
-                    android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/third_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/final_ll"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:padding="8sp">
+
+                <TextView
+                    android:id="@+id/third_tag"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
-                    android:orientation="vertical"
-                    android:paddingBottom="8dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:paddingTop="8dp"
-                    android:visibility="gone">
-
-                    <RelativeLayout
-                        android:id="@+id/a1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image30"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name30"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image30"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git30"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name30"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image30"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image31"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name31"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image31"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git31"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name31"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image31"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image32"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name32"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image32"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git32"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name32"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image32"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a4"
-                        android:layout_width="wrap_content"
-
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image33"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name33"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image33"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git33"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name33"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image33"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image34"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name34"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image34"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git34"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name34"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image34"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image35"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name35"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image35"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git35"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name35"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image35"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image36"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name36"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image36"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git36"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name36"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image36"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image37"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name37"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image37"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git37"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name37"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image37"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image38"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name38"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image38"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git38"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name38"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image38"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image39"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name39"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image39"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git39"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name39"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image39"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image40"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name40"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image40"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git40"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name40"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image40"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image41"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name41"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image41"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git41"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name41"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image41"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image42"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name42"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image42"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git42"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name42"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image42"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image43"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name43"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image43"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git43"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name43"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image43"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image44"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name44"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image44"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git44"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name44"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image44"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#e3e3e3" />
-
-                    <RelativeLayout
-                        android:id="@+id/a16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/image45"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@color/colorPrimary" />
-
-                        <TextView
-                            android:id="@+id/name45"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_toRightOf="@id/image45"
-                            android:fontFamily="@font/psb"
-                            android:text="Name"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/git45"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/name45"
-                            android:layout_marginLeft="16dp"
-                            android:layout_toRightOf="@id/image45"
-                            android:fontFamily="@font/psb"
-                            android:text="Github"
-                            android:textSize="20sp" />
-                    </RelativeLayout>
-
-
-                </LinearLayout>
-                ​
-
-                <RelativeLayout
-                    android:id="@+id/cell_title_view3"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="#72d3b4"
-                    android:paddingRight="8dp"
-                    android:visibility="visible">
-
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentLeft="true"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/data2" />
-
-
-                    <TextView
-                        android:id="@+id/title4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/psb"
-                        android:text="First"
-                        android:textAllCaps="true"
-                        android:textColor="#fff"
-                        android:textSize="30sp" />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@id/title4"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginTop="-8dp"
-                        android:fontFamily="@font/ps"
-                        android:text="YEAR"
-                        android:textAllCaps="true"
-                        android:textColor="#fff"
-                        android:textSize="20sp" />
-
-
-                </RelativeLayout>
-                ​
-            </com.ramotion.foldingcell.FoldingCell>
-        </RelativeLayout>
-    </ScrollView>
-
-</RelativeLayout>
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/psb"
+                    android:text="Third year"
+                    android:textAllCaps="true"
+                    android:textColor="#ff1744"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recv_third"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="16sp"
+                android:paddingLeft="16sp"
+                android:paddingRight="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/third_ll"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:padding="8sp">
+
+                <TextView
+                    android:id="@+id/second_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/psb"
+                    android:text="Second year"
+                    android:textAllCaps="true"
+                    android:textColor="#ff1744"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recv_second"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="16sp"
+                android:paddingLeft="16sp"
+                android:paddingRight="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/first_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/second_ll"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:padding="8sp">
+
+                <TextView
+                    android:id="@+id/first_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/psb"
+                    android:text="First year"
+                    android:textAllCaps="true"
+                    android:textColor="#ff1744"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recv_first"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="16sp"
+                android:paddingLeft="16sp"
+                android:paddingRight="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</com.github.florent37.parallax.ScrollView>

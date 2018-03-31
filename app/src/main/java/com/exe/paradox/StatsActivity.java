@@ -15,6 +15,7 @@ import com.exe.paradox.api.rest.ApiInterface;
 import com.exe.paradox.util.Constants;
 import com.squareup.picasso.Picasso;
 
+import am.appwise.components.ni.NoInternetDialog;
 import az.plainpie.PieView;
 import az.plainpie.animation.PieAngleAnimation;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -27,6 +28,7 @@ public class StatsActivity extends AppCompatActivity {
     TextView nameTv, emailTv, scoreTv, dateOfRegTv, levelTv, timeOfRegTv;
     PieView pieView;
     CircleImageView circleImageView;
+    NoInternetDialog noInternetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class StatsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stats);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_stats);
         setSupportActionBar(toolbar);
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
         final GPlusFragment gPlusFragment = new GPlusFragment();
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ReadOneResponse> responseCall = apiService.getProfile(gPlusFragment.getSignId(), Constants.FETCH_TYPE, Constants.FETCH_TOKEN);
@@ -96,5 +100,11 @@ public class StatsActivity extends AppCompatActivity {
         PieAngleAnimation animation = new PieAngleAnimation(pieView);
         animation.setDuration(2500);
         pieView.startAnimation(animation);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
     }
 }
