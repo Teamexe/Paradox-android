@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 
 /**
@@ -34,7 +35,11 @@ public class MyFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_image, container, false);
         ImageView imageView = rootView.findViewById(R.id.image);
-        imageView.setImageDrawable(getActivity().getResources().getDrawable(imagePath));
+
+        Glide.with(getContext())
+             .load(imagePath)
+             .into(imageView);
+
         final GPlusFragment gPlusFragment = new GPlusFragment();
         if(position == 7)
             imageView.setOnClickListener(new View.OnClickListener() {
