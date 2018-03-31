@@ -22,6 +22,7 @@ import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.ArrayList;
 
+import am.appwise.components.ni.NoInternetDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,6 +32,7 @@ public class QuestionActivity extends AppCompatActivity {
     public int hint_count = 1;
     public String hint1, hint2, hint3;
     TextView hint_number, hint_text, hint_next, hint_prev;
+    NoInternetDialog noInternetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class QuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_question);
         setSupportActionBar(toolbar);
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
         hint_number = findViewById(R.id.h);
         hint_text = findViewById(R.id.h1);
         hint_next = findViewById(R.id.h2);
@@ -227,8 +230,12 @@ public class QuestionActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
     }
 }
 

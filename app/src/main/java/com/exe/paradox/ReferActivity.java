@@ -1,5 +1,6 @@
 package com.exe.paradox;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.exe.paradox.api.rest.ApiInterface;
 import com.exe.paradox.util.Constants;
 import com.exe.paradox.util.Preferences;
 
+import am.appwise.components.ni.NoInternetDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,12 +25,14 @@ import retrofit2.Response;
 public class ReferActivity extends AppCompatActivity {
 
     TextView refTv;
+    NoInternetDialog noInternetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refer);
         refTv = findViewById(R.id.ref_tv);
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
         Button refCall = findViewById(R.id.submit);
         final GPlusFragment gPlusFragment = new GPlusFragment();
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -67,6 +71,8 @@ public class ReferActivity extends AppCompatActivity {
                         //Referral is a success
                         Toast.makeText(ReferActivity.this, "Referral successfully added", Toast.LENGTH_SHORT).show();
                         Preferences.seRef(ReferActivity.this, false);
+                        startActivity(new Intent(ReferActivity.this, HomeActivity.class));
+                        finish();
                     }
 
                     @Override
@@ -83,5 +89,11 @@ public class ReferActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
     }
 }
