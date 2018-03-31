@@ -10,7 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.exe.paradox.api.response.AcknowedgementResponse;
+import com.exe.paradox.api.rest.ApiClient;
+import com.exe.paradox.api.rest.ApiInterface;
+import com.exe.paradox.util.Constants;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -20,18 +25,23 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = "GPlusFragent";
+    public static String mStatusTextView, mEmail, mGoogleId;
+    public static String imgProfilePic = "null";
+    GoogleSignInAccount acct;
     private int RC_SIGN_IN = 0;
     private GoogleApiClient mGoogleApiClient;
     private SignInButton signInButton;
-    public static String mStatusTextView;
     private ProgressDialog mProgressDialog;
-    public static String imgProfilePic = "null";
-    GoogleSignInAccount acct;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,6 +105,8 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
             acct = result.getSignInAccount();
+            mEmail = acct.getEmail();
+            mGoogleId = acct.getId();
             mStatusTextView = acct.getDisplayName();
             if (acct.getPhotoUrl() != null)
                 imgProfilePic = acct.getPhotoUrl().toString();
@@ -104,14 +116,29 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         }
     }
 
+    private void appLoginIn() {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<AcknowedgementResponse> acknowedgementResponseCall = apiService.createProfile(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), Constants.GOOGLE_ID, "Sexy bacha", "iamsexy@bacha.com", "sexybachakiphoto.jpg");
+        acknowedgementResponseCall.enqueue(new Callback<AcknowedgementResponse>() {
+            @Override
+            public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
+                if (response.body().getMessage().matches("true") || response.body().getMessage().matches("Account already exists."))
+                    startActivity(new Intent(getContext(), HomeActivity.class));
+            }
+
+            @Override
+            public void onFailure(Call<AcknowedgementResponse> call, Throwable t) {
+                Toast.makeText(getContext(), "Login failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     private void updateUI(boolean signedIn) {
         if (signedIn) {
-
             final Handler handler = new Handler();
             final Runnable r = new Runnable() {
                 public void run() {
-                    Intent intent = new Intent(getContext(), HomeActivity.class);
-                    startActivity(intent);
+                    appLoginIn();
                 }
             };
             handler.postDelayed(r, 5800);
@@ -130,7 +157,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
     private void showProgressDialog() {
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(getActivity());
-            mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(true);
         }
         mProgressDialog.show();
@@ -142,18 +169,32 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         }
     }
 
-    public String getImg(){
+    public String getImg() {
         return imgProfilePic;
     }
-    public String getEmail(){
-        return acct.getEmail().toString();
+
+    public String getEmail() {
+        return mEmail;
     }
-    public String getDisplayName(){
+
+    public String getDisplayName() {
         return mStatusTextView;
     }
-    public String getSignId(){
-        return acct.getId().toString();
+
+    public String getSignId() {
+        return mGoogleId;
     }
 
+    public void signOut() {
+        if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+            mGoogleApiClient.clearDefaultAccountAndReconnect().setResultCallback(new ResultCallback<Status>() {
+                @Override
+                public void onResult(Status status) {
+                    mGoogleApiClient.disconnect();
+                    updateUI(false);
+                }
+            });
 
+        }
+    }
 }

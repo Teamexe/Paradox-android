@@ -43,13 +43,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
+            <com.ramotion.foldingcell.FoldingCell
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/folding_cell"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:background="#fff"
-                folding-cell:animationDuration="1000"
+                folding-cell:animationDuration="100"
                 folding-cell:backSideColor="#f3f3f3"
                 folding-cell:cameraHeight="30">
 

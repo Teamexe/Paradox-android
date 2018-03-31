@@ -10,7 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.exe.paradox.api.model.Hints;
+import com.exe.paradox.api.model.Profile;
+import com.exe.paradox.api.response.AcknowedgementResponse;
 import com.exe.paradox.api.response.HintResponse;
+import com.exe.paradox.api.response.LevelResponse;
+import com.exe.paradox.api.response.ReadOneResponse;
 import com.exe.paradox.api.rest.ApiClient;
 import com.exe.paradox.api.rest.ApiInterface;
 import com.exe.paradox.util.Constants;
@@ -41,6 +45,9 @@ public class QuestionActivity extends AppCompatActivity {
         final EasyFlipView flip = findViewById(R.id.flip);
         final TextView hintText = findViewById(R.id.t2);
 
+        final ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+
         hintText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,9 +68,72 @@ public class QuestionActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        *Fetching Picture from level
+        * we need to store the googleID
+        */
+        Call<ReadOneResponse> responseCall = apiService.getProfile(Constants.GOOGLE_ID, Constants.FETCH_TYPE, Constants.FETCH_TOKEN);
+        responseCall.enqueue(new Callback<ReadOneResponse>() {
+            @Override
+            public void onResponse(Call<ReadOneResponse> call, Response<ReadOneResponse> response) {
+                if (response.isSuccessful()) {
+                    if (response.body().getProfileData().size() > 0) {
+                        Profile profile = response.body().getProfileData().get(0);
+                        Call<LevelResponse> levelResponseCall = apiService.getLevelResponse(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), profile.getLevel());
+                        levelResponseCall.enqueue(new Callback<LevelResponse>() {
+                            @Override
+                            public void onResponse(Call<LevelResponse> call, Response<LevelResponse> response) {
+                                // URL's HERE
+                                // Toast.makeText(QuestionActivity.this, response.body().getLevelUrlList().get(0).getUrl(), Toast.LENGTH_SHORT).show();
+                                // ^^^^^^^^^^
+                            }
+
+                            @Override
+                            public void onFailure(Call<LevelResponse> call, Throwable t) {
+
+                            }
+                        });
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReadOneResponse> call, Throwable t) {
+                Log.d(getClass().getSimpleName(), "FAIL");
+            }
+        });
+
+        // Submitting an answer
+        responseCall.clone().enqueue(new Callback<ReadOneResponse>() {
+            @Override
+            public void onResponse(Call<ReadOneResponse> call, Response<ReadOneResponse> response) {
+                Profile profile = response.body().getProfileData().get(0);
+                Call<AcknowedgementResponse> acknowedgementResponseCall = apiService.submitAnswer(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), profile.getLevel(), "fuck you", Constants.GOOGLE_ID);
+                acknowedgementResponseCall.enqueue(new Callback<AcknowedgementResponse>() {
+                    @Override
+                    public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
+                        if(response.body().getMessage().matches("true")){
+                            //CORRECT
+                        }
+                        else {
+                            // WRONG ANSWER
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<AcknowedgementResponse> call, Throwable t) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<ReadOneResponse> call, Throwable t) {
+
+            }
+        });
+
         //Fetching Hints
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
         Call<HintResponse> call = apiService.getHints(1, Constants.FETCH_TOKEN, Constants.FETCH_TYPE);
         Log.d(getClass().getSimpleName(), call.request().url().toString());
         call.enqueue(new Callback<HintResponse>() {
