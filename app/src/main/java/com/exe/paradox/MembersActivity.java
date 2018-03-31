@@ -29,6 +29,8 @@ public class MembersActivity extends AppCompatActivity {
         setAdapter(thirdYear);
         setAdapter(secondYear);
         setAdapter(firstYear);
+
+
     }
 
     private void setAdapter(RecyclerView recv) {

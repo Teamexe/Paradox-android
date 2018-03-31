@@ -2,45 +2,40 @@ package com.exe.paradox;
 
 import android.animation.Animator;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.exe.paradox.adapter.FeaturedAdapter;
-import com.exe.paradox.adapter.HomeNavItemsAdapter;
 import com.exe.paradox.adapter.ProjectAdapter;
 import com.exe.paradox.util.Preferences;
-import com.github.florent37.parallax.ParallaxView;
+import com.exe.paradox.util.RecyclerItemClickListener;
 import com.github.florent37.parallax.ScrollView;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.mikepenz.iconics.IconicsDrawable;
+import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
 import com.pixelcan.inkpageindicator.InkPageIndicator;
 import com.squareup.picasso.Picasso;
-
-
-import java.io.InputStream;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -96,9 +91,10 @@ public class HomeActivity extends AppCompatActivity {
         name = findViewById(R.id.title_name);
         img = findViewById(R.id.acc_img);
 
-        if(beta.getImg()!="null")
-        Picasso.get().load(beta.getImg()).placeholder(R.drawable.user_icon).into(img);
+        if (beta.getImg() != "null")
+            Picasso.get().load(beta.getImg()).placeholder(R.drawable.user_icon).into(img);
         name.setText(beta.getDisplayName());
+        setAllListeners();
 
         RecyclerView recv = findViewById(R.id.recv_orange);
         ProjectAdapter projectAdapter = new ProjectAdapter(this);
@@ -109,8 +105,29 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         recv.setAdapter(projectAdapter);
-
-        setAllListeners();
+        final String[] titlesExe = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"};
+        final String[] descExe = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "fsdfwfsfafwef", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf"};
+        final String[] linkExe = {"https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode"};
+        recv.addOnItemTouchListener(new RecyclerItemClickListener(HomeActivity.this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, final int position) {
+                final MaterialStyledDialog.Builder dialog = new MaterialStyledDialog.Builder(HomeActivity.this)
+                        .setHeaderDrawable(R.drawable.header)
+                        .setIcon(new IconicsDrawable(HomeActivity.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
+                        .withDialogAnimation(true)
+                        .setTitle(titlesExe[position])
+                        .setDescription(descExe[position])
+                        .setPositiveText("GitHub")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(linkExe[position])));
+                            }
+                        })
+                        .setNegativeText("Not now");
+                dialog.build().show();
+            }
+        }));
 
         RecyclerView featuredProjects = findViewById(R.id.featured_projects);
         FeaturedAdapter featuredAdapter = new FeaturedAdapter(this);
@@ -118,8 +135,8 @@ public class HomeActivity extends AppCompatActivity {
         featuredProjects.setAdapter(featuredAdapter);
     }
 
-    private void setAllListeners () {
-    //rankings, paradox, stats, referral, members
+    private void setAllListeners() {
+        //rankings, paradox, stats, referral, members
         setButtons();
         rankings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,7 +159,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        if(!Preferences.getRef(this)) {
+        if (!Preferences.getRef(this)) {
             referral.setVisibility(View.GONE);
         }
 
@@ -161,12 +178,31 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void setButtons () {
+    private void setButtons() {
         rankings = findViewById(R.id.rankings_ll);
         paradox = findViewById(R.id.paradox_ll);
         stats = findViewById(R.id.stats_ll);
         referral = findViewById(R.id.referral_ll);
         members = findViewById(R.id.members_ll);
+    }
+
+    private void enterReveal() {
+        ScrollView rootLayout = (ScrollView) findViewById(R.id.holder);
+        int cx = rootLayout.getWidth() / 2;
+        int cy = rootLayout.getHeight() / 2;
+
+        float finalRadius = Math.max(rootLayout.getWidth(), rootLayout.getHeight());
+
+        // create the animator for this view (the start radius is zero)
+        Animator circularReveal = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            circularReveal = ViewAnimationUtils.createCircularReveal(rootLayout, cx, 0, 0, finalRadius);
+        }
+        circularReveal.setDuration(1600);
+
+        // make the view visible and start the animation
+        rootLayout.setVisibility(View.VISIBLE);
+        circularReveal.start();
     }
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
@@ -186,22 +222,6 @@ public class HomeActivity extends AppCompatActivity {
         public int getCount() {
             return drawables.length;
         }
-    }
-
-    private void enterReveal() {
-        ScrollView rootLayout = (ScrollView) findViewById(R.id.holder);
-        int cx = rootLayout.getWidth() / 2;
-        int cy = rootLayout.getHeight() / 2;
-
-        float finalRadius = Math.max(rootLayout.getWidth(), rootLayout.getHeight());
-
-        // create the animator for this view (the start radius is zero)
-        Animator circularReveal = ViewAnimationUtils.createCircularReveal(rootLayout, cx, 0, 0, finalRadius);
-        circularReveal.setDuration(1600);
-
-        // make the view visible and start the animation
-        rootLayout.setVisibility(View.VISIBLE);
-        circularReveal.start();
     }
 
 }

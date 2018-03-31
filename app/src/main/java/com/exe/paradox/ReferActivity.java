@@ -1,5 +1,6 @@
 package com.exe.paradox;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -70,6 +71,8 @@ public class ReferActivity extends AppCompatActivity {
                         //Referral is a success
                         Toast.makeText(ReferActivity.this, "Referral successfully added", Toast.LENGTH_SHORT).show();
                         Preferences.seRef(ReferActivity.this, false);
+                        startActivity(new Intent(ReferActivity.this, HomeActivity.class));
+                        finish();
                     }
 
                     @Override

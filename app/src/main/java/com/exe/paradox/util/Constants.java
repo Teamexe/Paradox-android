@@ -9,4 +9,5 @@ public class Constants {
     public static final int FETCH_TYPE = 30;
     public static final String GOOGLE_ID = "234234";
     public static final String REFERRAL_CODE = "sdf48262";
+
 }
