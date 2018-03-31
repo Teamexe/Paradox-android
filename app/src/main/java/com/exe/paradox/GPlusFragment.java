@@ -141,7 +141,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
                     appLoginIn();
                 }
             };
-            handler.postDelayed(r, 1000);
+            handler.postDelayed(r, 5800);
             signInButton.setVisibility(View.GONE);
         } else {
             imgProfilePic = "null";

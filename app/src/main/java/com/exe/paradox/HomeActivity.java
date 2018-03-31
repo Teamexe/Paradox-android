@@ -1,5 +1,6 @@
 package com.exe.paradox;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,6 +22,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -30,6 +33,8 @@ import android.widget.TextView;
 import com.exe.paradox.adapter.FeaturedAdapter;
 import com.exe.paradox.adapter.HomeNavItemsAdapter;
 import com.exe.paradox.adapter.ProjectAdapter;
+import com.github.florent37.parallax.ParallaxView;
+import com.github.florent37.parallax.ScrollView;
 import com.pixelcan.inkpageindicator.InkPageIndicator;
 import com.squareup.picasso.Picasso;
 
@@ -48,6 +53,28 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        ScrollView rootLayout = (ScrollView) findViewById(R.id.holder);
+        if (savedInstanceState == null) {
+            rootLayout.setVisibility(View.INVISIBLE);
+
+            ViewTreeObserver viewTreeObserver = rootLayout.getViewTreeObserver();
+            if (viewTreeObserver.isAlive()) {
+                viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        ScrollView rootLayout = (ScrollView) findViewById(R.id.holder);
+                        enterReveal();
+
+                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+                            rootLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                        } else {
+                            rootLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        }
+                    }
+                });
+            }
+        }
 
         GPlusFragment beta = new GPlusFragment();
 
@@ -139,7 +166,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
-        int[] drawables = {R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6, R.drawable.u7, R.drawable.u8};
+        int[] drawables = {R.drawable.u7, R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6};
 
         ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
@@ -155,4 +182,24 @@ public class HomeActivity extends AppCompatActivity {
             return drawables.length;
         }
     }
+
+    private void enterReveal() {
+        ScrollView rootLayout = (ScrollView) findViewById(R.id.holder);
+        int cx = rootLayout.getWidth() / 2;
+        int cy = rootLayout.getHeight() / 2;
+
+        float finalRadius = Math.max(rootLayout.getWidth(), rootLayout.getHeight());
+
+        // create the animator for this view (the start radius is zero)
+        Animator circularReveal = ViewAnimationUtils.createCircularReveal(rootLayout, cx, 0, 0, finalRadius);
+        circularReveal.setDuration(1600);
+
+        // make the view visible and start the animation
+        rootLayout.setVisibility(View.VISIBLE);
+        circularReveal.start();
+    }
+
 }
+
+
+
