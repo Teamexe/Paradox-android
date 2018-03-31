@@ -19,19 +19,21 @@ import com.exe.paradox.util.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
+import am.appwise.components.ni.NoInternetDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LeaderboardActivity extends AppCompatActivity {
 
+    NoInternetDialog noInternetDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_leaderboard);
         setSupportActionBar(toolbar);
-
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
@@ -56,5 +58,11 @@ public class LeaderboardActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
     }
 }

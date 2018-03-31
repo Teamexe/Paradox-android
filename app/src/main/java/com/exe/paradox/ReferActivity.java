@@ -16,6 +16,7 @@ import com.exe.paradox.api.rest.ApiInterface;
 import com.exe.paradox.util.Constants;
 import com.exe.paradox.util.Preferences;
 
+import am.appwise.components.ni.NoInternetDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,12 +24,14 @@ import retrofit2.Response;
 public class ReferActivity extends AppCompatActivity {
 
     TextView refTv;
+    NoInternetDialog noInternetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refer);
         refTv = findViewById(R.id.ref_tv);
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
         Button refCall = findViewById(R.id.submit);
         final GPlusFragment gPlusFragment = new GPlusFragment();
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -83,5 +86,11 @@ public class ReferActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
     }
 }
