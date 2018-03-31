@@ -122,8 +122,10 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
         acknowedgementResponseCall.enqueue(new Callback<AcknowedgementResponse>() {
             @Override
             public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
-                if (response.body().getMessage().matches("true") || response.body().getMessage().matches("Account already exists."))
-                    startActivity(new Intent(getContext(), HomeActivity.class));
+                if(response.isSuccessful()) {
+                    if (response.body().getMessage().matches("true") || response.body().getMessage().matches("Account already exists."))
+                        startActivity(new Intent(getContext(), HomeActivity.class));
+                }
             }
 
             @Override

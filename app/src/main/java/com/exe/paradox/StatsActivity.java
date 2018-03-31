@@ -62,8 +62,6 @@ public class StatsActivity extends AppCompatActivity {
 
                         dateOfRegTv.setText(profile.getRegTime().split(" ")[0]);
 
-                        Toast.makeText(StatsActivity.this, profile.getRegTime(), Toast.LENGTH_SHORT).show();
-
                         timeOfRegTv.setText(profile.getRegTime().split(" ")[1]);
 
                         levelTv.setText(profile.getLevel());
