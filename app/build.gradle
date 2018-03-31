@@ -24,6 +24,7 @@ repositories {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.12'
     implementation 'com.android.support:appcompat-v7:27.1.0'
     implementation 'com.android.support:support-dynamic-animation:27.1.0'
     compile 'com.github.DanielMartinus:Stepper-Touch:0.6'
