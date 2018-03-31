@@ -33,6 +33,7 @@ public class ReferActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refer);
         refTv = findViewById(R.id.ref_tv);
+        refCode = findViewById(R.id.ref_code);
         noInternetDialog = new NoInternetDialog.Builder(this).build();
         Button refCall = findViewById(R.id.submit);
         final GPlusFragment gPlusFragment = new GPlusFragment();
@@ -66,15 +67,16 @@ public class ReferActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<ReadOneResponse> call, Response<ReadOneResponse> response) {
                     Profile profile = response.body().getProfileData().get(0);
-                    Call<AcknowedgementResponse> acknowedgementResponseCall = apiService.submitReferral(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), googleID, profile.getRefCode());
+                    Call<AcknowedgementResponse> acknowedgementResponseCall = apiService.submitReferral(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), googleID, refCode.getText().toString());
                     acknowedgementResponseCall.enqueue(new Callback<AcknowedgementResponse>() {
                         @Override
                         public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
                             //Referral is a success
+                            Toast.makeText(ReferActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
                             if (response.body().getMessage() == null) {
-                                Toast.makeText(ReferActivity.this, "The maximum referrals allowed limit has been reached or the referral code is incorrect", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ReferActivity.this, "The maximum referrals allowed limit has been reached or the referral code is incorrect", Toast.LENGTH_LONG).show();
                             } else {
-                                Toast.makeText(ReferActivity.this, "Referral successfully added", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ReferActivity.this, "Referral successfully added", Toast.LENGTH_LONG).show();
                                 Preferences.seRef(ReferActivity.this, false);
                                 startActivity(new Intent(ReferActivity.this, HomeActivity.class));
                                 finish();
@@ -84,7 +86,7 @@ public class ReferActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<AcknowedgementResponse> call, Throwable t) {
                             //Referral failed
-                            Toast.makeText(ReferActivity.this, "The maximum referrals allowed limit has been reached or the referral code is incorrect", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ReferActivity.this, "The maximum referrals allowed limit has been reached or the referral code is incorrect", Toast.LENGTH_LONG).show();
                             onBackPressed();
                         }
                     });
@@ -99,11 +101,15 @@ public class ReferActivity extends AppCompatActivity {
     }
 
     private boolean validate() {
-        if (refTv.getText().toString().split(": ")[1].toLowerCase().matches(refCode.getText().toString().trim().toLowerCase())) {
-            Toast.makeText(ReferActivity.this, "You've to enter your FRIEND'S referral code not yours, Smartass!", Toast.LENGTH_SHORT).show();
+        if (refCode.getText() == null) {
+            Toast.makeText(ReferActivity.this, "Referral code not entered", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        else if (refTv.getText().toString().split(": ")[1].toLowerCase().matches(refCode.getText().toString().trim().toLowerCase())) {
+            Toast.makeText(ReferActivity.this, "You've to enter your FRIEND'S referral code not YOUR'S, Smartass!", Toast.LENGTH_LONG).show();
             return false;
         } else if (refCode.getText().toString().trim().length() == 0) {
-            Toast.makeText(ReferActivity.this, "Referral code not entered", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ReferActivity.this, "Referral code not entered", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;
