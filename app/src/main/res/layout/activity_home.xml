@@ -370,18 +370,6 @@
                 android:textSize="17sp"
                 android:visibility="gone" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="277dp"
-                android:fontFamily="psb"
-                android:text="More"
-                android:textColor="#333"
-                android:textSize="17sp"
-                android:visibility="gone" />
         </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView

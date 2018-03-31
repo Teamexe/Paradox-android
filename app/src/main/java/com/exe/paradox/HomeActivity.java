@@ -133,6 +133,31 @@ public class HomeActivity extends AppCompatActivity {
         FeaturedAdapter featuredAdapter = new FeaturedAdapter(this);
         featuredProjects.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         featuredProjects.setAdapter(featuredAdapter);
+
+        final String[] titlesFeatured = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+        final String[] descFeatured = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "fsdfwfsfafwef", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf", "ufdhsadflgsajf"};
+        final String[] linkFeatured = {"https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode"};
+
+        featuredProjects.addOnItemTouchListener(new RecyclerItemClickListener(HomeActivity.this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, final int position) {
+                final MaterialStyledDialog.Builder dialog = new MaterialStyledDialog.Builder(HomeActivity.this)
+                        .setHeaderDrawable(R.drawable.header)
+                        .setIcon(new IconicsDrawable(HomeActivity.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
+                        .withDialogAnimation(true)
+                        .setTitle(titlesFeatured[position])
+                        .setDescription(descFeatured[position])
+                        .setPositiveText("GitHub")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(linkFeatured[position])));
+                            }
+                        })
+                        .setNegativeText("Not now");
+                dialog.build().show();
+            }
+        }));
     }
 
     private void setAllListeners() {
