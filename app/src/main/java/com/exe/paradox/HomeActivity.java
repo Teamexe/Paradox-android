@@ -114,7 +114,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
-        int[] drawables = {R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6, R.drawable.u7, R.drawable.u8};
+        int[] drawables = {R.drawable.u7, R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6};
 
         ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
