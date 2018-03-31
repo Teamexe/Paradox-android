@@ -3,135 +3,42 @@ package com.exe.paradox;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 import com.example.GridViewScrollable;
-
+import com.exe.paradox.adapter.ProjectAdapter;
 
 
 public class MembersActivity extends AppCompatActivity {
-    String[] web = {
-            "1", "2", "3", "4", "5", "6", "7", "8", "9"
-
-    };
-    int[] imageId = {
-            R.drawable.u1,
-            R.drawable.u2,
-            R.drawable.u3,
-            R.drawable.u4,
-            R.drawable.u5,
-            R.drawable.u6,
-            R.drawable.u7,
-            R.drawable.u8,
-            R.drawable.bg_pager_indicator,
-
-    };
-    String[] web2 = {
-            "1", "2", "3", "4", "5", "6", "7", "8", "9"
-
-    };
-    int[] imageId2 = {
-            R.drawable.u1,
-            R.drawable.u2,
-            R.drawable.u3,
-            R.drawable.u4,
-            R.drawable.u5,
-            R.drawable.u6,
-            R.drawable.u7,
-            R.drawable.u8,
-            R.drawable.bg_pager_indicator,
-
-    };
-    String[] web3 = {
-            "1", "2", "3", "4", "5", "6", "7", "8", "9"
-
-    };
-    int[] imageId3 = {
-            R.drawable.u1,
-            R.drawable.u2,
-            R.drawable.u3,
-            R.drawable.u4,
-            R.drawable.u5,
-            R.drawable.u6,
-            R.drawable.u7,
-            R.drawable.u8,
-            R.drawable.bg_pager_indicator,
-
-    };
-    String[] web4 = {
-            "1", "2", "3", "4", "5", "6", "7", "8", "9"
-
-    };
-    int[] imageId4 = {
-            R.drawable.u1,
-            R.drawable.u2,
-            R.drawable.u3,
-            R.drawable.u4,
-            R.drawable.u5,
-            R.drawable.u6,
-            R.drawable.u7,
-            R.drawable.u8,
-            R.drawable.bg_pager_indicator,
-
-    };
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        GridViewScrollable grid;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_members);
+        RecyclerView mentor = findViewById(R.id.recv_mentor);
+        RecyclerView finalYear = findViewById(R.id.recv_final);
+        RecyclerView thirdYear = findViewById(R.id.recv_third);
+        RecyclerView secondYear = findViewById(R.id.recv_second);
+        RecyclerView firstYear = findViewById(R.id.recv_first);
 
-        MembersGridFill adapter = new MembersGridFill(MembersActivity.this, web, imageId);
-
-        grid = (GridViewScrollable) findViewById(R.id.grid1);
-        grid.setAdapter(adapter);
-        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(MembersActivity.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        MembersGridFill adapter2 = new MembersGridFill(MembersActivity.this, web, imageId2);
-        grid = (GridViewScrollable) findViewById(R.id.grid2);
-        grid.setAdapter(adapter2);
-        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(MembersActivity.this, "You Clicked at " + web2[+position], Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        MembersGridFill adapter3 = new MembersGridFill(MembersActivity.this, web3, imageId3);
-        grid = (GridViewScrollable) findViewById(R.id.grid3);
-        grid.setAdapter(adapter2);
-        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(MembersActivity.this, "You Clicked at " + web3[+position], Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        MembersGridFill adapter4 = new MembersGridFill(MembersActivity.this, web4, imageId4);
-        grid = (GridViewScrollable) findViewById(R.id.grid4);
-        grid.setAdapter(adapter4);
-        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(MembersActivity.this, "You Clicked at " + web4[+position], Toast.LENGTH_SHORT).show();
-
-            }
-        });
+        setAdapter(mentor);
+        setAdapter(finalYear);
+        setAdapter(thirdYear);
+        setAdapter(secondYear);
+        setAdapter(firstYear);
     }
 
+    private void setAdapter(RecyclerView recv) {
+        ProjectAdapter projectAdapter = new ProjectAdapter(this);
+        recv.setLayoutManager(new GridLayoutManager(MembersActivity.this, 3) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        });
+        recv.setAdapter(projectAdapter);
+    }
 }

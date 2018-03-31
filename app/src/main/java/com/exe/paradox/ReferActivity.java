@@ -14,6 +14,7 @@ import com.exe.paradox.api.response.ReadOneResponse;
 import com.exe.paradox.api.rest.ApiClient;
 import com.exe.paradox.api.rest.ApiInterface;
 import com.exe.paradox.util.Constants;
+import com.exe.paradox.util.Preferences;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -65,6 +66,7 @@ public class ReferActivity extends AppCompatActivity {
                     public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
                         //Referral is a success
                         Toast.makeText(ReferActivity.this, "Referral successfully added", Toast.LENGTH_SHORT).show();
+                        Preferences.seRef(ReferActivity.this, false);
                     }
 
                     @Override

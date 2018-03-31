@@ -33,6 +33,7 @@ import android.widget.TextView;
 import com.exe.paradox.adapter.FeaturedAdapter;
 import com.exe.paradox.adapter.HomeNavItemsAdapter;
 import com.exe.paradox.adapter.ProjectAdapter;
+import com.exe.paradox.util.Preferences;
 import com.github.florent37.parallax.ParallaxView;
 import com.github.florent37.parallax.ScrollView;
 import com.pixelcan.inkpageindicator.InkPageIndicator;
@@ -141,6 +142,10 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        if(!Preferences.getRef(this)) {
+            referral.setVisibility(View.GONE);
+        }
+
         referral.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,7 +171,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
-        int[] drawables = {R.drawable.u7, R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6};
+        int[] drawables = {R.drawable.hu7, R.drawable.hu1, R.drawable.hu2, R.drawable.hu3, R.drawable.hu4, R.drawable.hu5, R.drawable.hu6};
 
         ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
