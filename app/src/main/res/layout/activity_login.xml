@@ -9,12 +9,8 @@
     android:fitsSystemWindows="true"
     tools:context=".LoginActivity">
 
-  <!--  <pl.droidsonroids.gif.GifImageView
-        android:layout_width="match_parent"
 
-        android:layout_height="wrap_content"
-        android:src="@drawable/ppp"
-        />-->
+
   <ImageView
       android:layout_width="500dp"
       android:layout_height="500dp"
@@ -24,14 +20,6 @@
       android:layout_alignParentTop="true"
       android:src="@drawable/red_circle"/>
 
-  <com.sdsmdg.harjot.rotatingtext.RotatingTextWrapper
-  android:layout_centerHorizontal="true"
-      android:layout_marginTop="-64dp"
-      android:layout_marginLeft="32dp"
-      android:layout_centerInParent="true"
-      android:id="@+id/custom_switcher"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content" />
 
 
   <ImageView

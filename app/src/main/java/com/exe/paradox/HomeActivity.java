@@ -1,6 +1,7 @@
 package com.exe.paradox;
 
 import android.animation.Animator;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -12,6 +13,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,7 +44,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class HomeActivity extends AppCompatActivity {
 
     CircleImageView img;
-    TextView name;
+    TextView name,sign_out;
     LinearLayout rankings, paradox, stats, referral, members;
 
     @Override
@@ -90,6 +92,33 @@ public class HomeActivity extends AppCompatActivity {
 
         name = findViewById(R.id.title_name);
         img = findViewById(R.id.acc_img);
+        sign_out = findViewById(R.id.signout);
+
+       final  GPlusFragment gPlusFragment = new GPlusFragment();
+        sign_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(HomeActivity.this);
+                alertDialog.setTitle("Log out?");
+                alertDialog.setMessage("Do you really want to log out?");
+                alertDialog.setPositiveButton("Yes, get me out!", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //BECAUSE SIGN_IN TRIGGERS AT ONSTART() OF GPlusFragment so re-login will happen again and again
+                        gPlusFragment.signOut();
+                        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                        finish();
+                    }
+                });
+                alertDialog.setNegativeButton("I clicked it by mistake, Take me back :)", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                alertDialog.show();
+            }
+        });
 
         if (beta.getImg() != "null")
             Picasso.get().load(beta.getImg()).placeholder(R.drawable.user_icon).into(img);

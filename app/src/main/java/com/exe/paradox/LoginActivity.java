@@ -31,20 +31,6 @@ public class LoginActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragment_container);
 
-        Typeface font = Typeface.createFromAsset(this.getAssets(), "ps.ttf");
-        Typeface font1 = Typeface.createFromAsset(this.getAssets(), "psb.ttf");
-
-
-        RotatingTextWrapper rotatingTextWrapper = (RotatingTextWrapper) findViewById(R.id.custom_switcher);
-        rotatingTextWrapper.setSize(35);
-        rotatingTextWrapper.setTypeface(font);
-
-        Rotatable rotatable = new Rotatable(Color.parseColor("#FFA036"), 1000, " ","Fun","Tough", "Interesting", "All New", "Paradox 11.0");
-        rotatable.setSize(35);
-        rotatable.setAnimationDuration(500);
-        rotatable.setTypeface(font1);
-        rotatingTextWrapper.setContent("This is ?", rotatable);
-
         if (fragment == null) {
             fragment = new GPlusFragment();
             fm.beginTransaction()
