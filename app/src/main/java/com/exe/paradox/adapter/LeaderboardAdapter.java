@@ -5,8 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.exe.paradox.R;
+import com.exe.paradox.api.model.Leaderboard;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by shasha on 23/3/18.
@@ -14,9 +21,20 @@ import com.exe.paradox.R;
 
 public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewholder> {
     class LeaderboardViewholder extends RecyclerView.ViewHolder{
+        TextView level, name, score;
+        CircleImageView image;
         public LeaderboardViewholder(View itemView) {
             super(itemView);
+            level = itemView.findViewById(R.id.level);
+            name = itemView.findViewById(R.id.name);
+            score = itemView.findViewById(R.id.scoreTv);
+            image = itemView.findViewById(R.id.image);
         }
+    }
+
+    private List<Leaderboard> leaderboardList;
+    public LeaderboardAdapter(List<Leaderboard> leaderboardList) {
+        this.leaderboardList = leaderboardList;
     }
 
     @NonNull
@@ -27,11 +45,17 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull LeaderboardViewholder holder, int position) {
-
+        holder.name.setText(leaderboardList.get(position).getName());
+        if(leaderboardList.get(position).getScore() < 0)
+            holder.score.setText("0");
+        else
+            holder.score.setText(String.valueOf(leaderboardList.get(position).getScore()));
+        holder.level.setText(String.valueOf(leaderboardList.get(position).getLevel()));
+        Picasso.get().load(leaderboardList.get(position).getPicture()).placeholder(R.drawable.user_icon).into(holder.image);
     }
 
     @Override
     public int getItemCount() {
-        return 15;
+        return leaderboardList.size();
     }
 }

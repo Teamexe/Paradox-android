@@ -1,23 +1,19 @@
 package com.exe.paradox.api.response;
 
-import com.exe.paradox.api.model.Rank;
+import com.exe.paradox.api.model.Leaderboard;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by shasha on 26/3/18.
+ * Created by shasha on 29/3/18.
  */
 
 public class LeaderboardResponse {
     @SerializedName("records")
-    ArrayList<Rank> list;
+    List<Leaderboard> leaderboardList;
 
-    public ArrayList<Rank> getList() {
-        return list;
-    }
-
-    public void setList(ArrayList<Rank> list) {
-        this.list = list;
+    public List<Leaderboard> getLeaderboardList() {
+        return leaderboardList;
     }
 }

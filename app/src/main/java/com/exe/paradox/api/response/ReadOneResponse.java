@@ -1,23 +1,19 @@
 package com.exe.paradox.api.response;
 
-import com.exe.paradox.api.model.User;
+import com.exe.paradox.api.model.Profile;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by shasha on 26/3/18.
+ * Created by shasha on 29/3/18.
  */
 
 public class ReadOneResponse {
     @SerializedName("records")
-    ArrayList<User> list;
+    List<Profile> profileData;
 
-    public ArrayList<User> getList() {
-        return list;
-    }
-
-    public void setList(ArrayList<User> list) {
-        this.list = list;
+    public List<Profile> getProfileData() {
+        return profileData;
     }
 }

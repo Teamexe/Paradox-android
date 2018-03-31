@@ -14,7 +14,7 @@
         <RelativeLayout
             android:id="@+id/relative"
             android:gravity="center"
-            android:background="#c6ff00"
+            android:background="#eeff41"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
@@ -26,10 +26,10 @@
                 android:textSize="25dp"
                 android:textColor="#000"
                 android:layout_marginRight="16dp"
-android:gravity="end"
+                android:gravity="end"
                 android:id="@+id/h"
                 android:fontFamily="@font/ps"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="32dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,19 +46,36 @@ android:gravity="end"
                 android:layout_marginTop="16dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/h1"
+                android:layout_above="@id/h3"
                 android:text="wanna see the next hint?"
                 android:textColor="#000"
                 android:id="@+id/h2"
+                android:textAlignment="center"
                 android:clickable="true"
                 android:padding="8dp"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
-                android:layout_marginTop="32dp"
+
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/psi"
                 android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+android:textAlignment="center"
+                android:text="see previous hint"
+                android:textColor="#000"
+                android:id="@+id/h3"
+                android:layout_alignParentBottom="true"
+                android:clickable="true"
+                android:layout_marginBottom="16dp"
+                android:padding="8dp"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/psi"
+                android:textSize="15sp"/>
 
         </RelativeLayout>
 

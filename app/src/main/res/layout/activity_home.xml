@@ -1,140 +1,337 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.github.florent37.parallax.ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context="com.exe.paradox.HomeActivity">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_home"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
+            android:layout_height="700dp"
+            android:scaleX="3"
+            android:src="@drawable/red_circle"
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            android:translationY="-420dp" />
 
-                <TextView
-                    android:id="@+id/home_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/psb"
-                    android:text="Home"
-                    android:textColor="#df5a55"
-                    android:textSize="25sp" />
-            </RelativeLayout>
-        </android.support.v7.widget.Toolbar>
-        <!--Do not change above this-->
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/one"
+            android:scaleX="1"
+            android:src="@drawable/red_circle"
+            android:tag="parallax=-0.2"
+            android:translationX="150dp"
+            android:translationZ="-10dp" />
+
 
         <RelativeLayout
             android:id="@+id/pager_holder"
             android:layout_width="match_parent"
-            android:layout_height="180sp"
-            android:layout_below="@+id/toolbar_home"
-            android:background="@drawable/u1">
+            android:layout_marginTop="48dp"
+            android:layout_height="wrap_content"
+            android:tag="parallax=0.3">
+
+
+            <RelativeLayout
+                android:id="@+id/title_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="60dp"
+                    android:id="@+id/acc_img"
+                    android:layout_height="60dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="16dp"
+                    android:src="#fff" />
+
+
+                <TextView
+                    android:id="@+id/title_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/ps"
+                    android:textAllCaps="true"
+                    android:text="Sexy Bacha"
+                    android:textColor="#fff"
+                    android:textSize="25sp" />
+            </RelativeLayout>
 
             <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
-                android:layout_height="180sp" />
+                android:layout_height="220sp"
+                android:layout_below="@id/title_block"
+                android:layout_marginTop="16dp"
+                android:tag="parallax=0.5"
+                android:visibility="visible" />
 
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginBottom="3sp"
-                android:paddingTop="1sp"
                 android:paddingBottom="1sp"
                 android:paddingLeft="3sp"
                 android:paddingRight="3sp"
-                android:background="@drawable/bg_pager_indicator"
-                android:layout_centerHorizontal="true">
+                android:paddingTop="1sp">
 
                 <com.pixelcan.inkpageindicator.InkPageIndicator
                     android:id="@+id/indicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:ipi_animationDuration="320"
-                    app:ipi_currentPageIndicatorColor="@android:color/holo_red_light"
+                    app:ipi_currentPageIndicatorColor="#aaa"
                     app:ipi_dotDiameter="8dp"
                     app:ipi_dotGap="8dp"
-                    app:ipi_pageIndicatorColor="#FFF" />
+                    app:ipi_pageIndicatorColor="#eee" />
             </FrameLayout>
         </RelativeLayout>
 
-        <android.support.v7.widget.RecyclerView
+        <LinearLayout
             android:id="@+id/nav_recv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/pager_holder"
-            android:background="#efefef" />
+            android:layout_marginTop="16dp"
+            android:background="#fff"
+            android:scrollbars="none"
+            android:tag="parallax=-0.3"
+            android:translationZ="-10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/rankings_ll"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_default" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/ps"
+                        android:text="Rankings"
+                        android:singleLine="true"
+                        android:textColor="#333"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/paradox_ll"
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_default" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/ps"
+                        android:text="Paradox"
+                        android:textColor="#333"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/stats_ll"
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_default" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/ps"
+                        android:text="Stats"
+                        android:textColor="#333"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/referral_ll"
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_default" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/ps"
+                        android:text="Referral"
+                        android:textColor="#333"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/members_ll"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16sp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/user_default" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/ps"
+                        android:text="Members"
+                        android:singleLine="true"
+                        android:textColor="#333"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/two_tags_holder"
             android:layout_width="match_parent"
-            android:layout_height="100sp"
+            android:layout_height="110dp"
+            android:gravity="center"
             android:layout_below="@+id/nav_recv"
+            android:layout_marginBottom="16dp"
             android:layout_marginLeft="8sp"
             android:layout_marginRight="8sp"
             android:layout_marginTop="16sp"
-            android:background="#fff"
             android:orientation="horizontal">
 
             <!-- Confession website -->
 
             <android.support.v7.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginRight="8sp"
                 android:layout_weight="1"
-                app:cardCornerRadius="4sp"
-                app:cardElevation="8sp">
+                app:cardBackgroundColor="#fff"
+                app:cardCornerRadius="10sp"
+                >
 
                 <ImageView
+                    android:padding="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/one" />
+                    android:src="@drawable/u1" />
             </android.support.v7.widget.CardView>
 
             <!-- EXE website -->
 
             <android.support.v7.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:cardCornerRadius="4sp"
-                app:cardElevation="8sp">
+                app:cardBackgroundColor="#fff"
+                app:cardCornerRadius="10sp"
+               >
 
                 <ImageView
+                    android:padding="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/two" />
+                    android:src="@drawable/u3" />
             </android.support.v7.widget.CardView>
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/one"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:visibility="invisible"
+            android:layout_below="@id/two_tags_holder"
+            android:layout_margin="16dp"
+            android:background="#aaa" />
 
         <LinearLayout
             android:id="@+id/orange_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/two_tags_holder"
-            android:background="#FF8C1D"
+            android:layout_below="@+id/one"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="300sp"
-                android:layout_height="80sp"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/winter_sale" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/orange_holder"
+                android:layout_margin="16dp"
+                android:padding="8sp">
+
+                <TextView
+                    android:id="@+id/exe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/psb"
+                    android:text="EXE Projects"
+                    android:textAllCaps="true"
+                    android:textColor="#ff1744"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recv_orange"
@@ -147,36 +344,54 @@
         </LinearLayout>
 
         <RelativeLayout
+            android:id="@+id/tag_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8sp"
-            android:id="@+id/tag_holder"
             android:layout_below="@+id/orange_holder"
-            android:background="#efefef">
-            <TextView
-                android:layout_alignParentLeft="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:textColor="#000"
-                android:text="Featured Projects" />
+            android:layout_margin="16dp"
+            android:padding="8sp">
 
             <TextView
-                android:textColor="@android:color/holo_blue_light"
-                android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/psb"
+                android:text="Featured Projects"
+                android:textAllCaps="true"
+                android:textColor="#ff1744"
                 android:textSize="17sp"
-                android:textStyle="bold"
-                android:text="More" />
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:fontFamily="psb"
+                android:text="More"
+                android:textColor="#333"
+                android:textSize="17sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="277dp"
+                android:fontFamily="psb"
+                android:text="More"
+                android:textColor="#333"
+                android:textSize="17sp"
+                android:visibility="gone" />
         </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
             android:id="@+id/featured_projects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/tag_holder"
-            android:background="#efefef"
-            android:layout_height="wrap_content"/>
+            android:background="#fff" />
+
     </RelativeLayout>
-</android.support.v4.widget.NestedScrollView>
+</com.github.florent37.parallax.ScrollView>

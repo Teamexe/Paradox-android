@@ -1,5 +1,7 @@
 package com.exe.paradox;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +9,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.sdsmdg.harjot.rotatingtext.RotatingTextWrapper;
+import com.sdsmdg.harjot.rotatingtext.models.Rotatable;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -23,6 +28,19 @@ public class LoginActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragment_container);
 
+        Typeface font = Typeface.createFromAsset(this.getAssets(), "ps.ttf");
+        Typeface font1 = Typeface.createFromAsset(this.getAssets(), "psb.ttf");
+
+
+        RotatingTextWrapper rotatingTextWrapper = (RotatingTextWrapper) findViewById(R.id.custom_switcher);
+        rotatingTextWrapper.setSize(35);
+        rotatingTextWrapper.setTypeface(font);
+
+        Rotatable rotatable = new Rotatable(Color.parseColor("#FFA036"), 1000, " ","Fun","Tough", "Interesting", "All New", "Paradox 11.0");
+        rotatable.setSize(35);
+        rotatable.setAnimationDuration(500);
+        rotatable.setTypeface(font1);
+        rotatingTextWrapper.setContent("This is ?", rotatable);
 
         if (fragment == null) {
             fragment = new GPlusFragment();

@@ -1,33 +1,49 @@
 package com.exe.paradox.api.rest;
 
-import com.exe.paradox.api.model.CreateNew;
-import com.exe.paradox.api.model.Referral;
+import com.exe.paradox.api.response.AcknowedgementResponse;
 import com.exe.paradox.api.response.HintResponse;
 import com.exe.paradox.api.response.LeaderboardResponse;
+import com.exe.paradox.api.response.LevelResponse;
 import com.exe.paradox.api.response.ReadOneResponse;
 
 import retrofit2.Call;
-import retrofit2.http.GET;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
-
-/**
- * Created by shasha on 26/3/18.
- */
 
 public interface ApiInterface {
-    @GET("hints/read.php")
-    Call<HintResponse> getHints(@Query("level") int level);
+    //READ HINTS
+    @POST("hints/read.php")
+    @FormUrlEncoded
+    Call<HintResponse> getHints(@Field("level") int level, @Field("live_token") String token, @Field("req_type") int type);
 
-    @GET("profile/read.php")
-    Call<LeaderboardResponse> getLeaderboard();
+    //READ ONE
+    @POST("profile/read_one.php")
+    @FormUrlEncoded
+    Call<ReadOneResponse> getProfile(@Field("google_id") String googleId, @Field("req_type") int type, @Field("live_token") String token);
 
-    @GET("profile/read_one.php")
-    Call<ReadOneResponse> getUser(@Query("google_id") String googleId);
+    //SUBMIT AN ANSWER
+    @POST("profile/ans_submit.php")
+    @FormUrlEncoded
+    Call<AcknowedgementResponse> submitAnswer(@Field("live_token") String liveToken, @Field("req_type") String reqType, @Field("level") String level, @Field("answer") String answer, @Field("google_id") String googleId);
 
+    //READ LEADERBOARD
+    @POST("profile/read.php")
+    @FormUrlEncoded
+    Call<LeaderboardResponse> getLeaderboard(@Field("live_token") String liveToken, @Field("req_type") int type);
+
+    //RESPONSE FOR CREATING A NEW ACCOUNT
     @POST("users/create_new.php")
-    Call<CreateNew> getResponse(@Query("google_id") String googleId, @Query("name") String name, @Query("email") String email, @Query("gplus_link") String gPlusLink, @Query("picture") String pic);
+    @FormUrlEncoded
+    Call<AcknowedgementResponse> createProfile(@Field("live_token") String liveToken, @Field("req_type") String req_type, @Field("google_id") String googleId, @Field("name") String name, @Field("email") String email, @Field("picture") String picture);
 
+    //REFERRAL SUBMISSION
     @POST("referral/refer_by.php")
-    Call<Referral> getResponse(@Query("google_id") String googleId, @Query("ref_code") String refCode);
+    @FormUrlEncoded
+    Call<AcknowedgementResponse> submitReferral(@Field("live_token") String liveToken, @Field("req_type") String reqType, @Field("google_id") String googleId, @Field("ref_code") String refCode);
+
+    //FETCHING LEVEL IMAGE
+    @POST("questions/read_level.php")
+    @FormUrlEncoded
+    Call<LevelResponse> getLevelResponse(@Field("live_token") String liveToken, @Field("req_type") String reqType, @Field("level") String level);
 }
