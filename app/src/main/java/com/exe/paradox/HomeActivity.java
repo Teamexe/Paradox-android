@@ -147,7 +147,7 @@ public class HomeActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return new MyFragment(drawables[position]);
+            return new MyFragment(drawables[position], position);
         }
 
         @Override

@@ -29,10 +29,10 @@
                 android:src="@drawable/user_default" />
 
             <TextView
+                android:id="@+id/level"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignParentBottom="true"
-
                 android:layout_alignParentRight="true"
                 android:elevation="4dp"
                 android:fontFamily="@font/psb"
@@ -83,14 +83,12 @@
                 android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/scoreTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/psb"
                 android:text="523"
-
                 android:textColor="#fff"
-
-
                 android:textSize="20sp" />
         </LinearLayout>
     </RelativeLayout>

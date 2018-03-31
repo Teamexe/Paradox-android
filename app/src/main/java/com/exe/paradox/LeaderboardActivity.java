@@ -9,11 +9,15 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.exe.paradox.adapter.LeaderboardAdapter;
+import com.exe.paradox.api.model.Leaderboard;
 import com.exe.paradox.api.response.HintResponse;
 import com.exe.paradox.api.response.LeaderboardResponse;
 import com.exe.paradox.api.rest.ApiClient;
 import com.exe.paradox.api.rest.ApiInterface;
 import com.exe.paradox.util.Constants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,12 +31,7 @@ public class LeaderboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_leaderboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_leaderboard);
         setSupportActionBar(toolbar);
-        RecyclerView recyclerView = findViewById(R.id.recv_leaderboard);
 
-        recyclerView.setFocusable(false);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new LeaderboardAdapter());
-        recyclerView.setNestedScrollingEnabled(false);
 
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
@@ -41,12 +40,14 @@ public class LeaderboardActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LeaderboardResponse> call, Response<LeaderboardResponse> response) {
                 if(response.isSuccessful()) {
-                    Log.d(getClass().getSimpleName(), ""+response.body().getLeaderboardList().size());
-                    Toast.makeText(LeaderboardActivity.this, String.valueOf(
-                            response.body().getLeaderboardList().get(0).getName()
-                            +"/"+response.body().getLeaderboardList().get(0).getLevel()
-                            +"/"+response.body().getLeaderboardList().get(0).getPicture()),
-                            Toast.LENGTH_SHORT).show();
+                    List<Leaderboard> ranks = response.body().getLeaderboardList();
+                    LeaderboardAdapter leaderboardAdapter = new LeaderboardAdapter(ranks);
+                    RecyclerView recyclerView = findViewById(R.id.recv_leaderboard);
+
+                    recyclerView.setFocusable(false);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(LeaderboardActivity.this));
+                    recyclerView.setAdapter(leaderboardAdapter);
+                    recyclerView.setNestedScrollingEnabled(false);
                 }
             }
 
