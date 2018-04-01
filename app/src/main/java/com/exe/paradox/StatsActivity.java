@@ -1,9 +1,13 @@
 package com.exe.paradox;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import com.exe.paradox.api.model.Profile;
@@ -46,9 +50,23 @@ public class StatsActivity extends AppCompatActivity {
             public void onResponse(Call<ReadOneResponse> call, Response<ReadOneResponse> response) {
                 if (response.isSuccessful()) {
                     if (response.body().getProfileData().size() > 0) {
-                        Profile profile = response.body().getProfileData().get(0);
+                        final Profile profile = response.body().getProfileData().get(0);
 
                         Picasso.get().load(gPlusFragment.getImg()).placeholder(R.drawable.user_icon).into(circleImageView);
+                        circleImageView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(StatsActivity.this, DpActivity.class).putExtra(Intent.EXTRA_TEXT, profile.getPictureUrl());
+                                String transitionName = getString(R.string.transition_string);
+                                View viewStart = circleImageView;
+                                ActivityOptionsCompat options =
+                                        ActivityOptionsCompat.makeSceneTransitionAnimation(StatsActivity.this,
+                                                viewStart,
+                                                transitionName
+                                        );
+                                ActivityCompat.startActivity(StatsActivity.this, intent, options.toBundle());
+                            }
+                        });
 
                         nameTv.setText(gPlusFragment.getDisplayName());
                         emailTv.setText(gPlusFragment.getEmail());
@@ -60,7 +78,7 @@ public class StatsActivity extends AppCompatActivity {
 
                         dateOfRegTv.setText(profile.getRegTime().split(" ")[0]);
 
-                        timeOfRegTv.setText(profile.getRegTime().split(" ")[1].split(":")[0] + profile.getRegTime().split(" ")[1].split(":")[1]);
+                        timeOfRegTv.setText(profile.getRegTime().split(" ")[1].split(":")[0] +":"+ profile.getRegTime().split(" ")[1].split(":")[1]);
 
                         levelTv.setText(profile.getLevel());
 

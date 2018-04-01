@@ -337,7 +337,7 @@
                     android:fontFamily="@font/psb"
                     android:text="EXE Projects"
                     android:textAllCaps="true"
-                    android:textColor="#ff1744"
+                    android:textColor="#00aeef"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -368,7 +368,7 @@
                 android:fontFamily="@font/psb"
                 android:text="Featured Projects"
                 android:textAllCaps="true"
-                android:textColor="#ff1744"
+                android:textColor="#00aeef"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 

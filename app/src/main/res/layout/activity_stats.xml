@@ -54,6 +54,7 @@
                         android:id="@+id/profile_pic"
                         android:layout_width="80sp"
                         android:layout_height="80sp"
+                        android:transitionName="@string/transition_string"
                         android:layout_centerVertical="true"
                         android:src="@mipmap/ic_launcher" />
 
