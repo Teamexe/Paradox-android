@@ -1,6 +1,7 @@
 package com.exe.paradox.api.rest;
 
 import com.exe.paradox.api.response.AcknowedgementResponse;
+import com.exe.paradox.api.response.GeneralResponse;
 import com.exe.paradox.api.response.HintResponse;
 import com.exe.paradox.api.response.LeaderboardResponse;
 import com.exe.paradox.api.response.LevelResponse;
@@ -53,7 +54,7 @@ public interface ApiInterface {
     @FormUrlEncoded
     Call<ReferralResponse>  getReferralData(@Field("live_token") String liveToken, @Field("req_type") String reqType, @Field("google_id") String googleId);
 
-//    @POST("users/num_user.php")
-//    @FormUrlEncoded
-//    Call<>
+    @POST("users/num_user.php")
+    @FormUrlEncoded
+    Call<GeneralResponse> getGeneralData(@Field("live_token") String liveToken, @Field("req_type") String reqType);
 }
