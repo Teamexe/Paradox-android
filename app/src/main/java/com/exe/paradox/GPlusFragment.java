@@ -1,7 +1,9 @@
 package com.exe.paradox;
 
 import android.app.ProgressDialog;
+import android.content.AsyncQueryHandler;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -16,6 +18,7 @@ import com.exe.paradox.api.response.AcknowedgementResponse;
 import com.exe.paradox.api.rest.ApiClient;
 import com.exe.paradox.api.rest.ApiInterface;
 import com.exe.paradox.util.Constants;
+import com.exe.paradox.util.Typewriter;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -89,6 +92,14 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
             }
 
         });
+        Typewriter typewriter = v.findViewById(R.id.paradox_tag);
+        Typewriter by = v.findViewById(R.id.by_tag);
+        by.setText("");
+        by.setCharacterDelay(400);
+        typewriter.setText("");
+        typewriter.setCharacterDelay(150);
+        typewriter.animateText("Paradox");
+        by.animateText("by");
         return v;
     }
 
@@ -123,8 +134,10 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
             @Override
             public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
                 if(response.isSuccessful()) {
-                    if (response.body().getMessage().matches("true") || response.body().getMessage().matches("Account already exists."))
+                    if (response.body().getMessage().matches("true") || response.body().getMessage().matches("Account already exists.")) {
                         startActivity(new Intent(getContext(), HomeActivity.class));
+                        getActivity().finish();
+                    }
                 }
             }
 
@@ -143,7 +156,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
                     appLoginIn();
                 }
             };
-            handler.postDelayed(r, 2000);
+            handler.postDelayed(r, 1000);
             signInButton.setVisibility(View.GONE);
         } else {
             imgProfilePic = "null";

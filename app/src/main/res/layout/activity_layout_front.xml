@@ -8,7 +8,7 @@
     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
@@ -59,9 +59,18 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/t3"
                 android:layout_margin="16dp"
+                android:id="@+id/e4"
                 android:fontFamily="@font/ps"
                 android:hint="Answer Here"
                 android:textAlignment="center" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Submit"
+                android:id="@+id/submit"
+                android:layout_below="@id/e4" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

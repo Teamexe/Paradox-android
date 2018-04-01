@@ -87,7 +87,14 @@ public class LeaderboardActivity extends AppCompatActivity {
     }
 
     private void setValues(TextView name, TextView level, TextView score, ImageView image, Leaderboard leaderboard) {
-        name.setText(leaderboard.getName());
+        String nameValue = "";
+        if(leaderboard.getName().length()>12) {
+            nameValue = leaderboard.getName().substring(0, 11)+"...";
+        }
+        else
+            nameValue = leaderboard.getName();
+
+        name.setText(nameValue);
         level.setText(String.valueOf(leaderboard.getLevel()));
         if(leaderboard.getScore() >= 0)
             score.setText(String.valueOf(leaderboard.getScore()));

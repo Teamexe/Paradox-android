@@ -146,6 +146,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/ps"
+                        android:gravity="center"
                         android:text="Rankings"
                         android:singleLine="true"
                         android:textColor="#333"

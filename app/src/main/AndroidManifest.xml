@@ -11,9 +11,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        tools:replace="android:theme"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Transparent">
@@ -23,17 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".QuestionActivity" />
-        <activity android:name=".LeaderboardActivity"/>
+        <activity android:name=".LeaderboardActivity" />
         <activity android:name=".ReferActivity" />
         <activity android:name=".layout_back" />
         <activity android:name=".layout_front" />
-        <activity android:name=".StatsActivity"/>
+        <activity android:name=".StatsActivity" />
         <activity android:name=".MembersActivity" />
-
+        <activity android:name=".IntroductionActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -5,6 +5,59 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <com.exe.paradox.util.Typewriter
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paradox"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/by_tag"
+        android:textSize="70sp"
+        android:id="@+id/paradox_tag"
+        android:fontFamily="@font/psb" />
+
+    <com.exe.paradox.util.Typewriter
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="by"
+        android:textSize="70sp"
+        android:fontFamily="@font/psb"
+        android:id="@+id/by_tag"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/one"
+        android:layout_toLeftOf="@+id/two"
+        android:textSize="70sp"
+        android:fontFamily="@font/psb"
+        android:text=".e"
+        android:layout_below="@+id/by_tag"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/by_tag"
+        android:id="@+id/two"
+        android:textSize="70sp"
+        android:fontFamily="@font/psb"
+        android:textColor="@android:color/holo_blue_bright"
+        android:text="X"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/two"
+        android:id="@+id/three"
+        android:textSize="70sp"
+        android:fontFamily="@font/psb"
+        android:text="e"
+        android:layout_below="@+id/by_tag"
+        />
+
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="match_parent"
