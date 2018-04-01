@@ -27,7 +27,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/psb"
                     android:text="Stats"
-                    android:textColor="#dd6495"
+                    android:textColor="#00aeef"
                     android:textSize="25sp" />
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
@@ -54,6 +54,7 @@
                         android:id="@+id/profile_pic"
                         android:layout_width="80sp"
                         android:layout_height="80sp"
+                        android:transitionName="@string/transition_string"
                         android:layout_centerVertical="true"
                         android:src="@mipmap/ic_launcher" />
 
