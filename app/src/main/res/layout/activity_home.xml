@@ -275,6 +275,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="8sp"
                 android:layout_weight="1"
+                android:id="@+id/paradox_site"
                 app:cardBackgroundColor="#fff"
                 app:cardCornerRadius="10sp">
 
@@ -291,6 +292,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:id="@+id/exe_site"
                 app:cardBackgroundColor="#fff"
                 app:cardCornerRadius="10sp">
 

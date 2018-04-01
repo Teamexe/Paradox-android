@@ -15,6 +15,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -60,6 +61,7 @@ public class HomeActivity extends AppCompatActivity {
     LinearLayout rankings, paradox, stats, referral, members;
     GPlusFragment beta;
     List<Event> events;
+    CardView paradoxSite, exeSite;
     List<Project> projectsFeatured, projectsExe;
 
     @Override
@@ -71,7 +73,24 @@ public class HomeActivity extends AppCompatActivity {
         projectsFeatured = new ArrayList<>();
         projectsExe = new ArrayList<>();
         events = new ArrayList<>();
+        paradoxSite = findViewById(R.id.paradox_site);
+        exeSite = findViewById(R.id.exe_site);
         populateDrawables();
+
+        paradoxSite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://exe/nith.ac.in/paradox")));
+            }
+        });
+
+        exeSite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://exe/nith.ac.in")));
+            }
+        });
+
         if (savedInstanceState == null) {
             rootLayout.setVisibility(View.INVISIBLE);
 
@@ -82,12 +101,7 @@ public class HomeActivity extends AppCompatActivity {
                     public void onGlobalLayout() {
                         ScrollView rootLayout = (ScrollView) findViewById(R.id.holder);
                         enterReveal();
-
-                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-                            rootLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                        } else {
-                            rootLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                        }
+                        rootLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
                 });
             }
@@ -208,7 +222,7 @@ public class HomeActivity extends AppCompatActivity {
         int drawables[] = {R.drawable.hu1, R.drawable.hu2, R.drawable.hu3, R.drawable.hu4, R.drawable.hu5, R.drawable.hu6, R.drawable.hu7};
         String titles[] = {"One", "Two", "Three", "Four", "Five", "Six", "Seven"};
         String desc[] = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf", "ufdhsadflgsajf"};
-        for(int i=0; i<titles.length; i++) {
+        for (int i = 0; i < titles.length; i++) {
             events.add(new Event(titles[i], desc[i], drawables[i]));
         }
         Collections.shuffle(events);

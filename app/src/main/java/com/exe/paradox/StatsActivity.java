@@ -62,7 +62,7 @@ public class StatsActivity extends AppCompatActivity {
 
                         dateOfRegTv.setText(profile.getRegTime().split(" ")[0]);
 
-                        timeOfRegTv.setText(profile.getRegTime().split(" ")[1]);
+                        timeOfRegTv.setText(profile.getRegTime().split(" ")[1].split(":")[0]+profile.getRegTime().split(" ")[1].split(":")[1]);
 
                         levelTv.setText(profile.getLevel());
 

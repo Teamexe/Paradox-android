@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +21,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.exe.paradox.api.model.Hints;
 import com.exe.paradox.api.model.Profile;
 import com.exe.paradox.api.response.AcknowedgementResponse;
@@ -51,6 +52,7 @@ public class QuestionActivity extends AppCompatActivity {
     public ImageView imageView;
     Button submitButton;
     EditText answer;
+    public static String url;
     TextView hint_number, hint_text, hint_next, hint_prev, t3;
     NoInternetDialog noInternetDialog;
     NestedScrollView parent;
@@ -68,9 +70,10 @@ public class QuestionActivity extends AppCompatActivity {
         hint_text = findViewById(R.id.h1);
         hint_next = findViewById(R.id.h2);
         hint_prev = findViewById(R.id.h3);
+        hint_prev.setVisibility(View.INVISIBLE);
         imageView = findViewById(R.id.i1);
         final ProgressBar pBar = findViewById(R.id.pBar);
-        pBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this, R.color.blue), PorterDuff.Mode.SRC_IN );
+        pBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this, R.color.blue), PorterDuff.Mode.SRC_IN);
         parent = findViewById(R.id.parent_question);
         submitButton = findViewById(R.id.submit);
         final EasyFlipView flip = findViewById(R.id.flip);
@@ -125,8 +128,9 @@ public class QuestionActivity extends AppCompatActivity {
                             levelResponseCall.enqueue(new Callback<LevelResponse>() {
                                 @Override
                                 public void onResponse(@NonNull Call<LevelResponse> call, @NonNull Response<LevelResponse> response) {
-                                    if (response.body().getLevelUrlList().size() > 0)
-                                        Picasso.get().load(response.body().getLevelUrlList().get(0).getUrl()).into(imageView, new com.squareup.picasso.Callback() {
+                                    if (response.body().getLevelUrlList().size() > 0) {
+                                        url = "http://exe.nith.ac.in/paradox" + response.body().getLevelUrlList().get(0).getUrl();
+                                        Picasso.get().load("http://exe.nith.ac.in/paradox" + response.body().getLevelUrlList().get(0).getUrl()).into(imageView, new com.squareup.picasso.Callback() {
                                             @Override
                                             public void onSuccess() {
                                                 pBar.setVisibility(View.GONE);
@@ -137,7 +141,7 @@ public class QuestionActivity extends AppCompatActivity {
 
                                             }
                                         });
-                                    else {
+                                    } else {
                                         Toast.makeText(QuestionActivity.this, "No more questions available for now", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(QuestionActivity.this, HomeActivity.class));
                                         finish();
@@ -217,6 +221,7 @@ public class QuestionActivity extends AppCompatActivity {
                         hint_text.startAnimation(animObj);
                         hint_number.setText("HINT NO " + Integer.toString(hint_count));
                         hint_text.setText(hint2);
+                        hint_prev.setVisibility(View.VISIBLE);
                         break;
                     case 2:
                         hint_count = 3;
@@ -233,6 +238,7 @@ public class QuestionActivity extends AppCompatActivity {
                 }
             }
         });
+
         hint_prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -255,6 +261,7 @@ public class QuestionActivity extends AppCompatActivity {
                         hint_text.startAnimation(animObj1);
                         hint_number.setText("HINT NO " + Integer.toString(hint_count));
                         hint_text.setText(hint1);
+                        hint_prev.setVisibility(View.INVISIBLE);
                         break;
                     default:    //Toast.makeText(QuestionActivity.this, "No more hint left!!", Toast.LENGTH_SHORT).show();
 
@@ -263,6 +270,20 @@ public class QuestionActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void animateIntent(View v) {
+        if (url != null) {
+            Intent intent = new Intent(QuestionActivity.this, ImageZoomActivity.class);
+            String transitionName = getString(R.string.transition_string);
+            View viewStart = findViewById(R.id.i1);
+            ActivityOptionsCompat options =
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(QuestionActivity.this,
+                            viewStart,
+                            transitionName
+                    );
+            ActivityCompat.startActivity(QuestionActivity.this, intent, options.toBundle());
+        }
     }
 
     private void submitAnswer(Call<ReadOneResponse> responseCall, final ApiInterface apiService, final GPlusFragment gPlusFragment) {

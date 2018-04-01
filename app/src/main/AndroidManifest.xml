@@ -31,8 +31,8 @@
         <activity android:name=".LayoutFrontCardFlip" />
         <activity android:name=".StatsActivity" />
         <activity android:name=".MembersActivity" />
-        <activity android:name=".IntroductionActivity">
-        </activity>
+        <activity android:name=".IntroductionActivity"></activity>
+        <activity android:name=".ImageZoomActivity"></activity>
     </application>
 
 </manifest>
