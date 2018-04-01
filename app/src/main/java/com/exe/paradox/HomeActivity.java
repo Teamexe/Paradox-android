@@ -68,10 +68,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow(); // in Activity's onCreate() for instance
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
         noInternetDialog = new NoInternetDialog.Builder(this).build();
         ScrollView rootLayout = (ScrollView) findViewById(R.id.holder);
         projectsFeatured = new ArrayList<>();
@@ -309,9 +305,9 @@ public class HomeActivity extends AppCompatActivity {
         // create the animator for this view (the start radius is zero)
         Animator circularReveal = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            circularReveal = ViewAnimationUtils.createCircularReveal(rootLayout, cx, 0, 0, finalRadius*2);
+            circularReveal = ViewAnimationUtils.createCircularReveal(rootLayout, cx, 0, 0, finalRadius);
         }
-        circularReveal.setDuration(1000);
+        circularReveal.setDuration(1600);
 
         // make the view visible and start the animation
         rootLayout.setVisibility(View.VISIBLE);
@@ -319,27 +315,13 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private List<Project> populateFeatured(List<Project> projects) {
-        final String[] titlesFeatured = {"Amahi", "VLC", "Wine", "Kodi", "Mozilla", "Libre", "WordPress", "Gnome"};
-        final String[] descFeatured = {"Amahi is software that runs on a dedicated PC as a central computer for your home. It handles your entertainment, storage, and computing needs. You can store, organize and deliver your recorded TV shows, videos and music to media devices in your network.",
-                                        "VLC media player (commonly known as VLC) is a free and open-source, portable and cross-platform media player and streaming media server developed by the VideoLAN project. VLC is available for desktop operating systems and mobile platforms, such as Android, iOS, Tizen, Windows 10 Mobile and Windows Phone.",
-                                        "Wine (recursive backronym for Wine Is Not an Emulator) is a free and open-source compatibility layer that aims to allow computer programs (application software and computer games) developed for Microsoft Windows to run on Unix-like operating systems. Wine also provides a software library, known as Winelib, against which developers can compile Windows applications to help port them to Unix-like systems.",
-                                        "Kodi (formerly XBMC) is a free and open-source media player software application developed by the XBMC Foundation, a non-profit technology consortium.[6] Kodi is available for multiple operating systems and hardware platforms, with a software 10-foot user interface for use with televisions and remote controls. It allows users to play and view most streaming media, such as videos, music, podcasts, and videos from the Internet, as well as all common digital media files from local and network storage media.",
-                                        "Mozilla (stylized as moz://a) is a free software community founded in 1998 by members of Netscape. The Mozilla community uses, develops, spreads and supports Mozilla products, thereby promoting exclusively free software and open standards, with only minor exceptions.[1] The community is supported institutionally by the not-for-profit Mozilla Foundation and its tax-paying subsidiary, the Mozilla Corporation.",
-                                        "LibreOffice is a free and open source office suite, a project of The Document Foundation. It was forked from OpenOffice.org in 2010, which was an open-sourced version of the earlier StarOffice. The LibreOffice suite comprises programs for word processing, the creation and editing of spreadsheets, slideshows, diagrams and drawings, working with databases, and composing mathematical formulae.",
-                                        "WordPress is a free and open-source content management system (CMS) based on PHP and MySQL.[4] To function, WordPress has to be installed on a web server, which would either be part of an Internet hosting service or a network host in its own right. An example of the first scenario may be a service like WordPress.com, and the second case could be a computer running the software package WordPress.org.",
-                                        "GNOME was originally an acronym for GNU Network Object Model Environment but the acronym was dropped because it no longer reflected the vision of the GNOME project."};
-        final String[] linkFeatured = {"https://github.com/amahi", "https://github.com/videolan", "https://github.com/wine-mirror/wine", "https://github.com/xbmc", "https://github.com/mozilla", "https://github.com/LibreOffice", "https://github.com/wordpress", "https://github.com/GNOME"};
-        final String[] linkDrawable = {"https://therevise.com/wp-content/uploads/2017/11/amahi-dice-77a6485901684f2cdd23567f79257cecf3fa4399e5c4aaa16a3efa4685489416.png",
-                                        "https://store-images.microsoft.com/image/apps.46941.9007199267003443.3d957046-8905-49de-bf30-878f1e27537c.2f6f059b-de17-469c-8fc6-8a6d879ff523?w=180&h=180&q=60",
-                                        "https://upload.wikimedia.org/wikipedia/commons/e/ed/WINE-logo.png",
-                                        "https://store-images.s-microsoft.com/image/apps.8345.13510798887593391.9280eebd-4ccf-40e5-93dc-49e5bce69c2b.35851374-4403-43e1-b268-f52f1f1a80a3?w=180&h=180&q=60",
-                                        "https://fthmb.tqn.com/YPbxL6pQesGz4wCeWgShkG7Fn_I=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Firefox-logo-56a0c3773df78cafdaa4cdef.jpg",
-                                        "https://image.freepik.com/free-icon/libreoffice-logo_318-40194.jpg",
-                                        "https://appp-wpengine.netdna-ssl.com/wp-content/uploads/2014/01/wordpress-logo-300.jpg",
-                                        "https://www.culturacuantica.com.ar/wp-content/uploads/gnome-logo.jpg"};
+        final String[] titlesFeatured = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"};
+        final String[] descFeatured = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf", "ufdhsadflgsajf"};
+        final String[] linkFeatured = {"https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode"};
+        final int[] drawables = {R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6, R.drawable.u7, R.drawable.u1};
 
         for (int i = 0; i < titlesFeatured.length; i++) {
-            Project project = new Project(titlesFeatured[i], descFeatured[i], linkFeatured[i], linkDrawable[i]);
+            Project project = new Project(titlesFeatured[i], descFeatured[i], linkFeatured[i], drawables[i]);
             projects.add(project);
         }
         Collections.shuffle(projects);
@@ -347,13 +329,12 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private List<Project> getProjectsExe(List<Project> projects) {
-        final String[] titlesExe = {"NITH Chatbot", "Online Outpass System", "Arduino Based Fighting Robot", "Self-Playing Mario Bot", "Sophisticated Polling Application", "Exeplore", "VR-Based Multiplayer Application", "Automated Invigilator Duty Scheduler"};
+        final String[] titlesExe = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"};
         final String[] descExe = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "fsdfwfsfafwef", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf"};
         final String[] linkExe = {"https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode"};
-        final String[] linkDrawable = {"http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png"};
-
+        final int[] drawables = {R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6, R.drawable.u7, R.drawable.u1};
         for (int i = 0; i < titlesExe.length; i++) {
-            Project project = new Project(titlesExe[i], descExe[i], linkExe[i], linkDrawable[i]);
+            Project project = new Project(titlesExe[i], descExe[i], linkExe[i], drawables[i]);
             projects.add(project);
         }
         Collections.shuffle(projects);

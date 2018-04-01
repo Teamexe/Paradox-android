@@ -1,7 +1,5 @@
 package com.exe.paradox;
 
-import android.animation.Animator;
-import android.os.Build;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -11,13 +9,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewAnimationUtils;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.exe.paradox.adapter.LeaderboardAdapter;
 import com.exe.paradox.api.model.Leaderboard;
 import com.exe.paradox.api.response.LeaderboardResponse;
@@ -39,41 +33,12 @@ public class LeaderboardActivity extends AppCompatActivity {
     NoInternetDialog noInternetDialog;
     TextView name1, level1, score1, name2, level2, score2, name3, level3, score3;
     ImageView img1, img2, img3;
-
-    RelativeLayout rootLayout;
-
     public static String url1, url2, url3;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow(); // in Activity's onCreate() for instance
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
-        rootLayout = findViewById(R.id.lroot);
-
-        if (savedInstanceState == null) {
-            rootLayout.setVisibility(View.INVISIBLE);
-
-            ViewTreeObserver viewTreeObserver = rootLayout.getViewTreeObserver();
-            if (viewTreeObserver.isAlive()) {
-                viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                    @Override
-                    public void onGlobalLayout() {
-                        circularRevealActivity();
-                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-                            rootLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                        } else {
-                            rootLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-
-                        }
-                    }
-                });
-            }
-        }
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_leaderboard);
         setSupportActionBar(toolbar);
         noInternetDialog = new NoInternetDialog.Builder(this).build();
@@ -166,74 +131,13 @@ public class LeaderboardActivity extends AppCompatActivity {
     }
 
     private void setValues(TextView name, TextView level, TextView score, ImageView image, Leaderboard leaderboard) {
-
         name.setText(leaderboard.getName().split(" ")[0]);
-
         level.setText(String.valueOf(leaderboard.getLevel()));
         if (leaderboard.getScore() >= 0)
             score.setText(String.valueOf(leaderboard.getScore()));
         else
             score.setText(String.valueOf("0"));
         Picasso.get().load(leaderboard.getPicture()).placeholder(R.drawable.user_icon).into(image);
-    }
-
-    private void circularRevealActivity() {
-
-        int cx = rootLayout.getWidth() / 2;
-        int cy = rootLayout.getHeight() / 2;
-
-        float finalRadius = Math.max(rootLayout.getWidth(), rootLayout.getHeight());
-
-        // create the animator for this view (the start radius is zero)
-        Animator circularReveal = ViewAnimationUtils.createCircularReveal(rootLayout, cx, 0, 0, finalRadius * 2);
-        circularReveal.setDuration(1000);
-
-        // make the view visible and start the animation
-        rootLayout.setVisibility(View.VISIBLE);
-        circularReveal.start();
-    }
-
-    private void backCircular() {
-
-        int cx = rootLayout.getWidth() / 2;
-        int cy = rootLayout.getHeight() / 2;
-
-        float finalRadius = Math.max(rootLayout.getWidth(), rootLayout.getHeight());
-
-        // create the animator for this view (the start radius is zero)
-        Animator circularReveal = ViewAnimationUtils.createCircularReveal(rootLayout, cx, 0, finalRadius * 2, 0);
-        circularReveal.setDuration(1000);
-
-        // make the view visible and start the animation
-        circularReveal.start();
-        circularReveal.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                rootLayout.setVisibility(View.INVISIBLE);
-
-                finish();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
-    }
-
-    @Override
-    public void onBackPressed() {
-        backCircular();
     }
 
     @Override

@@ -5,19 +5,12 @@
     android:id="@+id/parent_question"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/qroot"
     android:background="#eee"
     tools:context="com.exe.paradox.QuestionActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-
-        android:layout_height="wrap_content"
-        android:paddingTop="32dp"
-
-        android:background="#fff"
-        android:orientation="vertical">
-
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar_question"

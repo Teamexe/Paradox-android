@@ -2,9 +2,9 @@ package com.exe.paradox;
 
 public class Member {
     private String name, about;
-    private String drawable;
+    private int drawable;
 
-    public Member(String name, String about, String drawable) {
+    public Member(String name, String about, int drawable) {
         this.name = name;
         this.drawable = drawable;
         this.about = about;
@@ -14,7 +14,7 @@ public class Member {
         return name;
     }
 
-    public String getDrawable() {
+    public int getDrawable() {
         return drawable;
     }
 
