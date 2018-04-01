@@ -60,6 +60,7 @@
                 android:layout_below="@id/t3"
                 android:layout_margin="16dp"
                 android:id="@+id/e4"
+                android:maxLines="1"
                 android:fontFamily="@font/ps"
                 android:hint="Answer Here"
                 android:textAlignment="center" />

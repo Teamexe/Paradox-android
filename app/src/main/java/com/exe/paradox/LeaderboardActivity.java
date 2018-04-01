@@ -43,7 +43,7 @@ public class LeaderboardActivity extends AppCompatActivity {
         call.enqueue(new Callback<LeaderboardResponse>() {
             @Override
             public void onResponse(Call<LeaderboardResponse> call, Response<LeaderboardResponse> response) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful() && response.body().getLeaderboardList().size() > 0) {
                     List<Leaderboard> ranks = response.body().getLeaderboardList();
                     Leaderboard leaderboardOne = ranks.get(0);
                     Leaderboard leaderboardTwo = ranks.get(1);
@@ -60,7 +60,6 @@ public class LeaderboardActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LeaderboardResponse> call, Throwable t) {
-
             }
         });
     }
@@ -88,15 +87,14 @@ public class LeaderboardActivity extends AppCompatActivity {
 
     private void setValues(TextView name, TextView level, TextView score, ImageView image, Leaderboard leaderboard) {
         String nameValue = "";
-        if(leaderboard.getName().length()>12) {
-            nameValue = leaderboard.getName().substring(0, 11)+"...";
-        }
-        else
+        if (leaderboard.getName().length() > 12) {
+            nameValue = leaderboard.getName().substring(0, 11) + "...";
+        } else
             nameValue = leaderboard.getName();
 
         name.setText(nameValue);
         level.setText(String.valueOf(leaderboard.getLevel()));
-        if(leaderboard.getScore() >= 0)
+        if (leaderboard.getScore() >= 0)
             score.setText(String.valueOf(leaderboard.getScore()));
         else
             score.setText(String.valueOf("0"));

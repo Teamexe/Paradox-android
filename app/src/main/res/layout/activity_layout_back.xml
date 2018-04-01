@@ -33,7 +33,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="this is bla\nbla bla bla\nbaskhfakssfgs\nasfasfasfasf"
                 android:textAllCaps="true"
                 android:textSize="25dp"
                 android:textColor="#000"
