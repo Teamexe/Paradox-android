@@ -27,7 +27,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/psb"
                     android:text="Stats"
-                    android:textColor="#dd6495"
+                    android:textColor="#00aeef"
                     android:textSize="25sp" />
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
