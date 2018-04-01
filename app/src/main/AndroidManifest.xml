@@ -33,7 +33,8 @@
         <activity android:name=".MembersActivity" />
         <activity android:name=".IntroductionActivity" />
         <activity android:name=".ImageZoomActivity" />
-        <activity android:name=".DpActivity"/>
+        <activity android:name=".DpActivity" />
+        <activity android:name=".DpRecvActivity"></activity>
     </application>
 
 </manifest>

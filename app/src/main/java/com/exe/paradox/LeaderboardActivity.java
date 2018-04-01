@@ -91,7 +91,7 @@ public class LeaderboardActivity extends AppCompatActivity {
                     Leaderboard leaderboardThree = ranks.get(2);
                     url3 = leaderboardThree.getPicture();
                     setTopRanks(leaderboardOne, leaderboardTwo, leaderboardThree);
-                    LeaderboardAdapter leaderboardAdapter = new LeaderboardAdapter(ranks.subList(3, ranks.size()));
+                    LeaderboardAdapter leaderboardAdapter = new LeaderboardAdapter(ranks.subList(3, ranks.size()), LeaderboardActivity.this);
                     RecyclerView recyclerView = findViewById(R.id.recv_leaderboard);
                     recyclerView.setFocusable(false);
                     recyclerView.setLayoutManager(new LinearLayoutManager(LeaderboardActivity.this));

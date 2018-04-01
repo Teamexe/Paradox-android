@@ -1,15 +1,21 @@
 package com.exe.paradox.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.exe.paradox.DpActivity;
+import com.exe.paradox.DpRecvActivity;
 import com.exe.paradox.ImageZoomActivity;
 import com.exe.paradox.LeaderboardActivity;
 import com.exe.paradox.R;
@@ -26,9 +32,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewholder> {
     private List<Leaderboard> leaderboardList;
+    private Context mContext;
 
-    public LeaderboardAdapter(List<Leaderboard> leaderboardList) {
+    public LeaderboardAdapter(List<Leaderboard> leaderboardList, Context mContext) {
         this.leaderboardList = leaderboardList;
+        this.mContext = mContext;
     }
 
     @NonNull
@@ -38,7 +46,7 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LeaderboardViewholder holder, int position) {
+    public void onBindViewHolder(@NonNull final LeaderboardViewholder holder, final int position) {
         holder.name.setText(leaderboardList.get(position).getName().split(" ")[0]);
 
         if (leaderboardList.get(position).getScore() < 0)
@@ -47,6 +55,23 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
             holder.score.setText(String.valueOf(leaderboardList.get(position).getScore()));
         holder.level.setText(String.valueOf(leaderboardList.get(position).getLevel()));
         Picasso.get().load(leaderboardList.get(position).getPicture()).placeholder(R.drawable.user_icon).into(holder.image);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    holder.image.setTransitionName("fuckYou");
+                    Intent intent = new Intent(mContext, DpActivity.class).putExtra(Intent.EXTRA_TEXT, leaderboardList.get(position).getPicture());
+
+                    ActivityOptionsCompat options = ActivityOptionsCompat.
+                            makeSceneTransitionAnimation((AppCompatActivity)mContext,
+                                    holder.image,
+                                    mContext.getString(R.string.transition_string));
+
+                    mContext.startActivity(intent, options.toBundle());
+                }
+            }
+        });
     }
 
     @Override
