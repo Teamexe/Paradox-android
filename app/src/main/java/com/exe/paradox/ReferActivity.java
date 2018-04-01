@@ -85,7 +85,8 @@ public class ReferActivity extends AppCompatActivity {
                         public void onFailure(Call<AcknowedgementResponse> call, Throwable t) {
                             //Referral failed
                             Toast.makeText(ReferActivity.this, "The maximum referrals allowed limit has been reached or the referral code is incorrect", Toast.LENGTH_LONG).show();
-                            onBackPressed();
+                            startActivity(new Intent(ReferActivity.this, HomeActivity.class));
+                            finish();
                         }
                     });
                 }
@@ -104,7 +105,7 @@ public class ReferActivity extends AppCompatActivity {
             return false;
         }
         else if (refTv.getText().toString().split(": ")[1].toLowerCase().matches(refCode.getText().toString().trim().toLowerCase())) {
-            Toast.makeText(ReferActivity.this, "You've to enter your FRIEND'S referral code not YOUR'S, Smartass!", Toast.LENGTH_LONG).show();
+            Toast.makeText(ReferActivity.this, "You've to enter your FRIEND'S referral code not YOUR'S, Smart ass!", Toast.LENGTH_LONG).show();
             return false;
         } else if (refCode.getText().toString().trim().length() == 0) {
             Toast.makeText(ReferActivity.this, "Referral code not entered", Toast.LENGTH_LONG).show();

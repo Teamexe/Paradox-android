@@ -1,68 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_question"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee"
     tools:context="com.exe.paradox.QuestionActivity">
 
-    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/toolbar_question"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/toolbar_question"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/psb"
-                android:text="Question"
-                android:textColor="#f9bb72"
-                android:textSize="25sp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
-    <!--Do not change above this-->
-    <com.wajahatkarim3.easyflipview.EasyFlipView
-        android:id="@+id/flip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar_question"
-        android:layout_margin="16dp"
-        app:flipDuration="400"
-        app:flipEnabled="true"
-        app:flipOnTouch="false"
-        app:flipType="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/psb"
+                    android:text="Question"
+                    android:textColor="#f9bb72"
+                    android:textSize="25sp" />
 
-        <!-- Back Layout Goes Here -->
-        <include layout="@layout/activity_layout_back" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+        <!--Do not change above this-->
+        <com.wajahatkarim3.easyflipview.EasyFlipView
+            android:id="@+id/flip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar_question"
+            android:layout_margin="16dp"
+            app:flipDuration="400"
+            app:flipEnabled="true"
+            app:flipOnTouch="false"
+            app:flipType="horizontal">
 
-        <!-- Front Layout Goes Here -->
-        <include layout="@layout/activity_layout_front" />
+            <!-- Back Layout Goes Here -->
+            <include layout="@layout/activity_layout_back" />
 
-    </com.wajahatkarim3.easyflipview.EasyFlipView>
+            <!-- Front Layout Goes Here -->
+            <include layout="@layout/activity_layout_front" />
 
-    <TextView
-        android:id="@+id/t2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/flip"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:fontFamily="@font/ps"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:padding="4dp"
-        android:text="Go for Hints"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="#000" />
-</RelativeLayout>
+        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/flip"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:fontFamily="@font/ps"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            android:text="Go for Hints"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#000" />
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>
 

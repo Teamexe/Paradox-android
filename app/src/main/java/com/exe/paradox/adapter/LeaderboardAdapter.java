@@ -34,13 +34,7 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull LeaderboardViewholder holder, int position) {
-        String nameValue = "";
-        if (leaderboardList.get(position).getName().length() > 12)
-            nameValue = leaderboardList.get(position).getName().substring(0, 11) + "...";
-        else
-            nameValue = leaderboardList.get(position).getName();
-
-        holder.name.setText(nameValue);
+        holder.name.setText(leaderboardList.get(position).getName().split(" ")[0]);
 
         if (leaderboardList.get(position).getScore() < 0)
             holder.score.setText("0");

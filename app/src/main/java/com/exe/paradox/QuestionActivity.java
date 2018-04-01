@@ -2,7 +2,11 @@ package com.exe.paradox;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -11,6 +15,7 @@ import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +33,7 @@ import com.shashank.sony.fancydialoglib.Animation;
 import com.shashank.sony.fancydialoglib.FancyAlertDialog;
 import com.shashank.sony.fancydialoglib.FancyAlertDialogListener;
 import com.shashank.sony.fancydialoglib.Icon;
+import com.squareup.picasso.Picasso;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.ArrayList;
@@ -45,8 +51,9 @@ public class QuestionActivity extends AppCompatActivity {
     public ImageView imageView;
     Button submitButton;
     EditText answer;
-    TextView hint_number, hint_text, hint_next, hint_prev;
+    TextView hint_number, hint_text, hint_next, hint_prev, t3;
     NoInternetDialog noInternetDialog;
+    NestedScrollView parent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +64,14 @@ public class QuestionActivity extends AppCompatActivity {
         noInternetDialog = new NoInternetDialog.Builder(this).build();
         hint_number = findViewById(R.id.h);
         answer = findViewById(R.id.e4);
+        t3 = findViewById(R.id.t3);
         hint_text = findViewById(R.id.h1);
         hint_next = findViewById(R.id.h2);
         hint_prev = findViewById(R.id.h3);
         imageView = findViewById(R.id.i1);
+        final ProgressBar pBar = findViewById(R.id.pBar);
+        pBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this, R.color.blue), PorterDuff.Mode.SRC_IN );
+        parent = findViewById(R.id.parent_question);
         submitButton = findViewById(R.id.submit);
         final EasyFlipView flip = findViewById(R.id.flip);
         final TextView hintText = findViewById(R.id.t2);
@@ -105,25 +116,40 @@ public class QuestionActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     if (response.body().getProfileData().size() > 0) {
                         Profile profile = response.body().getProfileData().get(0);
-                        Call<LevelResponse> levelResponseCall = apiService.getLevelResponse(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), profile.getLevel());
+                        if (profile.getLevel().matches("7")) {
+                            parent.setVisibility(View.GONE);
+                            showCompleted();
+                        } else {
+                            Call<LevelResponse> levelResponseCall = apiService.getLevelResponse(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), profile.getLevel());
+                            t3.setText("Level " + profile.getLevel());
+                            levelResponseCall.enqueue(new Callback<LevelResponse>() {
+                                @Override
+                                public void onResponse(@NonNull Call<LevelResponse> call, @NonNull Response<LevelResponse> response) {
+                                    if (response.body().getLevelUrlList().size() > 0)
+                                        Picasso.get().load(response.body().getLevelUrlList().get(0).getUrl()).into(imageView, new com.squareup.picasso.Callback() {
+                                            @Override
+                                            public void onSuccess() {
+                                                pBar.setVisibility(View.GONE);
+                                            }
 
-                        levelResponseCall.enqueue(new Callback<LevelResponse>() {
-                            @Override
-                            public void onResponse(Call<LevelResponse> call, Response<LevelResponse> response) {
-                                if (response.body().getLevelUrlList().size() > 0)
-                                    Glide.with(QuestionActivity.this).load(response.body().getLevelUrlList().get(0).getUrl()).into(imageView);
-                                else {
-                                    Toast.makeText(QuestionActivity.this, "No more questions available for now", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(QuestionActivity.this, HomeActivity.class));
-                                    finish();
+                                            @Override
+                                            public void onError(Exception e) {
+
+                                            }
+                                        });
+                                    else {
+                                        Toast.makeText(QuestionActivity.this, "No more questions available for now", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(QuestionActivity.this, HomeActivity.class));
+                                        finish();
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onFailure(Call<LevelResponse> call, Throwable t) {
-                                Toast.makeText(QuestionActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                                @Override
+                                public void onFailure(Call<LevelResponse> call, Throwable t) {
+                                    Toast.makeText(QuestionActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                     }
                 }
             }
@@ -309,6 +335,33 @@ public class QuestionActivity extends AppCompatActivity {
                 .build();
     }
 
+    private void showCompleted() {
+        new FancyAlertDialog.Builder(this)
+                .setTitle("Completed")
+                .setBackgroundColor(Color.parseColor("#32CD32"))
+                .setMessage("")
+                .setPositiveBtnBackground(Color.parseColor("#32CD32"))
+                .setPositiveBtnText("Rate")
+                .setNegativeBtnText("Go back")
+                .setAnimation(Animation.SIDE)
+                .isCancellable(false)
+                .setIcon(R.drawable.ic_alert_tick, Icon.Visible)
+                .OnNegativeClicked(new FancyAlertDialogListener() {
+                    @Override
+                    public void OnClick() {
+                        startActivity(new Intent(QuestionActivity.this, HomeActivity.class));
+                        finish();
+                    }
+                })
+                .OnPositiveClicked(new FancyAlertDialogListener() {
+                    @Override
+                    public void OnClick() {
+                        //Link to the Play store account.
+                    }
+                })
+                .build();
+    }
+
     private void showFalse() {
         new FancyAlertDialog.Builder(this)
                 .setTitle("Wrong Answer")
@@ -323,7 +376,8 @@ public class QuestionActivity extends AppCompatActivity {
                 .OnNegativeClicked(new FancyAlertDialogListener() {
                     @Override
                     public void OnClick() {
-                        onBackPressed();
+                        startActivity(new Intent(QuestionActivity.this, QuestionActivity.class));
+                        finish();
                     }
                 })
                 .OnPositiveClicked(new FancyAlertDialogListener() {

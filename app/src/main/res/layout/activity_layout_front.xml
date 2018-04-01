@@ -28,6 +28,15 @@
                 android:layout_height="230dp"
                 android:src="#f9bb72" />
 
+            <ProgressBar
+                android:indeterminate="true"
+                android:id="@+id/pBar"
+                android:layout_alignParentTop="true"
+                android:layout_width="60sp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="230dp"
+                android:src="#f9bb72" />
+
             <TextView
                 android:id="@+id/t1"
                 android:layout_width="wrap_content"
