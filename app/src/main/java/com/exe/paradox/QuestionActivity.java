@@ -31,6 +31,7 @@ import com.shashank.sony.fancydialoglib.Icon;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import am.appwise.components.ni.NoInternetDialog;
 import retrofit2.Call;
@@ -285,7 +286,7 @@ public class QuestionActivity extends AppCompatActivity {
         new FancyAlertDialog.Builder(this)
                 .setTitle("Correct Answer")
                 .setBackgroundColor(Color.parseColor("#32CD32"))
-                .setMessage("Sound of success random message")
+                .setMessage(getMessage())
                 .setPositiveBtnBackground(Color.parseColor("#32CD32"))
                 .setPositiveBtnText("Rate")
                 .setNegativeBtnText("Go back")
@@ -312,13 +313,13 @@ public class QuestionActivity extends AppCompatActivity {
         new FancyAlertDialog.Builder(this)
                 .setTitle("Wrong Answer")
                 .setBackgroundColor(Color.parseColor("#B22222"))
-                .setMessage("Sound of error random message")
+                .setMessage(getMessage())
                 .setPositiveBtnBackground(Color.parseColor("#B22222"))
                 .setPositiveBtnText("Rate")
                 .setNegativeBtnText("Go back")
                 .setAnimation(Animation.SIDE)
                 .isCancellable(true)
-                .setIcon(R.drawable.ic_alert_tick, Icon.Visible)
+                .setIcon(R.drawable.wrong, Icon.Visible)
                 .OnNegativeClicked(new FancyAlertDialogListener() {
                     @Override
                     public void OnClick() {
@@ -332,6 +333,11 @@ public class QuestionActivity extends AppCompatActivity {
                     }
                 })
                 .build();
+    }
+
+    private String getMessage() {
+        String array[] = getResources().getStringArray(R.array.message_array);
+        return array[new Random().nextInt(array.length)];
     }
 
     @Override

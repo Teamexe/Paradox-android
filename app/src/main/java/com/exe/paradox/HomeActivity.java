@@ -18,7 +18,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
@@ -26,7 +25,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -36,15 +34,17 @@ import com.exe.paradox.api.response.ReferralResponse;
 import com.exe.paradox.api.rest.ApiClient;
 import com.exe.paradox.api.rest.ApiInterface;
 import com.exe.paradox.util.Constants;
-import com.exe.paradox.util.Preferences;
 import com.exe.paradox.util.RecyclerItemClickListener;
 import com.github.florent37.parallax.ScrollView;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
-import com.google.gson.Gson;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
 import com.pixelcan.inkpageindicator.InkPageIndicator;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import am.appwise.components.ni.NoInternetDialog;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -59,6 +59,8 @@ public class HomeActivity extends AppCompatActivity {
     TextView name, sign_out;
     LinearLayout rankings, paradox, stats, referral, members;
     GPlusFragment beta;
+    List<Integer> drawables;
+    List<Project> projectsFeatured, projectsExe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,10 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         noInternetDialog = new NoInternetDialog.Builder(this).build();
         ScrollView rootLayout = (ScrollView) findViewById(R.id.holder);
+        projectsFeatured = new ArrayList<>();
+        projectsExe = new ArrayList<>();
+        drawables = new ArrayList<>();
+        populateDrawables();
         if (savedInstanceState == null) {
             rootLayout.setVisibility(View.INVISIBLE);
 
@@ -140,17 +146,15 @@ public class HomeActivity extends AppCompatActivity {
         setAllListeners();
 
         RecyclerView recv = findViewById(R.id.recv_orange);
-        ProjectAdapter projectAdapter = new ProjectAdapter(this);
         recv.setLayoutManager(new GridLayoutManager(HomeActivity.this, 3) {
             @Override
             public boolean canScrollVertically() {
                 return false;
             }
         });
+        projectsExe = getProjectsExe(projectsExe);
+        final ProjectAdapter projectAdapter = new ProjectAdapter(this, projectsExe);
         recv.setAdapter(projectAdapter);
-        final String[] titlesExe = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-        final String[] descExe = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "fsdfwfsfafwef", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf", "ufdhsadflgsajf"};
-        final String[] linkExe = {"https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode"};
         recv.addOnItemTouchListener(new RecyclerItemClickListener(HomeActivity.this, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, final int position) {
@@ -158,13 +162,13 @@ public class HomeActivity extends AppCompatActivity {
                         .setHeaderDrawable(R.drawable.header)
                         .setIcon(new IconicsDrawable(HomeActivity.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
                         .withDialogAnimation(true)
-                        .setTitle(titlesExe[position])
-                        .setDescription(descExe[position])
+                        .setTitle(projectsExe.get(position).getTitle())
+                        .setDescription(projectsExe.get(position).getDesc())
                         .setPositiveText("GitHub")
                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(linkExe[position])));
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(projectsExe.get(position).getLink())));
                             }
                         })
                         .setNegativeText("Back");
@@ -173,13 +177,10 @@ public class HomeActivity extends AppCompatActivity {
         }));
 
         RecyclerView featuredProjects = findViewById(R.id.featured_projects);
-        FeaturedAdapter featuredAdapter = new FeaturedAdapter(this);
+        projectsFeatured = populateFeatured(projectsFeatured);
+        FeaturedAdapter featuredAdapter = new FeaturedAdapter(this, projectsFeatured);
         featuredProjects.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         featuredProjects.setAdapter(featuredAdapter);
-
-        final String[] titlesFeatured = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-        final String[] descFeatured = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "fsdfwfsfafwef", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf", "ufdhsadflgsajf"};
-        final String[] linkFeatured = {"https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode"};
 
         featuredProjects.addOnItemTouchListener(new RecyclerItemClickListener(HomeActivity.this, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
@@ -188,19 +189,30 @@ public class HomeActivity extends AppCompatActivity {
                         .setHeaderDrawable(R.drawable.header)
                         .setIcon(new IconicsDrawable(HomeActivity.this).icon(MaterialDesignIconic.Icon.gmi_github).color(Color.WHITE))
                         .withDialogAnimation(true)
-                        .setTitle(titlesFeatured[position])
-                        .setDescription(descFeatured[position])
+                        .setTitle(projectsFeatured.get(position).getTitle())
+                        .setDescription(projectsFeatured.get(position).getDesc())
                         .setPositiveText("GitHub")
                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(linkFeatured[position])));
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(projectsFeatured.get(position).getLink())));
                             }
                         })
                         .setNegativeText("Not now");
                 dialog.build().show();
             }
         }));
+    }
+
+    private void populateDrawables() {
+        drawables.add(R.drawable.hu1);
+        drawables.add(R.drawable.hu2);
+        drawables.add(R.drawable.hu3);
+        drawables.add(R.drawable.hu4);
+        drawables.add(R.drawable.hu5);
+        drawables.add(R.drawable.hu6);
+        drawables.add(R.drawable.hu7);
+        Collections.shuffle(drawables);
     }
 
     private void setAllListeners() {
@@ -232,8 +244,8 @@ public class HomeActivity extends AppCompatActivity {
         referralResponseCall.enqueue(new Callback<ReferralResponse>() {
             @Override
             public void onResponse(Call<ReferralResponse> call, Response<ReferralResponse> response) {
-                if(response.isSuccessful()) {
-                    if(response.body().getReferralList().get(0).getReferredBy() == null) {
+                if (response.isSuccessful()) {
+                    if (response.body().getReferralList().get(0).getReferredBy() == null) {
                         referral.setVisibility(View.VISIBLE);
                         referral.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -242,8 +254,7 @@ public class HomeActivity extends AppCompatActivity {
                                 finish();
                             }
                         });
-                    }
-                    else {
+                    } else {
                         referral.setVisibility(View.GONE);
                     }
                 }
@@ -291,9 +302,40 @@ public class HomeActivity extends AppCompatActivity {
         circularReveal.start();
     }
 
-    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+    private List<Project> populateFeatured(List<Project> projects) {
+        final String[] titlesFeatured = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"};
+        final String[] descFeatured = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf", "ufdhsadflgsajf"};
+        final String[] linkFeatured = {"https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode"};
+        final int[] drawables = {R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6, R.drawable.u7, R.drawable.u1};
 
-        int[] drawables = {R.drawable.hu7, R.drawable.hu1, R.drawable.hu2, R.drawable.hu3, R.drawable.hu4, R.drawable.hu5, R.drawable.hu6};
+        for (int i = 0; i < titlesFeatured.length; i++) {
+            Project project = new Project(titlesFeatured[i], descFeatured[i], linkFeatured[i], drawables[i]);
+            projects.add(project);
+        }
+        Collections.shuffle(projects);
+        return projects;
+    }
+
+    private List<Project> getProjectsExe(List<Project> projects) {
+        final String[] titlesExe = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"};
+        final String[] descExe = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "fsdfwfsfafwef", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf"};
+        final String[] linkExe = {"https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode"};
+        final int[] drawables = {R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6, R.drawable.u7, R.drawable.u1};
+        for (int i = 0; i < titlesExe.length; i++) {
+            Project project = new Project(titlesExe[i], descExe[i], linkExe[i], drawables[i]);
+            projects.add(project);
+        }
+        Collections.shuffle(projects);
+        return projects;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
+    }
+
+    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
         ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
@@ -301,19 +343,13 @@ public class HomeActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return new MyFragment(drawables[position], position);
+            return new MyFragment(drawables.get(position), position);
         }
 
         @Override
         public int getCount() {
-            return drawables.length;
+            return drawables.size();
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        noInternetDialog.onDestroy();
     }
 }
 

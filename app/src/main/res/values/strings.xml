@@ -44,4 +44,30 @@
     <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
     <string name="name">Name :</string>
     <string name="leader_appbar">Leaderboard appbar</string>
+    
+    <string-array name="message_array">
+        <item>Better by far you should forget and smile \nThan that you should remember and be sad.\n- Christina Rossetti</item>
+        <item>Can I see another\'s woe,\nAnd not be in sorrow too?\nCan I see another\'s grief,\nAnd not seek for kind relief?\n- William Blake</item>
+        <item>Do not stand at my grave and cry;\nI am not there. I did not die.\n- Mary Elizabeth Frye</item>
+        <item>Don\'t hate the player hate the game.\n- Ice T</item>
+        <item>Even as the stone of the fruit must break, that its heart may stand in the sun, so must you know pain.\nAnd could you keep your heart in wonder at the daily miracles of your life, your pain would not seem less wondrous than your joy;\n- Kahlil Gibran</item>
+        <item>I feel your pain the pain in knowing this has happened to you. The pain in knowing what more tears we have gained. But through all this I feel your pain\n- Octavia B. Hawkins-Richardson</item>
+        <item>If you try to please audiences, uncritically accepting their tastes, it can only mean that you have no respect for them\n- Andrei Tarkovsky</item>
+
+        <item>I feel within me a peace above all earthly dignities, a still and quiet conscience.\n- William Shakespeare</item>
+        <item>In the end… We only regret the chances we didn\’t take\n- Lewis Carroll</item>
+        <item>Your failure here is a metaphor. To learn for what, please resume climbing.\n- Rob Dubbin</item>
+        <item>You cannot now believe that you will ever feel better. But this is not true. You are sure to be happy again. Knowing this, truly believing it will make you less miserable now.\n- Abraham Lincoln</item>
+        <item>Whenever I climb I am followed by a dog called Ego.\n- Friedrich Nietzsche</item>
+        <item>To live is to suffer, to survive is to find some meaning in the suffering.\n- Friedrich Nietzsche</item>
+        <item>This thing we call <b>failure</b> is not the falling down, but the staying down.\n- Mary Pickford</item>
+        <item>The soul would have no rainbow had the eyes no tears.\n- John Vance Cheney</item>
+        <item>There are no regrets in life, just lessons.\n- Jennifer Aniston</item>
+        <item>The pain I feel now is the happiness I had before. That\'s the deal.\n- C.S. Lewis</item>
+        <item>She smiled in defeat, with unconquerable eyes.\n- Atticus</item>
+        <item>Of all sad words of tongue or pen, the saddest are these, It might have been.\n- John Greenleaf Whittier</item>
+        <item>Failure is not the falling down, but the staying down.\n -Mary Pickford</item>
+        <item>Laugh, and the world laughs with you. Weep, and you weep alone; for the sad old earth must borrow its mirth, but has trouble enough of its own. -Ella Weaver Wilcox</item>
+        <item>An orange is a sweet juicy fruit locked inside a bitter peel. That\'s not how I feel about a challenge. I only want the bitterness, its coffee, its grapefruit, its licorice. -Bennett Foddy</item>
+    </string-array>
 </resources>

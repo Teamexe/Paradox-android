@@ -8,7 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.exe.paradox.Project;
 import com.exe.paradox.R;
+
+import java.util.List;
 
 /**
  * Created by shasha on 23/3/18.
@@ -16,10 +19,11 @@ import com.exe.paradox.R;
 
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectViewHolder> {
     private Context mContext;
-    private int[] drawables = {R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6, R.drawable.u7, R.drawable.u1, R.drawable.one};
+    private List<Project> projectList;
 
-    public ProjectAdapter(Context context) {
+    public ProjectAdapter(Context context, List<Project> projectList) {
         mContext = context;
+        this.projectList = projectList;
     }
 
     @NonNull
@@ -30,12 +34,12 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
 
     @Override
     public void onBindViewHolder(@NonNull ProjectViewHolder holder, int position) {
-        holder.imageView.setImageDrawable(mContext.getResources().getDrawable(drawables[position]));
+        holder.imageView.setImageDrawable(mContext.getResources().getDrawable(projectList.get(position).getDrawablePath()));
     }
 
     @Override
     public int getItemCount() {
-        return drawables.length;
+        return projectList.size();
     }
 
     class ProjectViewHolder extends RecyclerView.ViewHolder {
