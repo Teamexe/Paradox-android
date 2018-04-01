@@ -14,7 +14,7 @@
 
         <ImageView
             android:id="@+id/image"
-            \android:layout_width="180sp"
+            android:layout_width="180sp"
             android:layout_height="200sp"
             android:scaleType="centerCrop"
             android:src="@drawable/u1" />
