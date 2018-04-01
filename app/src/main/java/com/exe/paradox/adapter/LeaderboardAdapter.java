@@ -1,12 +1,17 @@
 package com.exe.paradox.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.exe.paradox.ImageZoomActivity;
+import com.exe.paradox.LeaderboardActivity;
 import com.exe.paradox.R;
 import com.exe.paradox.api.model.Leaderboard;
 import com.squareup.picasso.Picasso;

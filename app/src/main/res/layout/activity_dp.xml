@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000"
-    tools:context="com.exe.paradox.ImageZoomActivity">
+    tools:context="com.exe.paradox.DpActivity">
 
     <com.exe.paradox.util.TouchImageView
         android:layout_width="match_parent"

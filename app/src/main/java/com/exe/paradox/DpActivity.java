@@ -1,31 +1,29 @@
 package com.exe.paradox;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
 import com.exe.paradox.util.TouchImageView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-public class ImageZoomActivity extends AppCompatActivity {
-
-    TouchImageView imageView;
+public class DpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_zoom);
-        imageView = findViewById(R.id.image);
-
+        setContentView(R.layout.activity_dp);
+        TouchImageView imageView = findViewById(R.id.image);
         supportPostponeEnterTransition();
 
         Picasso.get()
-                .load(QuestionActivity.url)
+                .load(getIntent().getStringExtra(Intent.EXTRA_TEXT))
                 .into(imageView, new Callback() {
                     @Override
                     public void onSuccess() {
@@ -34,7 +32,7 @@ public class ImageZoomActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(Exception e) {
-                        supportStartPostponedEnterTransition();
+
                     }
                 });
 
