@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/psb"
                 android:text="Members"
-                android:textColor="#dd6495"
+                android:textColor="#00aeef"
                 android:textSize="25sp" />
         </android.support.v7.widget.Toolbar>
 
@@ -88,9 +88,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/psb"
-                    android:text="Mentors"
+                    android:text="Mentor"
                     android:textAllCaps="true"
-                    android:textColor="#ff1744"
+                    android:textColor="#00aeef"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -113,7 +113,6 @@
             android:layout_below="@+id/mentor_ll"
             android:orientation="vertical">
 
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,11 +124,11 @@
                     android:id="@+id/final_tag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
                     android:fontFamily="@font/psb"
                     android:text="Final year"
                     android:textAllCaps="true"
-                    android:textColor="#FFF"
+                    android:textColor="#00aeef"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -165,9 +164,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:fontFamily="@font/psb"
-                    android:text="Third year"
+                    android:text="Coordinators"
                     android:textAllCaps="true"
-                    android:textColor="#ff1744"
+                    android:textColor="#00aeef"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -202,9 +201,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/psb"
-                    android:text="Second year"
+                    android:text="Executives"
+                    android:layout_alignParentRight="true"
                     android:textAllCaps="true"
-                    android:textColor="#ff1744"
+                    android:textColor="#00aeef"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -239,9 +239,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/psb"
-                    android:text="First year"
+                    android:text="Volunteers"
                     android:textAllCaps="true"
-                    android:textColor="#ff1744"
+                    android:textColor="#00aeef"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 

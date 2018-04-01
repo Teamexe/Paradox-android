@@ -1,81 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context="com.exe.paradox.LayoutBackCardFlip">
+
     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/hint_view1"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="480sp"
         card_view:cardCornerRadius="0dp">
 
         <RelativeLayout
             android:id="@+id/relative"
-            android:gravity="center"
-            android:background="#eeff41"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hint No #"
-                android:textAllCaps="true"
-                android:textSize="25dp"
-                android:textColor="#000"
-                android:layout_marginRight="16dp"
-                android:gravity="end"
-                android:id="@+id/h"
-                android:fontFamily="@font/ps"
-                android:layout_marginTop="32dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="this is bla\nbla bla bla\nbaskhfakssfgs\nasfasfasfasf"
-                android:textAllCaps="true"
-                android:textSize="25dp"
-                android:textColor="#000"
-                android:layout_marginLeft="64dp"
-                android:layout_marginRight="16dp"
-                android:gravity="end"
-                android:layout_below="@id/h"
-                android:id="@+id/h1"
-                android:fontFamily="@font/psb"
-                android:layout_marginTop="16dp"/>
+            android:background="#00aeff"
+            android:gravity="center">
 
             <TextView
+                android:id="@+id/h"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/ps"
+                android:gravity="end"
+                android:text="Hint No #"
+                android:textAllCaps="true"
+                android:textColor="#FFF"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/h1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/h"
+                android:layout_marginLeft="64dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/psb"
+                android:gravity="end"
+                android:textAllCaps="true"
+                android:textColor="#FFF"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/h2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@id/h3"
-                android:text="wanna see the next hint?"
-                android:textColor="#000"
-                android:id="@+id/h2"
-                android:textAlignment="center"
-                android:clickable="true"
-                android:padding="8dp"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
-
                 android:layout_centerHorizontal="true"
+                android:clickable="true"
                 android:fontFamily="@font/psi"
-                android:textSize="20sp"/>
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
+                android:text="wanna see the next hint?"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/h3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-android:textAlignment="center"
-                android:text="see previous hint"
-                android:textColor="#000"
-                android:id="@+id/h3"
                 android:layout_alignParentBottom="true"
-                android:clickable="true"
-                android:layout_marginBottom="16dp"
-                android:padding="8dp"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
                 android:fontFamily="@font/psi"
-                android:textSize="15sp"/>
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
+                android:text="see previous hint"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:textSize="15sp" />
 
         </RelativeLayout>
 

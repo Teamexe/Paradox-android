@@ -4,11 +4,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.exe.paradox.api.model.Profile;
+import com.exe.paradox.api.response.GeneralResponse;
 import com.exe.paradox.api.response.ReadOneResponse;
 import com.exe.paradox.api.response.ReferralResponse;
 import com.exe.paradox.api.rest.ApiClient;
@@ -26,7 +25,7 @@ import retrofit2.Response;
 
 public class StatsActivity extends AppCompatActivity {
 
-    TextView nameTv, emailTv, scoreTv, dateOfRegTv, levelTv, timeOfRegTv, refCodeTv, refGivenTv;
+    TextView nameTv, emailTv, scoreTv, dateOfRegTv, levelTv, timeOfRegTv, refCodeTv, refGivenTv, totalTv;
     PieView pieView;
     CircleImageView circleImageView;
     NoInternetDialog noInternetDialog;
@@ -40,7 +39,7 @@ public class StatsActivity extends AppCompatActivity {
         setViews();
         noInternetDialog = new NoInternetDialog.Builder(this).build();
         final GPlusFragment gPlusFragment = new GPlusFragment();
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ReadOneResponse> responseCall = apiService.getProfile(gPlusFragment.getSignId(), Constants.FETCH_TYPE, Constants.FETCH_TOKEN);
         responseCall.enqueue(new Callback<ReadOneResponse>() {
             @Override
@@ -48,21 +47,20 @@ public class StatsActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     if (response.body().getProfileData().size() > 0) {
                         Profile profile = response.body().getProfileData().get(0);
-                        doPieChart(profile);
 
                         Picasso.get().load(gPlusFragment.getImg()).placeholder(R.drawable.user_icon).into(circleImageView);
 
                         nameTv.setText(gPlusFragment.getDisplayName());
                         emailTv.setText(gPlusFragment.getEmail());
 
-                        if(Integer.parseInt(profile.getScore())<0)
+                        if (Integer.parseInt(profile.getScore()) < 0)
                             scoreTv.setText("0");
                         else
                             scoreTv.setText(profile.getScore());
 
                         dateOfRegTv.setText(profile.getRegTime().split(" ")[0]);
 
-                        timeOfRegTv.setText(profile.getRegTime().split(" ")[1]);
+                        timeOfRegTv.setText(profile.getRegTime().split(" ")[1].split(":")[0] + profile.getRegTime().split(" ")[1].split(":")[1]);
 
                         levelTv.setText(profile.getLevel());
 
@@ -77,7 +75,7 @@ public class StatsActivity extends AppCompatActivity {
             }
         });
 
-        Call<ReferralResponse> referralResponseCall = apiService.getReferralData(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), gPlusFragment.getSignId());
+        final Call<ReferralResponse> referralResponseCall = apiService.getReferralData(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), gPlusFragment.getSignId());
         referralResponseCall.enqueue(new Callback<ReferralResponse>() {
             @Override
             public void onResponse(Call<ReferralResponse> call, Response<ReferralResponse> response) {
@@ -86,6 +84,35 @@ public class StatsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ReferralResponse> call, Throwable t) {
+
+            }
+        });
+
+        responseCall.clone().enqueue(new Callback<ReadOneResponse>() {
+            @Override
+            public void onResponse(Call<ReadOneResponse> call, Response<ReadOneResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    final Profile profile = response.body().getProfileData().get(0);
+                    Call<GeneralResponse> generalResponseCall = apiService.getGeneralData(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE));
+                    generalResponseCall.enqueue(new Callback<GeneralResponse>() {
+                        @Override
+                        public void onResponse(Call<GeneralResponse> call, Response<GeneralResponse> response) {
+                            if (response.isSuccessful() && response.body().getList().size() > 0 && response.body().getList() != null) {
+                                totalTv.setText(response.body().getList().get(0).getNumUser());
+                                doPieChart(profile, Integer.parseInt(response.body().getList().get(0).getNumQues()));
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<GeneralResponse> call, Throwable t) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ReadOneResponse> call, Throwable t) {
 
             }
         });
@@ -102,12 +129,13 @@ public class StatsActivity extends AppCompatActivity {
         levelTv = findViewById(R.id.level);
         refCodeTv = findViewById(R.id.ref_code);
         refGivenTv = findViewById(R.id.ref_given);
+        totalTv = findViewById(R.id.total);
     }
 
-    private void doPieChart(Profile profile) {
+    private void doPieChart(Profile profile, int total) {
         pieView.setPercentageBackgroundColor(Color.parseColor("#ff1744"));
         pieView.setInnerText("Level " + profile.getLevel());
-        pieView.setPercentage((Float.parseFloat(profile.getLevel()) / 12) * 100);
+        pieView.setPercentage((Float.parseFloat(profile.getLevel()) / total) * 100);
         pieView.setPieAngle((pieView.getPercentage() / 100) * 360);
         pieView.setPieInnerPadding(50);
         pieView.setPercentageTextSize(35);
