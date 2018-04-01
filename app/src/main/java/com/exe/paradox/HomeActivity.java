@@ -59,7 +59,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView name, sign_out;
     LinearLayout rankings, paradox, stats, referral, members;
     GPlusFragment beta;
-    List<Integer> drawables;
+    List<Event> events;
     List<Project> projectsFeatured, projectsExe;
 
     @Override
@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
         ScrollView rootLayout = (ScrollView) findViewById(R.id.holder);
         projectsFeatured = new ArrayList<>();
         projectsExe = new ArrayList<>();
-        drawables = new ArrayList<>();
+        events = new ArrayList<>();
         populateDrawables();
         if (savedInstanceState == null) {
             rootLayout.setVisibility(View.INVISIBLE);
@@ -205,14 +205,13 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void populateDrawables() {
-        drawables.add(R.drawable.hu1);
-        drawables.add(R.drawable.hu2);
-        drawables.add(R.drawable.hu3);
-        drawables.add(R.drawable.hu4);
-        drawables.add(R.drawable.hu5);
-        drawables.add(R.drawable.hu6);
-        drawables.add(R.drawable.hu7);
-        Collections.shuffle(drawables);
+        int drawables[] = {R.drawable.hu1, R.drawable.hu2, R.drawable.hu3, R.drawable.hu4, R.drawable.hu5, R.drawable.hu6, R.drawable.hu7};
+        String titles[] = {"One", "Two", "Three", "Four", "Five", "Six", "Seven"};
+        String desc[] = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf", "ufdhsadflgsajf"};
+        for(int i=0; i<titles.length; i++) {
+            events.add(new Event(titles[i], desc[i], drawables[i]));
+        }
+        Collections.shuffle(events);
     }
 
     private void setAllListeners() {
@@ -251,7 +250,6 @@ public class HomeActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 startActivity(new Intent(HomeActivity.this, ReferActivity.class));
-                                finish();
                             }
                         });
                     } else {
@@ -343,12 +341,12 @@ public class HomeActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return new MyFragment(drawables.get(position), position);
+            return new MyFragment(events.get(position));
         }
 
         @Override
         public int getCount() {
-            return drawables.size();
+            return events.size();
         }
     }
 }
