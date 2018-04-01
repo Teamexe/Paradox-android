@@ -5,7 +5,9 @@
     android:background="#eee"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout android:layout_width="match_parent"
+    <RelativeLayout
+        android:id="@+id/lroot"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#eee">
 

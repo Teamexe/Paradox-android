@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.exe.paradox.Project;
 import com.exe.paradox.R;
 
@@ -34,7 +35,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
 
     @Override
     public void onBindViewHolder(@NonNull ProjectViewHolder holder, int position) {
-        holder.imageView.setImageDrawable(mContext.getResources().getDrawable(projectList.get(position).getDrawablePath()));
+        Glide.with(mContext).load(projectList.get(position).getDrawablePath()).into(holder.imageView);
     }
 
     @Override

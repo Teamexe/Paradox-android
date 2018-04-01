@@ -1,6 +1,7 @@
 package com.exe.paradox.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,8 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
 import com.exe.paradox.Member;
 import com.exe.paradox.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -30,7 +34,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
 
     @Override
     public void onBindViewHolder(@NonNull MembersViewHolder holder, int position) {
-        holder.imageView.setImageDrawable(mContext.getResources().getDrawable(memberList.get(position).getDrawable()));
+        Glide.with(mContext).load(memberList.get(position).getDrawable()).into(holder.imageView);
     }
 
     @Override
