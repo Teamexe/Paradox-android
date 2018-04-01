@@ -7,13 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.exe.paradox.Project;
 import com.exe.paradox.R;
-import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -38,9 +34,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
 
     @Override
     public void onBindViewHolder(@NonNull ProjectViewHolder holder, int position) {
-        Picasso.get().load(projectList.get(position).getDrawablePath())
-                .placeholder(R.drawable.loading)
-                .error(R.drawable.error).into(holder.imageView);
+        holder.imageView.setImageDrawable(mContext.getResources().getDrawable(projectList.get(position).getDrawablePath()));
     }
 
     @Override
