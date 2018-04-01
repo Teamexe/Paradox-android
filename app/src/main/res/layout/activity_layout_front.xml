@@ -49,7 +49,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="-8dp"
                 android:fontFamily="@font/ps"
-                android:text="This Question?"
+                android:text="This Riddle?"
                 android:textAllCaps="true"
                 android:textColor="#000"
                 android:textSize="28sp" />
@@ -61,7 +61,7 @@
                 android:layout_margin="16dp"
                 android:id="@+id/e4"
                 android:fontFamily="@font/ps"
-                android:hint="Answer Here"
+                android:hint="Type your answer here"
                 android:textAlignment="center" />
 
             <Button
@@ -69,6 +69,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="Submit"
+                android:backgroundTint="#f9bb72"
+
                 android:id="@+id/submit"
                 android:layout_below="@id/e4" />
         </RelativeLayout>

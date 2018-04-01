@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.github.florent37.parallax.ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_members"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/psb"
+            android:text="Members"
+            android:textColor="#72d3b4"
+            android:textSize="25sp" />
+    </android.support.v7.widget.Toolbar>
+
+    <com.github.florent37.parallax.ScrollView android:layout_below="@id/toolbar_members" xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,29 +27,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_members"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/psb"
-                android:text="Members"
-                android:textColor="#dd6495"
-                android:textSize="25sp" />
-        </android.support.v7.widget.Toolbar>
 
         <ImageView
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_below="@id/final_ll"
             android:scaleX="1"
-            android:src="@drawable/red_circle"
+            android:src="@drawable/red_circle1"
             android:tag="parallax=-0.2"
             android:translationX="150dp"
             android:translationZ="-10dp" />
@@ -43,7 +46,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/second_ll"
             android:scaleX="1"
-            android:src="@drawable/red_circle"
+            android:src="@drawable/red_circle1"
             android:tag="parallax=-0.2"
             android:translationX="150dp"
             android:translationZ="-10dp" />
@@ -54,9 +57,9 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@id/mentor_ll"
             android:scaleX="1"
-            android:src="@drawable/red_circle"
+            android:src="@drawable/red_circle1"
             android:tag="parallax=-0.2"
-            android:translationX="-39dp"
+            android:translationX="-150dp"
             android:translationZ="-10dp" />
 
         <ImageView
@@ -65,15 +68,14 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@id/third_ll"
             android:scaleX="1"
-            android:src="@drawable/red_circle"
+            android:src="@drawable/red_circle1"
             android:tag="parallax=-0.2"
-            android:translationX="-39dp"
+            android:translationX="-150dp"
             android:translationZ="-10dp" />
         <LinearLayout
             android:id="@+id/mentor_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar_members"
             android:orientation="vertical">
 
 
@@ -90,7 +92,7 @@
                     android:fontFamily="@font/psb"
                     android:text="Mentors"
                     android:textAllCaps="true"
-                    android:textColor="#ff1744"
+                    android:textColor="#000"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -129,7 +131,7 @@
                     android:fontFamily="@font/psb"
                     android:text="Final year"
                     android:textAllCaps="true"
-                    android:textColor="#FFF"
+                    android:textColor="#000"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -167,7 +169,7 @@
                     android:fontFamily="@font/psb"
                     android:text="Third year"
                     android:textAllCaps="true"
-                    android:textColor="#ff1744"
+                    android:textColor="#000"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -204,7 +206,7 @@
                     android:fontFamily="@font/psb"
                     android:text="Second year"
                     android:textAllCaps="true"
-                    android:textColor="#ff1744"
+                    android:textColor="#000"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -241,7 +243,7 @@
                     android:fontFamily="@font/psb"
                     android:text="First year"
                     android:textAllCaps="true"
-                    android:textColor="#ff1744"
+                    android:textColor="#000"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -259,3 +261,4 @@
     </RelativeLayout>
 
 </com.github.florent37.parallax.ScrollView>
+</RelativeLayout>

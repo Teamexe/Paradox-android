@@ -239,7 +239,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+/*        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ReferralResponse> referralResponseCall = apiService.getReferralData(Constants.FETCH_TOKEN, String.valueOf(Constants.FETCH_TYPE), beta.getSignId());
         referralResponseCall.enqueue(new Callback<ReferralResponse>() {
             @Override
@@ -264,7 +264,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onFailure(Call<ReferralResponse> call, Throwable t) {
                 referral.setVisibility(View.GONE);
             }
-        });
+        });*/
 
 
         members.setOnClickListener(new View.OnClickListener() {

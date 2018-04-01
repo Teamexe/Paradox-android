@@ -16,21 +16,25 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Transparent">
+
+        </activity>
+        <activity android:name=".HomeActivity" />
+
+        <activity android:name=".MainActivity" />
+        <activity android:name=".QuestionActivity" android:theme="@style/AppTheme1"/>
+        <activity android:name=".LeaderboardActivity" />
+        <activity android:name=".ReferActivity" android:theme="@style/AppTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".QuestionActivity" />
-        <activity android:name=".LeaderboardActivity" />
-        <activity android:name=".ReferActivity" />
         <activity android:name=".LayoutBackCardFlip" />
         <activity android:name=".LayoutFrontCardFlip" />
-        <activity android:name=".StatsActivity" />
-        <activity android:name=".MembersActivity" />
+        <activity android:name=".StatsActivity" android:theme="@style/AppTheme1"/>
+
+        <activity android:name=".MembersActivity" android:theme="@style/AppTheme1"/>
         <activity android:name=".IntroductionActivity">
         </activity>
     </application>

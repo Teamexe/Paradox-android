@@ -1,36 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar_stats"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/psb"
+            android:text="Stats"
+            android:textColor="#dd6495"
+            android:textSize="25sp" />
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>
+
+<android.support.v4.widget.NestedScrollView android:layout_below="@id/toolbar_stats" xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:plainpie="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eee"
     tools:context="com.exe.paradox.StatsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/toolbar_stats"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/psb"
-                    android:text="Stats"
-                    android:textColor="#dd6495"
-                    android:textSize="25sp" />
-            </RelativeLayout>
-        </android.support.v7.widget.Toolbar>
         <!--Do not change above this-->
         <FrameLayout
             android:id="@+id/card_holder_one"
@@ -42,10 +46,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16sp"
+                android:layout_margin="16dp"
                 plainpie:cardBackgroundColor="@color/cardview_light_background"
-                plainpie:cardElevation="8sp">
+                plainpie:cardElevation="4sp">
 
-                <RelativeLayout
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:background="#fff"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16sp">
@@ -54,14 +62,13 @@
                         android:id="@+id/profile_pic"
                         android:layout_width="80sp"
                         android:layout_height="80sp"
-                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
                         android:src="@mipmap/ic_launcher" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@+id/profile_pic"
-                        android:layout_toRightOf="@+id/profile_pic"
+
                         android:orientation="vertical"
                         android:padding="16sp">
 
@@ -81,7 +88,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
+                                android:fontFamily="@font/ps"
                                 android:id="@+id/name"
                                 android:singleLine="true"
                                 android:text="Sexy bacha gupta"
@@ -104,7 +111,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
+                                android:fontFamily="@font/ps"
                                 android:singleLine="true"
                                 android:id="@+id/email"
                                 android:text="sexy_bacha@gmail.com"
@@ -127,7 +134,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
+                                android:fontFamily="@font/ps"
                                 android:singleLine="true"
                                 android:text="26"
                                 android:id="@+id/score"
@@ -150,7 +157,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
+                                android:fontFamily="@font/ps"
                                 android:singleLine="true"
                                 android:text="kum12343"
                                 android:id="@+id/ref_code"
@@ -173,14 +180,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
+                                android:fontFamily="@font/ps"
                                 android:singleLine="true"
                                 android:text="3"
                                 android:id="@+id/ref_given"
                                 android:textSize="20sp" />
                         </LinearLayout>
                     </LinearLayout>
-                </RelativeLayout>
+                </LinearLayout>
             </android.support.v7.widget.CardView>
         </FrameLayout>
 
@@ -213,8 +220,7 @@
             android:layout_marginRight="16sp"
             android:layout_marginTop="-40sp"
             plainpie:cardBackgroundColor="@color/cardview_light_background"
-            plainpie:cardCornerRadius="8sp"
-            plainpie:cardElevation="8sp">
+            plainpie:cardElevation="4sp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -284,7 +290,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
+                        android:fontFamily="@font/ps"
                         android:id="@+id/date_show"
                         android:text="May 23 2019"
                         android:textSize="20sp" />
@@ -306,7 +312,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
+                        android:fontFamily="@font/ps"
                         android:id="@+id/time"
                         android:text="bura wakt"
                         android:textSize="20sp" />
@@ -328,7 +334,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
+                        android:fontFamily="@font/ps"
                         android:id="@+id/level"
                         android:text="3"
                         android:textSize="20sp" />
@@ -383,3 +389,4 @@
         </android.support.v7.widget.CardView>
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

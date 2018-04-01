@@ -1,35 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/gradient"
     android:layout_height="match_parent"
+    android:background="#00000000"
     tools:context="com.exe.paradox.ReferActivity">
 
-    <TextView
-        android:id="@+id/ref_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/ref_code"
-        android:text="You referral code is: gulluBhadwa" />
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+app:cardBackgroundColor="#303030"
+        android:layout_height="match_parent"
+        android:layout_margin="32dp"
+        app:cardCornerRadius="20dp">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textColor="#FFFFFF"
-        android:id="@+id/ref_code"
-        android:textColorHint="#FFFFFF"
-        android:hint="Enter your friends referral code" />
+        <RelativeLayout
+            android:layout_width="match_parent"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_marginTop="16sp"
-        android:id="@+id/submit"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/ref_code"
-        android:text="Submit" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/ref_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/ref_code"
+                android:layout_centerHorizontal="true"
+                android:text="You referral code is: gulluBhadwa"
+                android:textColor="#fff" />
+
+            <EditText
+                android:id="@+id/ref_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:hint="Enter your friend's referral code"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ref_code"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16sp"
+                android:backgroundTint="#ff1744"
+                android:text="Submit"
+                android:textColor="#fff" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
