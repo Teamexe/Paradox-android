@@ -92,6 +92,10 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
             }
 
         });
+        Typewriter typewriter = v.findViewById(R.id.paradox_tag);
+        typewriter.setText("");
+        typewriter.setCharacterDelay(150);
+        typewriter.animateText("Paradox");
         return v;
     }
 
@@ -127,8 +131,8 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
             public void onResponse(Call<AcknowedgementResponse> call, Response<AcknowedgementResponse> response) {
                 if(response.isSuccessful()) {
                     if (response.body().getMessage().matches("true") || response.body().getMessage().matches("Account already exists.")) {
-                        //startActivity(new Intent(getContext(), HomeActivity.class));
-                        //getActivity().finish();
+                        startActivity(new Intent(getContext(), HomeActivity.class));
+                        getActivity().finish();
                     }
                 }
             }

@@ -5,15 +5,24 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <TextView
+    <com.exe.paradox.util.Typewriter
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Paradox"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/two"
+        android:layout_above="@+id/by_tag"
         android:textSize="70sp"
         android:id="@+id/paradox_tag"
         android:fontFamily="@font/psb" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="by"
+        android:textSize="70sp"
+        android:fontFamily="@font/psb"
+        android:id="@+id/by_tag"
+        android:layout_centerInParent="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,13 +32,14 @@
         android:textSize="70sp"
         android:fontFamily="@font/psb"
         android:text=".e"
-        android:layout_below="@+id/paradox_tag"
+        android:layout_below="@+id/by_tag"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/by_tag"
         android:id="@+id/two"
         android:textSize="70sp"
         android:fontFamily="@font/psb"
@@ -45,7 +55,7 @@
         android:textSize="70sp"
         android:fontFamily="@font/psb"
         android:text="e"
-        android:layout_below="@+id/paradox_tag"
+        android:layout_below="@+id/by_tag"
         />
 
     <com.google.android.gms.common.SignInButton
