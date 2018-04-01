@@ -93,9 +93,13 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
 
         });
         Typewriter typewriter = v.findViewById(R.id.paradox_tag);
+        Typewriter by = v.findViewById(R.id.by_tag);
+        by.setText("");
+        by.setCharacterDelay(400);
         typewriter.setText("");
         typewriter.setCharacterDelay(150);
         typewriter.animateText("Paradox");
+        by.animateText("by");
         return v;
     }
 
@@ -152,7 +156,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
                     appLoginIn();
                 }
             };
-            handler.postDelayed(r, 2000);
+            handler.postDelayed(r, 1000);
             signInButton.setVisibility(View.GONE);
         } else {
             imgProfilePic = "null";

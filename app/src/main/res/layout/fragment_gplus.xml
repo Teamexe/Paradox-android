@@ -15,7 +15,7 @@
         android:id="@+id/paradox_tag"
         android:fontFamily="@font/psb" />
 
-    <TextView
+    <com.exe.paradox.util.Typewriter
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="by"
