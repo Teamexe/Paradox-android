@@ -7,9 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.exe.paradox.Project;
 import com.exe.paradox.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -18,9 +21,11 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ImageV
     private List<Project> projects;
     class ImageViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
+        TextView textView;
         ImageViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
+            textView = itemView.findViewById(R.id.price);
         }
     }
 
@@ -37,7 +42,10 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ImageV
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        holder.imageView.setImageDrawable(mContext.getResources().getDrawable(projects.get(position).getDrawablePath()));
+        holder.textView.setText(projects.get(position).getTitle());
+        Picasso.get().load(projects.get(position).getDrawablePath())
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.error).into(holder.imageView);
     }
 
     @Override
