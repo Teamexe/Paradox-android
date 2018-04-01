@@ -69,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="Submit"
+                android:id="@+id/submit"
                 android:layout_below="@id/e4" />
         </RelativeLayout>
 

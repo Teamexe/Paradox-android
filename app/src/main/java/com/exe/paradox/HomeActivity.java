@@ -104,7 +104,8 @@ public class HomeActivity extends AppCompatActivity {
         name = findViewById(R.id.title_name);
         img = findViewById(R.id.acc_img);
         sign_out = findViewById(R.id.signout);
-
+        //HIDDEN SIGNOUT
+        sign_out.setVisibility(View.GONE);
         final GPlusFragment gPlusFragment = new GPlusFragment();
         sign_out.setOnClickListener(new View.OnClickListener() {
             @Override

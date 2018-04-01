@@ -20,19 +20,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 
 public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewholder> {
-    class LeaderboardViewholder extends RecyclerView.ViewHolder{
-        TextView level, name, score;
-        CircleImageView image;
-        public LeaderboardViewholder(View itemView) {
-            super(itemView);
-            level = itemView.findViewById(R.id.level);
-            name = itemView.findViewById(R.id.name);
-            score = itemView.findViewById(R.id.scoreTv);
-            image = itemView.findViewById(R.id.image);
-        }
-    }
-
     private List<Leaderboard> leaderboardList;
+
     public LeaderboardAdapter(List<Leaderboard> leaderboardList) {
         this.leaderboardList = leaderboardList;
     }
@@ -45,8 +34,15 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull LeaderboardViewholder holder, int position) {
-        holder.name.setText(leaderboardList.get(position).getName());
-        if(leaderboardList.get(position).getScore() < 0)
+        String nameValue = "";
+        if (leaderboardList.get(position).getName().length() > 12)
+            nameValue = leaderboardList.get(position).getName().substring(0, 11) + "...";
+        else
+            nameValue = leaderboardList.get(position).getName();
+
+        holder.name.setText(nameValue);
+
+        if (leaderboardList.get(position).getScore() < 0)
             holder.score.setText("0");
         else
             holder.score.setText(String.valueOf(leaderboardList.get(position).getScore()));
@@ -57,5 +53,18 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
     @Override
     public int getItemCount() {
         return leaderboardList.size();
+    }
+
+    class LeaderboardViewholder extends RecyclerView.ViewHolder {
+        TextView level, name, score;
+        CircleImageView image;
+
+        public LeaderboardViewholder(View itemView) {
+            super(itemView);
+            level = itemView.findViewById(R.id.level);
+            name = itemView.findViewById(R.id.name);
+            score = itemView.findViewById(R.id.scoreTv);
+            image = itemView.findViewById(R.id.image);
+        }
     }
 }

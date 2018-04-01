@@ -89,7 +89,7 @@ public class LeaderboardActivity extends AppCompatActivity {
     private void setValues(TextView name, TextView level, TextView score, ImageView image, Leaderboard leaderboard) {
         String nameValue = "";
         if(leaderboard.getName().length()>12) {
-            nameValue = leaderboard.getName()+"...";
+            nameValue = leaderboard.getName().substring(0, 11)+"...";
         }
         else
             nameValue = leaderboard.getName();
