@@ -1,71 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_question"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/qroot"
     android:background="#eee"
     tools:context="com.exe.paradox.QuestionActivity">
 
-    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/toolbar_question"
+    <RelativeLayout
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
         android:paddingTop="32dp"
 
         android:background="#fff"
         android:orientation="vertical">
 
-        <RelativeLayout
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_question"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/psb"
+                    android:text="Question"
+                    android:textColor="#00aeef"
+                    android:textSize="25sp" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+        <!--Do not change above this-->
+        <com.wajahatkarim3.easyflipview.EasyFlipView
+            android:id="@+id/flip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar_question"
+            android:layout_margin="16dp"
+            app:flipDuration="400"
+            app:flipEnabled="true"
+            app:flipOnTouch="false"
+            app:flipType="horizontal">
+
+            <!-- Back Layout Goes Here -->
+            <include layout="@layout/activity_layout_back" />
+
+            <!-- Front Layout Goes Here -->
+            <include layout="@layout/activity_layout_front" />
+
+        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/flip"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16sp"
+            android:layout_marginRight="16sp"
+            android:elevation="8sp"
+            app:cardBackgroundColor="#00aeef"
+            app:cardCornerRadius="7sp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/t2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="#00aeef"
+                android:clickable="true"
                 android:fontFamily="@font/psb"
-                android:text="Question"
-                android:textColor="#f9bb72"
-                android:textSize="25sp" />
-
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
-    <!--Do not change above this-->
-    <com.wajahatkarim3.easyflipview.EasyFlipView
-        android:id="@+id/flip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar_question"
-        android:layout_margin="16dp"
-        app:flipDuration="400"
-        app:flipEnabled="true"
-        app:flipOnTouch="false"
-        app:flipType="horizontal">
-
-        <!-- Back Layout Goes Here -->
-        <include layout="@layout/activity_layout_back" />
-
-        <!-- Front Layout Goes Here -->
-        <include layout="@layout/activity_layout_front" />
-
-    </com.wajahatkarim3.easyflipview.EasyFlipView>
-
-    <TextView
-        android:id="@+id/t2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/flip"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:fontFamily="@font/ps"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:padding="4dp"
-        android:text="Go for Hints"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="#000" />
-</RelativeLayout>
+                android:padding="16dp"
+                android:text="Go for Hints"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FFF" />
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>
 

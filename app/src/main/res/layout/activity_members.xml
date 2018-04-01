@@ -14,7 +14,9 @@
 
         android:orientation="vertical">
 
+
         <TextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/psb"
@@ -84,7 +86,9 @@
                 android:id="@+id/mentor_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:orientation="vertical">
+
 
 
                 <RelativeLayout
@@ -120,13 +124,16 @@
                 android:id="@+id/final_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_below="@+id/mentor_ll"
                 android:orientation="vertical">
+
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:layout_below="@+id/orange_holder"
                     android:layout_margin="16dp"
                     android:padding="8sp">
@@ -157,6 +164,7 @@
 
             <LinearLayout
                 android:id="@+id/third_ll"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/final_ll"
@@ -187,6 +195,7 @@
                     android:id="@+id/recv_third"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:layout_gravity="center"
                     android:paddingBottom="16sp"
                     android:paddingLeft="16sp"
@@ -195,6 +204,7 @@
 
             <LinearLayout
                 android:id="@+id/second_ll"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/third_ll"
@@ -204,6 +214,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:layout_margin="16dp"
                     android:padding="8sp">
 
@@ -232,6 +243,7 @@
 
             <LinearLayout
                 android:id="@+id/first_ll"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/second_ll"
@@ -241,6 +253,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:layout_margin="16dp"
                     android:padding="8sp">
 
@@ -270,3 +283,4 @@
 
     </com.github.florent37.parallax.ScrollView>
 </RelativeLayout>
+

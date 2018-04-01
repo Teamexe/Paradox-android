@@ -7,12 +7,14 @@
     android:background="#00000000"
     tools:context="com.exe.paradox.ReferActivity">
 
+
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
 app:cardBackgroundColor="#303030"
         android:layout_height="match_parent"
         android:layout_margin="32dp"
         app:cardCornerRadius="20dp">
+
 
         <RelativeLayout
             android:layout_width="match_parent"

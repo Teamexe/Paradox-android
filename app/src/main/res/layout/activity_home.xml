@@ -36,8 +36,8 @@
         <RelativeLayout
             android:id="@+id/pager_holder"
             android:layout_width="match_parent"
-            android:layout_marginTop="48dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
             android:tag="parallax=0.3">
 
 
@@ -47,8 +47,8 @@
                 android:layout_height="wrap_content">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="60dp"
                     android:id="@+id/acc_img"
+                    android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
@@ -63,20 +63,21 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="16sp"
                     android:fontFamily="@font/ps"
-                    android:textAllCaps="true"
                     android:text="Sexy Bacha"
+                    android:textAllCaps="true"
                     android:textColor="#fff"
                     android:textSize="25sp" />
+
                 <TextView
+                    android:id="@+id/signout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sign Out"
-                    android:id="@+id/signout"
-                    android:textColor="#fff"
-                    android:textSize="15sp"
                     android:layout_below="@id/title_name"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginTop="8dp"
+                    android:text="Sign Out"
+                    android:textColor="#fff"
+                    android:textSize="15sp" />
             </RelativeLayout>
 
             <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
@@ -124,16 +125,16 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_marginLeft="16sp"
-                    android:layout_weight="1"
+                    android:id="@+id/rankings_ll"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/rankings_ll"
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -147,18 +148,18 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/ps"
                         android:gravity="center"
-                        android:text="Rankings"
                         android:singleLine="true"
+                        android:text="Rankings"
                         android:textColor="#333"
                         android:textSize="15sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/paradox_ll"
-                    android:layout_marginLeft="16sp"
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -179,10 +180,10 @@
 
                 <LinearLayout
                     android:id="@+id/stats_ll"
-                    android:layout_marginLeft="16sp"
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -203,10 +204,10 @@
 
                 <LinearLayout
                     android:id="@+id/referral_ll"
-                    android:layout_marginLeft="16sp"
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -227,11 +228,11 @@
 
                 <LinearLayout
                     android:id="@+id/members_ll"
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16sp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -245,8 +246,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/ps"
-                        android:text="Members"
                         android:singleLine="true"
+                        android:text="Members"
                         android:textColor="#333"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -259,12 +260,12 @@
             android:id="@+id/two_tags_holder"
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            android:gravity="center"
             android:layout_below="@+id/nav_recv"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="8sp"
             android:layout_marginRight="8sp"
             android:layout_marginTop="16sp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <!-- Confession website -->
@@ -274,9 +275,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="8sp"
                 android:layout_weight="1"
+                android:id="@+id/paradox_site"
                 app:cardBackgroundColor="#fff"
-                app:cardCornerRadius="10sp"
-                >
+                app:cardCornerRadius="10sp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -291,9 +292,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:id="@+id/exe_site"
                 app:cardBackgroundColor="#fff"
-                app:cardCornerRadius="10sp"
-               >
+                app:cardCornerRadius="10sp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -305,13 +306,13 @@
 
         <LinearLayout
             android:id="@+id/one"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:visibility="invisible"
             android:layout_below="@id/two_tags_holder"
             android:layout_margin="16dp"
-            android:background="#aaa" />
+            android:background="#aaa"
+            android:orientation="horizontal"
+            android:visibility="invisible" />
 
         <LinearLayout
             android:id="@+id/orange_holder"

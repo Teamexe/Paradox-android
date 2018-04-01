@@ -43,8 +43,9 @@
          from https://console.developers.google.com/ -->
     <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
     <string name="name">Name :</string>
+    <string name="transition_string">fuckYou</string>
     <string name="leader_appbar">Leaderboard appbar</string>
-    
+
     <string-array name="message_array">
         <item>Better by far you should forget and smile \nThan that you should remember and be sad.\n- Christina Rossetti</item>
         <item>Can I see another\'s woe,\nAnd not be in sorrow too?\nCan I see another\'s grief,\nAnd not seek for kind relief?\n- William Blake</item>

@@ -25,13 +25,5 @@ public class LayoutFrontCardFlip extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout_front);
-
-        /*
-        *Fetching Picture from level
-        *
-        */
-        final GPlusFragment gPlusFragment = new GPlusFragment();
-        final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-
     }
 }

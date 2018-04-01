@@ -35,6 +35,7 @@
             android:theme="@style/AppTheme2" />
         <activity android:name=".LayoutBackCardFlip" />
         <activity android:name=".LayoutFrontCardFlip" />
+
         <activity
             android:name=".StatsActivity"
             android:theme="@style/AppTheme1" />
@@ -44,6 +45,10 @@
         <activity
             android:name=".IntroductionActivity"
             android:theme="@style/Transparent"/>
+
+        <activity android:name=".ImageZoomActivity" />
+        <activity android:name=".DpActivity"/>
+
     </application>
 
 </manifest>
