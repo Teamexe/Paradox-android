@@ -31,7 +31,8 @@
         android:layout_toLeftOf="@+id/two"
         android:textSize="70sp"
         android:fontFamily="@font/psb"
-        android:text=".e"
+        android:text=".E"
+        android:textColor="#02466a"
         android:layout_below="@+id/by_tag"
         />
 
@@ -43,7 +44,7 @@
         android:id="@+id/two"
         android:textSize="70sp"
         android:fontFamily="@font/psb"
-        android:textColor="@android:color/holo_blue_bright"
+        android:textColor="#00aeef"
         android:text="X"
         />
 
@@ -53,8 +54,9 @@
         android:layout_toRightOf="@+id/two"
         android:id="@+id/three"
         android:textSize="70sp"
+        android:textColor="#02466a"
         android:fontFamily="@font/psb"
-        android:text="e"
+        android:text="E"
         android:layout_below="@+id/by_tag"
         />
 

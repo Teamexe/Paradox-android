@@ -26,7 +26,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/psb"
                     android:text="Leaderboard"
-                    android:textColor="#76afcf"
+                    android:textColor="#02bdd5"
                     android:textSize="25sp" />
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
