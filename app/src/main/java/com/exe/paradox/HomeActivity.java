@@ -46,6 +46,7 @@ import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic
 import com.pixelcan.inkpageindicator.InkPageIndicator;
 import com.squareup.picasso.Picasso;
 
+import am.appwise.components.ni.NoInternetDialog;
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,6 +54,7 @@ import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity {
 
+    NoInternetDialog noInternetDialog;
     CircleImageView img;
     TextView name, sign_out;
     LinearLayout rankings, paradox, stats, referral, members;
@@ -62,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        noInternetDialog = new NoInternetDialog.Builder(this).build();
         ScrollView rootLayout = (ScrollView) findViewById(R.id.holder);
         if (savedInstanceState == null) {
             rootLayout.setVisibility(View.INVISIBLE);
@@ -308,6 +310,11 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        noInternetDialog.onDestroy();
+    }
 }
 
 

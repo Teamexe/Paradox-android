@@ -4,5 +4,10 @@
     <color name="colorPrimaryDark">#fff</color>
     <color name="colorAccent">#FF4081</color>
     <color name="light_orange">#f9bb72</color>
+    <color name="background_light">#fffafafa</color>
     <color name="black">#000</color>
+    <color name="slide_1">#4f91ff</color>
+    <color name="slide_2">#fb9c25</color>
+    <color name="slide_3">#5ab55d</color>
+    <color name="slide_4">#ea2d6d</color>
 </resources>

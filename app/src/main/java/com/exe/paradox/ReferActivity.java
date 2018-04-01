@@ -76,7 +76,6 @@ public class ReferActivity extends AppCompatActivity {
                                 Toast.makeText(ReferActivity.this, "The maximum referrals allowed for the referral code has been reached or the referral code is incorrect", Toast.LENGTH_LONG).show();
                             } else {
                                 Toast.makeText(ReferActivity.this, "Referral successfully added", Toast.LENGTH_LONG).show();
-                                Preferences.seRef(ReferActivity.this, false);
                                 startActivity(new Intent(ReferActivity.this, HomeActivity.class));
                                 finish();
                             }

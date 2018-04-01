@@ -7,7 +7,4 @@ package com.exe.paradox.util;
 public class Constants {
     public static final String FETCH_TOKEN = "PHyQdkcVGU2Q1FBNmolhVJ9NZlhBvtqyMGbHAf6AK88l0L6df1Ry9bQlICduNDcXPnHaxFkvAzj99qvUezB8EQH2cjg7hMW8Y6rJ25V2JDPqjTTrIsNfMAtQXdfT";
     public static final int FETCH_TYPE = 30;
-    public static final String GOOGLE_ID = "234234";
-    public static final String REFERRAL_CODE = "sdf48262";
-
 }
