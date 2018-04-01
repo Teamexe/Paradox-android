@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.exe.paradox.Member;
 import com.exe.paradox.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -30,7 +31,9 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
 
     @Override
     public void onBindViewHolder(@NonNull MembersViewHolder holder, int position) {
-        holder.imageView.setImageDrawable(mContext.getResources().getDrawable(memberList.get(position).getDrawable()));
+        Picasso.get().load(memberList.get(position).getDrawable())
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.error).into(holder.imageView);
     }
 
     @Override

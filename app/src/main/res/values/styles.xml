@@ -6,7 +6,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
         <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+
     </style>
     <style name="Transparent" parent="AppTheme">
         <item name="android:windowTranslucentStatus">true</item>
@@ -19,6 +24,20 @@
 
     <style name="font" parent="Transparent">
     <item name="android:fontFamily">@font/psb</item>
+    </style>
+
+    <style name="AppTheme1" parent="AppTheme">
+        <item name="colorPrimaryDark">#eee</item>
+    </style>
+
+    <style name="AppTheme2" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
     </style>
 
 </resources>

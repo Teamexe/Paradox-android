@@ -1,261 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.github.florent37.parallax.ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mroot"
+    android:background="#eee"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.exe.paradox.StatsActivity">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_members"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:paddingTop="32dp"
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_members"
+        android:orientation="vertical">
+
+
+        <TextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
+            android:fontFamily="@font/psb"
+            android:text="Members"
+            android:textColor="#72d3b4"
+            android:textSize="25sp" />
+    </android.support.v7.widget.Toolbar>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/psb"
-                android:text="Members"
-                android:textColor="#00aeef"
-                android:textSize="25sp" />
-        </android.support.v7.widget.Toolbar>
+    <com.github.florent37.parallax.ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_members"
+        tools:context="com.exe.paradox.StatsActivity">
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/final_ll"
-            android:scaleX="1"
-            android:src="@drawable/red_circle"
-            android:tag="parallax=-0.2"
-            android:translationX="150dp"
-            android:translationZ="-10dp" />
-
-
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/second_ll"
-            android:scaleX="1"
-            android:src="@drawable/red_circle"
-            android:tag="parallax=-0.2"
-            android:translationX="150dp"
-            android:translationZ="-10dp" />
-
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/mentor_ll"
-            android:scaleX="1"
-            android:src="@drawable/red_circle"
-            android:tag="parallax=-0.2"
-            android:translationX="-39dp"
-            android:translationZ="-10dp" />
-
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/third_ll"
-            android:scaleX="1"
-            android:src="@drawable/red_circle"
-            android:tag="parallax=-0.2"
-            android:translationX="-39dp"
-            android:translationZ="-10dp" />
-        <LinearLayout
-            android:id="@+id/mentor_ll"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar_members"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
 
-            <RelativeLayout
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/final_ll"
+                android:scaleX="1"
+                android:src="@drawable/red_circle1"
+                android:tag="parallax=-0.2"
+                android:translationX="150dp"
+                android:translationZ="-10dp" />
+
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/second_ll"
+                android:scaleX="1"
+                android:src="@drawable/red_circle1"
+                android:tag="parallax=-0.2"
+                android:translationX="150dp"
+                android:translationZ="-10dp" />
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/mentor_ll"
+                android:scaleX="1"
+                android:src="@drawable/red_circle1"
+                android:tag="parallax=-0.2"
+                android:translationX="-150dp"
+                android:translationZ="-10dp" />
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/third_ll"
+                android:scaleX="1"
+                android:src="@drawable/red_circle1"
+                android:tag="parallax=-0.2"
+                android:translationX="-150dp"
+                android:translationZ="-10dp" />
+
+            <LinearLayout
+                android:id="@+id/mentor_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="8sp">
 
-                <TextView
-                    android:id="@+id/exe"
-                    android:layout_width="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/psb"
-                    android:text="Mentor"
-                    android:textAllCaps="true"
-                    android:textColor="#00aeef"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:layout_margin="16dp"
+                    android:padding="8sp">
 
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/exe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/psb"
+                        android:text="Mentors"
+                        android:textAllCaps="true"
+                        android:textColor="#000"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recv_mentor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingBottom="16sp"
-                android:paddingLeft="16sp"
-                android:paddingRight="16sp" />
-        </LinearLayout>
+                </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/final_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mentor_ll"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/orange_holder"
-                android:layout_margin="16dp"
-                android:padding="8sp">
-
-                <TextView
-                    android:id="@+id/final_tag"
-                    android:layout_width="wrap_content"
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recv_mentor"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:fontFamily="@font/psb"
-                    android:text="Final year"
-                    android:textAllCaps="true"
-                    android:textColor="#00aeef"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:layout_gravity="center"
+                    android:paddingBottom="16sp"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp" />
+            </LinearLayout>
 
-            </RelativeLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recv_final"
+            <LinearLayout
+                android:id="@+id/final_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingBottom="16sp"
-                android:paddingLeft="16sp"
-                android:paddingRight="16sp" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/third_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/final_ll"
-            android:orientation="vertical">
+                android:layout_below="@+id/mentor_ll"
+                android:orientation="vertical">
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="8sp">
 
-                <TextView
-                    android:id="@+id/third_tag"
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:fontFamily="@font/psb"
-                    android:text="Coordinators"
-                    android:textAllCaps="true"
-                    android:textColor="#00aeef"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
 
-            </RelativeLayout>
+                    android:layout_below="@+id/orange_holder"
+                    android:layout_margin="16dp"
+                    android:padding="8sp">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recv_third"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingBottom="16sp"
-                android:paddingLeft="16sp"
-                android:paddingRight="16sp" />
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/final_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:fontFamily="@font/psb"
+                        android:text="Final year"
+                        android:textAllCaps="true"
+                        android:textColor="#000"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/second_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/third_ll"
-            android:orientation="vertical">
+                </RelativeLayout>
 
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="8sp">
-
-                <TextView
-                    android:id="@+id/second_tag"
-                    android:layout_width="wrap_content"
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recv_final"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/psb"
-                    android:text="Executives"
-                    android:layout_alignParentRight="true"
-                    android:textAllCaps="true"
-                    android:textColor="#00aeef"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:layout_gravity="center"
+                    android:paddingBottom="16sp"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp" />
+            </LinearLayout>
 
-            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/third_ll"
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recv_second"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingBottom="16sp"
-                android:paddingLeft="16sp"
-                android:paddingRight="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/first_ll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/second_ll"
-            android:orientation="vertical">
+                android:layout_below="@+id/final_ll"
+                android:orientation="vertical">
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="8sp">
-
-                <TextView
-                    android:id="@+id/first_tag"
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/psb"
-                    android:text="Volunteers"
-                    android:textAllCaps="true"
-                    android:textColor="#00aeef"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:layout_margin="16dp"
+                    android:padding="8sp">
 
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/third_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:fontFamily="@font/psb"
+                        android:text="Third year"
+                        android:textAllCaps="true"
+                        android:textColor="#000"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recv_first"
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recv_third"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:paddingBottom="16sp"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/second_ll"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingBottom="16sp"
-                android:paddingLeft="16sp"
-                android:paddingRight="16sp" />
-        </LinearLayout>
-    </RelativeLayout>
+                android:layout_below="@+id/third_ll"
+                android:orientation="vertical">
 
-</com.github.florent37.parallax.ScrollView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="16dp"
+                    android:padding="8sp">
+
+                    <TextView
+                        android:id="@+id/second_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/psb"
+                        android:text="Second year"
+                        android:textAllCaps="true"
+                        android:textColor="#000"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recv_second"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingBottom="16sp"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/first_ll"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/second_ll"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="16dp"
+                    android:padding="8sp">
+
+                    <TextView
+                        android:id="@+id/first_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/psb"
+                        android:text="First year"
+                        android:textAllCaps="true"
+                        android:textColor="#000"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recv_first"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingBottom="16sp"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </com.github.florent37.parallax.ScrollView>
+</RelativeLayout>
+

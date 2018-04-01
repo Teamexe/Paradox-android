@@ -6,9 +6,9 @@ package com.exe.paradox;
 
 public class Project {
     String title, desc, link;
-    int drawablePath;
+    String drawablePath;
 
-    public Project(String title, String desc, String link, int drawablePath) {
+    public Project(String title, String desc, String link, String drawablePath) {
         this.title = title;
         this.desc = desc;
         this.link = link;
@@ -27,7 +27,7 @@ public class Project {
         return link;
     }
 
-    public int getDrawablePath() {
+    public String getDrawablePath() {
         return drawablePath;
     }
 }

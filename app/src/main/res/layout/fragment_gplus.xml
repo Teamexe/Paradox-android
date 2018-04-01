@@ -1,11 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <com.exe.paradox.util.Typewriter
+<!--    <com.exe.paradox.util.Typewriter
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Paradox"
@@ -58,13 +59,14 @@
         android:fontFamily="@font/psb"
         android:text="E"
         android:layout_below="@+id/by_tag"
-        />
+        />-->
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="64dp"
+
         android:layout_marginRight="64dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

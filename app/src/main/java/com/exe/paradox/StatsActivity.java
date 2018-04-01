@@ -1,9 +1,20 @@
 package com.exe.paradox;
 
+import android.animation.Animator;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+import android.util.Log;
+import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.ViewTreeObserver;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.RelativeLayout;
+
 import android.widget.TextView;
 
 import com.exe.paradox.api.model.Profile;
@@ -29,11 +40,37 @@ public class StatsActivity extends AppCompatActivity {
     PieView pieView;
     CircleImageView circleImageView;
     NoInternetDialog noInternetDialog;
+    RelativeLayout rootLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window w = getWindow(); // in Activity's onCreate() for instance
+            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+        rootLayout = findViewById(R.id.sroot);
+
+        if (savedInstanceState == null) {
+            rootLayout.setVisibility(View.INVISIBLE);
+
+            ViewTreeObserver viewTreeObserver = rootLayout.getViewTreeObserver();
+            if (viewTreeObserver.isAlive()) {
+                viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        circularRevealActivity();
+                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+                            rootLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                        } else {
+                            rootLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+
+                        }
+                    }
+                });
+            }
+        }
         Toolbar toolbar = findViewById(R.id.toolbar_stats);
         setSupportActionBar(toolbar);
         setViews();
@@ -132,7 +169,64 @@ public class StatsActivity extends AppCompatActivity {
         totalTv = findViewById(R.id.total);
     }
 
+
+    private void circularRevealActivity() {
+
+        int cx = rootLayout.getWidth() / 2;
+        int cy = rootLayout.getHeight() / 2;
+
+        float finalRadius = Math.max(rootLayout.getWidth(), rootLayout.getHeight());
+
+        // create the animator for this view (the start radius is zero)
+        Animator circularReveal = ViewAnimationUtils.createCircularReveal(rootLayout, cx, 0, 0, finalRadius * 2);
+        circularReveal.setDuration(1000);
+
+        // make the view visible and start the animation
+        rootLayout.setVisibility(View.VISIBLE);
+        circularReveal.start();
+    }
+
+    private void backCircular() {
+
+        int cx = rootLayout.getWidth() / 2;
+        int cy = rootLayout.getHeight() / 2;
+
+        float finalRadius = Math.max(rootLayout.getWidth(), rootLayout.getHeight());
+
+        // create the animator for this view (the start radius is zero)
+        Animator circularReveal = ViewAnimationUtils.createCircularReveal(rootLayout, cx, 0, finalRadius * 2, 0);
+        circularReveal.setDuration(1000);
+
+        // make the view visible and start the animation
+        circularReveal.start();
+        circularReveal.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                rootLayout.setVisibility(View.INVISIBLE);
+
+                finish();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+    }
+
+   
     private void doPieChart(Profile profile, int total) {
+
         pieView.setPercentageBackgroundColor(Color.parseColor("#ff1744"));
         pieView.setInnerText("Level " + profile.getLevel());
         pieView.setPercentage((Float.parseFloat(profile.getLevel()) / total) * 100);
@@ -143,6 +237,11 @@ public class StatsActivity extends AppCompatActivity {
         PieAngleAnimation animation = new PieAngleAnimation(pieView);
         animation.setDuration(2500);
         pieView.startAnimation(animation);
+    }
+
+    @Override
+    public void onBackPressed() {
+        backCircular();
     }
 
     @Override

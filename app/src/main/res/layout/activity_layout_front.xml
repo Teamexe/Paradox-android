@@ -40,8 +40,10 @@
                 android:layout_below="@+id/t1"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="-8dp"
-                android:fontFamily="@font/psb"
-                android:text="This Question?"
+
+                android:fontFamily="@font/ps"
+                android:text="This Riddle?"
+
                 android:textAllCaps="true"
                 android:textColor="#000"
                 android:textSize="28sp" />
@@ -73,9 +75,12 @@
                 android:layout_marginRight="16sp"
                 android:layout_marginTop="8sp"
                 android:fontFamily="@font/ps"
-                android:hint="Answer Here"
+
+                android:hint="Type your answer here"
+
                 android:maxLines="1"
                 android:singleLine="true"
+
                 android:textAlignment="center" />
 
             <Button
@@ -87,7 +92,12 @@
                 android:layout_margin="8sp"
                 android:background="#00aeef"
                 android:text="Submit"
-                android:textColor="#FFF" />
+
+                android:backgroundTint="#f9bb72"
+
+                android:id="@+id/submit"
+                android:layout_below="@id/e4" />
+
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

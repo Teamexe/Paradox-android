@@ -67,7 +67,7 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
             GoogleSignInResult result = opr.get();
             handleSignInResult(result);
         } else {
-            showProgressDialog();
+            //showProgressDialog();
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
                 public void onResult(GoogleSignInResult googleSignInResult) {
@@ -92,14 +92,14 @@ public class GPlusFragment extends Fragment implements GoogleApiClient.OnConnect
             }
 
         });
-        Typewriter typewriter = v.findViewById(R.id.paradox_tag);
+        /*Typewriter typewriter = v.findViewById(R.id.paradox_tag);
         Typewriter by = v.findViewById(R.id.by_tag);
         by.setText("");
         by.setCharacterDelay(400);
         typewriter.setText("");
         typewriter.setCharacterDelay(150);
         typewriter.animateText("Paradox");
-        by.animateText("by");
+        by.animateText("by");*/
         return v;
     }
 
