@@ -27,8 +27,8 @@
         <activity android:name=".QuestionActivity" />
         <activity android:name=".LeaderboardActivity" />
         <activity android:name=".ReferActivity" />
-        <activity android:name=".layout_back" />
-        <activity android:name=".layout_front" />
+        <activity android:name=".LayoutBackCardFlip" />
+        <activity android:name=".LayoutFrontCardFlip" />
         <activity android:name=".StatsActivity" />
         <activity android:name=".MembersActivity" />
         <activity android:name=".IntroductionActivity">

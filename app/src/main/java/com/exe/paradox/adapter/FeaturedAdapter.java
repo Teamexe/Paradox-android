@@ -8,21 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.exe.paradox.Project;
 import com.exe.paradox.R;
+
+import java.util.List;
 
 public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ImageViewHolder>{
     private Context mContext;
+    private List<Project> projects;
     class ImageViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        private int[] drawables = {R.drawable.u1, R.drawable.u2, R.drawable.u3, R.drawable.u4, R.drawable.u5, R.drawable.u6, R.drawable.u7, R.drawable.u1};
         ImageViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
         }
     }
 
-    public FeaturedAdapter(Context mContext) {
+    public FeaturedAdapter(Context mContext, List<Project> projects) {
         this.mContext = mContext;
+        this.projects = projects;
     }
 
     @NonNull
@@ -33,11 +37,11 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ImageV
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        holder.imageView.setImageDrawable(mContext.getResources().getDrawable(holder.drawables[position]));
+        holder.imageView.setImageDrawable(mContext.getResources().getDrawable(projects.get(position).getDrawablePath()));
     }
 
     @Override
     public int getItemCount() {
-        return 8;
+        return projects.size();
     }
 }
