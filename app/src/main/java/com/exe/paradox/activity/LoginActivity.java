@@ -1,8 +1,6 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,9 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.exe.paradox.fragment.GPlusFragment;
+import com.exe.paradox.R;
 import com.exe.paradox.util.Preferences;
-import com.sdsmdg.harjot.rotatingtext.RotatingTextWrapper;
-import com.sdsmdg.harjot.rotatingtext.models.Rotatable;
 
 import am.appwise.components.ni.NoInternetDialog;
 

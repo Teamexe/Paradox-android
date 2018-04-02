@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.exe.paradox.R;
 import com.exe.paradox.api.model.Hints;
 import com.exe.paradox.api.response.HintResponse;
 import com.exe.paradox.api.rest.ApiClient;

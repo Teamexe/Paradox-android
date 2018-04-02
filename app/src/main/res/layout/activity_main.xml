@@ -12,7 +12,7 @@
     app:edPosition="1"
     android:background="#fff"
     android:fitsSystemWindows="true"
-    tools:context="com.exe.paradox.MainActivity">
+    tools:context="com.exe.paradox.activity.MainActivity">
 
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"

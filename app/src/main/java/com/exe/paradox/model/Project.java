@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.model;
 
 /**
  * Created by shasha on 1/4/18.

@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.exe.paradox.model.Member;
+import com.exe.paradox.R;
 import com.exe.paradox.adapter.MembersAdapter;
 
 import java.util.ArrayList;

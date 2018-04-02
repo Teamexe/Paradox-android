@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +9,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.exe.paradox.fragment.GPlusFragment;
+import com.exe.paradox.R;
 import com.exe.paradox.api.model.Profile;
 import com.exe.paradox.api.response.AcknowedgementResponse;
 import com.exe.paradox.api.response.ReadOneResponse;
 import com.exe.paradox.api.rest.ApiClient;
 import com.exe.paradox.api.rest.ApiInterface;
 import com.exe.paradox.util.Constants;
-import com.exe.paradox.util.Preferences;
 
 import am.appwise.components.ni.NoInternetDialog;
 import retrofit2.Call;

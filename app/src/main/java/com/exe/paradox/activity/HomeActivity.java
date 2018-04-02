@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.animation.Animator;
 import android.content.DialogInterface;
@@ -29,6 +29,11 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.exe.paradox.model.Event;
+import com.exe.paradox.fragment.GPlusFragment;
+import com.exe.paradox.fragment.MyFragment;
+import com.exe.paradox.model.Project;
+import com.exe.paradox.R;
 import com.exe.paradox.adapter.FeaturedAdapter;
 import com.exe.paradox.adapter.ProjectAdapter;
 import com.exe.paradox.api.response.ReferralResponse;

@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.animation.Animator;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.exe.paradox.R;
 import com.exe.paradox.adapter.LeaderboardAdapter;
 import com.exe.paradox.api.model.Leaderboard;
 import com.exe.paradox.api.response.LeaderboardResponse;

@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.bumptech.glide.Glide;
+import com.exe.paradox.R;
+import com.exe.paradox.model.Event;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 
 /**
