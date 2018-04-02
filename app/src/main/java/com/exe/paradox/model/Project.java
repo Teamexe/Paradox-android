@@ -1,9 +1,5 @@
 package com.exe.paradox.model;
 
-/**
- * Created by shasha on 1/4/18.
- */
-
 public class Project {
     String title, desc, link, drawablePath;
 

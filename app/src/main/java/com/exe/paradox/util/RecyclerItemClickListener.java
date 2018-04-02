@@ -1,9 +1,5 @@
 package com.exe.paradox.util;
 
-/**
- * Created by shasha on 31/3/18.
- */
-
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;

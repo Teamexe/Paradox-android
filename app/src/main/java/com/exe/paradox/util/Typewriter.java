@@ -4,10 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
 
-/**
- * Created by shasha on 1/4/18.
- */
-
 public class Typewriter extends android.support.v7.widget.AppCompatTextView {
     private CharSequence mText;
     private int mIndex;

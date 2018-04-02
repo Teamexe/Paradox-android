@@ -5,10 +5,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-/**
- * Created by shasha on 26/3/18.
- */
-
 public class HintResponse {
     @SerializedName("records")
     ArrayList<Hints> list;

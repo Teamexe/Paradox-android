@@ -23,10 +23,6 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-/**
- * Created by shasha on 23/3/18.
- */
-
 public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewholder> {
     private List<Leaderboard> leaderboardList;
     private Context mContext;

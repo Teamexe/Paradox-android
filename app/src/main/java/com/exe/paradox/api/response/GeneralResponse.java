@@ -5,10 +5,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by shasha on 2/4/18.
- */
-
 public class GeneralResponse {
     @SerializedName("records")
     List<General> list;

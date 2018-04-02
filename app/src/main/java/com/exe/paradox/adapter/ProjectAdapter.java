@@ -14,10 +14,6 @@ import com.exe.paradox.R;
 
 import java.util.List;
 
-/**
- * Created by shasha on 23/3/18.
- */
-
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectViewHolder> {
     private Context mContext;
     private List<Project> projectList;

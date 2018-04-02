@@ -2,10 +2,6 @@ package com.exe.paradox.api.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by shasha on 2/4/18.
- */
-
 public class General {
     @SerializedName("num_user")
     String numUser;

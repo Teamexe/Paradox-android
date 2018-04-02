@@ -17,10 +17,6 @@ import com.exe.paradox.R;
 import com.exe.paradox.model.Event;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 
-/**
- * Created by shasha on 18/3/18.
- */
-
 @SuppressLint("ValidFragment")
 public class MyFragment extends Fragment {
     Event event;
