@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.exe.paradox.R;
 import com.exe.paradox.api.model.Profile;
 import com.exe.paradox.api.response.AcknowedgementResponse;
 import com.exe.paradox.api.response.LevelResponse;

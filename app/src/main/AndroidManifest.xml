@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:theme="@style/Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,19 +22,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".QuestionActivity" />
-        <activity android:name=".LeaderboardActivity" />
-        <activity android:name=".ReferActivity" />
-        <activity android:name=".LayoutBackCardFlip" />
-        <activity android:name=".LayoutFrontCardFlip" />
-        <activity android:name=".StatsActivity" />
-        <activity android:name=".MembersActivity" />
-        <activity android:name=".IntroductionActivity" />
-        <activity android:name=".ImageZoomActivity" />
-        <activity android:name=".DpActivity" />
-        <activity android:name=".DpRecvActivity"></activity>
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.QuestionActivity" />
+        <activity android:name=".activity.LeaderboardActivity" />
+        <activity android:name=".activity.ReferActivity" />
+        <activity android:name=".activity.LayoutBackCardFlip" />
+        <activity android:name=".activity.LayoutFrontCardFlip" />
+        <activity android:name=".activity.StatsActivity" />
+        <activity android:name=".activity.MembersActivity" />
+        <activity android:name=".activity.IntroductionActivity" />
+        <activity android:name=".activity.ImageZoomActivity" />
+        <activity android:name=".activity.DpActivity" />
+        <activity android:name=".activity.DpRecvActivity"></activity>
     </application>
 
 </manifest>

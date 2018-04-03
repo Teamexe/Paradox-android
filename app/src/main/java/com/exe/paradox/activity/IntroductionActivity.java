@@ -1,17 +1,14 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.view.View;
 
+import com.exe.paradox.R;
 import com.exe.paradox.util.CubeOutDepthTransformation;
 import com.exe.paradox.util.Preferences;
 import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntroFragment;
-import com.github.paolorotolo.appintro.IndicatorController;
 
 public class IntroductionActivity extends AppIntro {
 

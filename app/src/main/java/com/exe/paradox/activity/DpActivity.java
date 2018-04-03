@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.exe.paradox.R;
 import com.exe.paradox.util.TouchImageView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;

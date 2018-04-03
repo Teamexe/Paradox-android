@@ -9,14 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.exe.paradox.Project;
+import com.exe.paradox.model.Project;
 import com.exe.paradox.R;
 
 import java.util.List;
-
-/**
- * Created by shasha on 23/3/18.
- */
 
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectViewHolder> {
     private Context mContext;

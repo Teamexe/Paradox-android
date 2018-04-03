@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.exe.paradox.fragment.GPlusFragment;
+import com.exe.paradox.R;
 import com.exe.paradox.api.model.Profile;
 import com.exe.paradox.api.response.GeneralResponse;
 import com.exe.paradox.api.response.ReadOneResponse;

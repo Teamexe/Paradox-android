@@ -1,9 +1,7 @@
-package com.exe.paradox;
+package com.exe.paradox.fragment;
 
 import android.app.ProgressDialog;
-import android.content.AsyncQueryHandler;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -14,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.exe.paradox.R;
+import com.exe.paradox.activity.HomeActivity;
 import com.exe.paradox.api.response.AcknowedgementResponse;
 import com.exe.paradox.api.rest.ApiClient;
 import com.exe.paradox.api.rest.ApiInterface;

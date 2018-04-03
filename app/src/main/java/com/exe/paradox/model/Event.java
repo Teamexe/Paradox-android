@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.model;
 
 public class Event {
     String name, desc;

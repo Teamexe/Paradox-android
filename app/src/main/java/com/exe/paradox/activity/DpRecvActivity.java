@@ -1,10 +1,12 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.transition.TransitionInflater;
 import android.widget.ImageView;
+
+import com.exe.paradox.R;
 
 public class DpRecvActivity extends AppCompatActivity {
 

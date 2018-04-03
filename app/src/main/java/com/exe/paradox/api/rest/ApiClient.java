@@ -3,10 +3,6 @@ package com.exe.paradox.api.rest;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by shasha on 26/3/18.
- */
-
 public class ApiClient {
     public static final String BASE_URL = "http://exe.nith.ac.in/api/";
     private static Retrofit retrofit = null;

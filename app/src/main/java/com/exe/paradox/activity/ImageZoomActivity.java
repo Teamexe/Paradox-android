@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.graphics.Color;
 import android.os.Build;
@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
+import com.exe.paradox.R;
 import com.exe.paradox.util.TouchImageView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;

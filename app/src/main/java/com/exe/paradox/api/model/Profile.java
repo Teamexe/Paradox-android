@@ -2,10 +2,6 @@ package com.exe.paradox.api.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by shasha on 29/3/18.
- */
-
 public class Profile {
     @SerializedName("picture")
     String pictureUrl;

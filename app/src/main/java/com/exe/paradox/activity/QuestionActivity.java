@@ -1,4 +1,4 @@
-package com.exe.paradox;
+package com.exe.paradox.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -21,6 +21,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.exe.paradox.fragment.GPlusFragment;
+import com.exe.paradox.R;
 import com.exe.paradox.api.model.Hints;
 import com.exe.paradox.api.model.Profile;
 import com.exe.paradox.api.response.AcknowedgementResponse;

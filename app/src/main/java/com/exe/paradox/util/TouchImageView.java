@@ -1,9 +1,5 @@
 package com.exe.paradox.util;
 
-/**
- * Created by shasha on 1/4/18.
- */
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
