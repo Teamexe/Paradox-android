@@ -31,7 +31,7 @@
         <activity android:name=".activity.LayoutFrontCardFlip" />
         <activity android:name=".activity.StatsActivity" />
         <activity android:name=".activity.MembersActivity" />
-        <activity android:name=".activity.IntroductionActivity" />
+        <activity android:name=".activity.IntroductionActivity" android:theme="@style/Transparent" />
         <activity android:name=".activity.ImageZoomActivity" />
         <activity android:name=".activity.DpActivity" />
         <activity android:name=".activity.DpRecvActivity"></activity>

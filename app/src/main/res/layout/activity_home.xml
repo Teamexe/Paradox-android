@@ -140,7 +140,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/user_default" />
+                        android:src="@drawable/llogo" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -166,7 +166,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/user_default" />
+                        android:src="@drawable/plogo" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -190,7 +190,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/user_default" />
+                        android:src="@drawable/slogo" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -214,7 +214,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/user_default" />
+                        android:src="@drawable/rlogo" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -239,7 +239,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/user_default" />
+                        android:src="@drawable/mlogo" />
 
                     <TextView
                         android:layout_width="wrap_content"

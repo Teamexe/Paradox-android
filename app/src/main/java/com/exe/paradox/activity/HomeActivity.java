@@ -123,7 +123,7 @@ public class HomeActivity extends AppCompatActivity {
         PagerAdapter pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         pager.setAdapter(pagerAdapter);
         pager.setClipToPadding(false);
-        pager.setPadding(60, 0, 60, 0);
+        pager.setPadding(0, 0, 0, 0);
         pager.setPageMargin(20);
         InkPageIndicator inkPageIndicator = findViewById(R.id.indicator);
         inkPageIndicator.setViewPager(pager);
@@ -224,7 +224,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void populateDrawables() {
-        int drawables[] = {R.drawable.hu1, R.drawable.hu2, R.drawable.hu3, R.drawable.hu4, R.drawable.hu5, R.drawable.hu6, R.drawable.hu7};
+        int drawables[] = {R.drawable.au1, R.drawable.au2, R.drawable.au3, R.drawable.au4, R.drawable.au5, R.drawable.au6, R.drawable.au7};
         String titles[] = {"One", "Two", "Three", "Four", "Five", "Six", "Seven"};
         String desc[] = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf", "ufdhsadflgsajf"};
         for (int i = 0; i < titles.length; i++) {
