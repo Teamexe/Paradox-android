@@ -24,7 +24,7 @@ public class IntroductionActivity extends AppIntro {
         }
 
         addSlide(AppIntroFragment.newInstance("Team .EXE", "Team .EXE is the technical team of Computer Science & Engineering Department for technical fest NIMBUS at NIT Hamirpur.", R.drawable.exelogo, getResources().getColor(R.color.slide_1)));
-        addSlide(AppIntroFragment.newInstance("Paradox", "It is the annual event by Team .EXE and this time it is bigger than before. Welcome to Paradox 11.0!", R.drawable.paradoxlogo, getResources().getColor(R.color.slide_2)));
+        addSlide(AppIntroFragment.newInstance("Paradox", "It is the annual event by Team .EXE and this time it is bigger than before. Welcome to Paradox 11.0!", R.drawable.plog2, getResources().getColor(R.color.slide_2)));
         addSlide(AppIntroFragment.newInstance("Questions", "A picture = 1000 words\n1000 words = 1000 riddles\nYou just have to solve one.", R.drawable.ques, getResources().getColor(R.color.slide_3)));
         addSlide(AppIntroFragment.newInstance("Rules", "rule1\nrule2\nrule3\nrule4", R.drawable.rules, getResources().getColor(R.color.slide_4)));
         addSlide(AppIntroFragment.newInstance("Prizes", "Cash prizes for winners and improvement of problem solving and critical thinking skills for all.", R.drawable.cash, getResources().getColor(R.color.slide_1)));
