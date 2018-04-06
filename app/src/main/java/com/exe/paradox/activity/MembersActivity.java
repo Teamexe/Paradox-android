@@ -24,17 +24,20 @@ public class MembersActivity extends AppCompatActivity {
     final String[] linkFirstDrawable = {"http://exe.nith.ac.in/images/title.png", "http://exe.nith.ac.in/images/title.png", "http://exe.nith.ac.in/images/jain.jpg", "http://exe.nith.ac.in/images/title.png", "http://exe.nith.ac.in/images/title.png", "http://exe.nith.ac.in/images/lakshay.jpg", "http://exe.nith.ac.in/images/muskan.jpg", "http://exe.nith.ac.in/images/title.png", "http://exe.nith.ac.in/images/title.png", "http://exe.nith.ac.in/images/title.png", "http://exe.nith.ac.in/images/rohit.jpg", "http://exe.nith.ac.in/images/title.png", "http://exe.nith.ac.in/images/title.png", "http://exe.nith.ac.in/images/vasu.JPG", "http://exe.nith.ac.in/images/title.png", "http://exe.nith.ac.in/images/title.png"};
     //GOING TO BE ONLY ONE MENTOR
     private String[] mentorName = {"Rishabh Choudhary"};
-    private String[] mentorAbout = {"Blah blah blah"};
-    private int[] mentorDrawable = {R.drawable.u8};
+    private String[] mentorAbout = {"The only mentor, campus mein chalti hai!"};
+
     //FINAL YEAR
     private String[] finalName = {"Pooja Saini", "Rishabh Choudhary", "Gurpreet Singh", "Sheweta Khatri", "Mahima Mahanat", "Mayank Kashyap", "Jalaz Kumar", "Milindra Pratap"};
     private String[] finalAbout = {"Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah"};
+
     //THIRD YEAR
     private String[] thirdName = {"Ankit Guleria", "Vaibhav Sharma", "Kumar Shashwat", "Vishal Choudhary", "Sarbjit Cheema", "Nimit Bhardwaj", "Rashi Shah", "Amit Chambial", "Anant Kabra", "Divyansh Sharma", "Apoorva Sharma", "Sourav Sahoo"};
     private String[] thirdAbout = {"Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah"};
+
     //SECOND YEAR
     private String[] secondName = {"Akanksha Gahalot", "Ekta Tyagi", "Gopesh Singhal", "Gunjan Agrawal", "Nidhi Singh", "Pranjal Thakur", "Ranjeet Walia", "Simpy Kumari", "Udit Gulati"};
     private String[] secondAbout = {"Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah"};
+
     //FIRST YEAR
     private String[] firstName = {"Aman Gupta", "Anany Sharma", "Ayush Jain", "Jatin Nagpal", "Kashish Kalsi", "Lakshay Gupta", "Muskan Mangal", "Nishant Hada", "Nitika", "Priyank Kumar", "Rohit Hill", "Shivam Sood", "Shruti Sharma", "Vasu Jain", "Vedaant Rajoo", "Vishal Parmar"};
     private String[] firstAbout = {"Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah", "Blah blah blah"};

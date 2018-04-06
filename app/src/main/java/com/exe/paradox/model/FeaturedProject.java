@@ -1,11 +1,16 @@
 package com.exe.paradox.model;
 
-public class Project {
+/**
+ * Created by shasha on 7/4/18.
+ */
+
+public class FeaturedProject {
     String title, desc, link, drawablePath;
 
-    public Project(String title, String desc, String drawablePath) {
+    public FeaturedProject(String title, String desc, String link, String drawablePath) {
         this.title = title;
         this.desc = desc;
+        this.link = link;
         this.drawablePath = drawablePath;
     }
 

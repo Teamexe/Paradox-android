@@ -77,7 +77,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="16sp"
                     android:fontFamily="@font/ps"
-                    android:text="Sexy Bacha"
                     android:textAllCaps="true"
                     android:textColor="#fff"
                     android:textSize="25sp" />
@@ -106,7 +105,8 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/pager"
+                android:layout_marginTop="4sp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="3sp"
                 android:paddingBottom="1sp"

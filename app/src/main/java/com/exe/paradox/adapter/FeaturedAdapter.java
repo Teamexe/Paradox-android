@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.exe.paradox.model.FeaturedProject;
 import com.exe.paradox.model.Project;
 import com.exe.paradox.R;
 import com.squareup.picasso.Picasso;
@@ -17,7 +18,7 @@ import java.util.List;
 
 public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ImageViewHolder>{
     private Context mContext;
-    private List<Project> projects;
+    private List<FeaturedProject> projects;
     class ImageViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView textView;
@@ -28,7 +29,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ImageV
         }
     }
 
-    public FeaturedAdapter(Context mContext, List<Project> projects) {
+    public FeaturedAdapter(Context mContext, List<FeaturedProject> projects) {
         this.mContext = mContext;
         this.projects = projects;
     }

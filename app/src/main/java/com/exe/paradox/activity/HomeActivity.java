@@ -36,6 +36,7 @@ import com.exe.paradox.api.rest.ApiInterface;
 import com.exe.paradox.fragment.GPlusFragment;
 import com.exe.paradox.fragment.MyFragment;
 import com.exe.paradox.model.Event;
+import com.exe.paradox.model.FeaturedProject;
 import com.exe.paradox.model.Project;
 import com.exe.paradox.util.Constants;
 import com.exe.paradox.util.RecyclerItemClickListener;
@@ -65,7 +66,8 @@ public class HomeActivity extends AppCompatActivity {
     GPlusFragment beta;
     List<Event> events;
     CardView paradoxSite, exeSite;
-    List<Project> projectsFeatured, projectsExe;
+    List<FeaturedProject> projectsFeatured;
+    List<Project> projectsExe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,21 +169,20 @@ public class HomeActivity extends AppCompatActivity {
                         .withDialogAnimation(true)
                         .setTitle(projectsExe.get(position).getTitle())
                         .setDescription(projectsExe.get(position).getDesc())
-                        .setPositiveText("GitHub")
+                        .setPositiveText("Back")
                         .onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
                             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(projectsExe.get(position).getLink())));
+                                dialog.dismiss();
                             }
-                        })
-                        .setNegativeText("Back");
+                        });
                 dialog.build().show();
             }
         }));
 
         RecyclerView featuredProjects = findViewById(R.id.featured_projects);
         projectsFeatured = populateFeatured(projectsFeatured);
-        FeaturedAdapter featuredAdapter = new FeaturedAdapter(this, projectsFeatured);
+        FeaturedAdapter featuredAdapter = new FeaturedAdapter(HomeActivity.this, projectsFeatured);
         featuredProjects.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         featuredProjects.setAdapter(featuredAdapter);
 
@@ -319,9 +320,11 @@ public class HomeActivity extends AppCompatActivity {
         circularReveal.start();
     }
 
-    private List<Project> populateFeatured(List<Project> projects) {
+    private List<FeaturedProject> populateFeatured(List<FeaturedProject> projects) {
         final String[] titlesFeatured = {"Amahi", "VLC", "Wine", "Kodi", "Mozilla", "Libre", "WordPress", "Gnome"};
-        final String[] descFeatured = {"Amahi is software that runs on a dedicated PC as a central computer for your home. It handles your entertainment, storage, and computing needs. You can store, organize and deliver your recorded TV shows, videos and music to media devices in your network.",
+
+        final String[] descFeatured = {
+                "Amahi is software that runs on a dedicated PC as a central computer for your home. It handles your entertainment, storage, and computing needs. You can store, organize and deliver your recorded TV shows, videos and music to media devices in your network.",
                 "VLC media player (commonly known as VLC) is a free and open-source, portable and cross-platform media player and streaming media server developed by the VideoLAN project. VLC is available for desktop operating systems and mobile platforms, such as Android, iOS, Tizen, Windows 10 Mobile and Windows Phone.",
                 "Wine (recursive backronym for Wine Is Not an Emulator) is a free and open-source compatibility layer that aims to allow computer programs (application software and computer games) developed for Microsoft Windows to run on Unix-like operating systems. Wine also provides a software library, known as Winelib, against which developers can compile Windows applications to help port them to Unix-like systems.",
                 "Kodi (formerly XBMC) is a free and open-source media player software application developed by the XBMC Foundation, a non-profit technology consortium.[6] Kodi is available for multiple operating systems and hardware platforms, with a software 10-foot user interface for use with televisions and remote controls. It allows users to play and view most streaming media, such as videos, music, podcasts, and videos from the Internet, as well as all common digital media files from local and network storage media.",
@@ -329,8 +332,20 @@ public class HomeActivity extends AppCompatActivity {
                 "LibreOffice is a free and open source office suite, a project of The Document Foundation. It was forked from OpenOffice.org in 2010, which was an open-sourced version of the earlier StarOffice. The LibreOffice suite comprises programs for word processing, the creation and editing of spreadsheets, slideshows, diagrams and drawings, working with databases, and composing mathematical formulae.",
                 "WordPress is a free and open-source content management system (CMS) based on PHP and MySQL.[4] To function, WordPress has to be installed on a web server, which would either be part of an Internet hosting service or a network host in its own right. An example of the first scenario may be a service like WordPress.com, and the second case could be a computer running the software package WordPress.org.",
                 "GNOME was originally an acronym for GNU Network Object Model Environment but the acronym was dropped because it no longer reflected the vision of the GNOME project."};
-        final String[] linkFeatured = {"https://github.com/amahi", "https://github.com/videolan", "https://github.com/wine-mirror/wine", "https://github.com/xbmc", "https://github.com/mozilla", "https://github.com/LibreOffice", "https://github.com/wordpress", "https://github.com/GNOME"};
-        final String[] drawables = {"https://therevise.com/wp-content/uploads/2017/11/amahi-dice-77a6485901684f2cdd23567f79257cecf3fa4399e5c4aaa16a3efa4685489416.png",
+
+        final String[] linkFeatured = {
+                "https://github.com/amahi",
+                "https://github.com/videolan",
+                "https://github.com/wine-mirror/wine",
+                "https://github.com/xbmc",
+                "https://github.com/mozilla",
+                "https://github.com/LibreOffice",
+                "https://github.com/wordpress",
+                "https://github.com/GNOME"
+        };
+
+        final String[] drawables = {
+                "https://therevise.com/wp-content/uploads/2017/11/amahi-dice-77a6485901684f2cdd23567f79257cecf3fa4399e5c4aaa16a3efa4685489416.png",
                 "https://store-images.microsoft.com/image/apps.46941.9007199267003443.3d957046-8905-49de-bf30-878f1e27537c.2f6f059b-de17-469c-8fc6-8a6d879ff523?w=180&h=180&q=60",
                 "https://upload.wikimedia.org/wikipedia/commons/e/ed/WINE-logo.png",
                 "https://store-images.s-microsoft.com/image/apps.8345.13510798887593391.9280eebd-4ccf-40e5-93dc-49e5bce69c2b.35851374-4403-43e1-b268-f52f1f1a80a3?w=180&h=180&q=60",
@@ -340,7 +355,7 @@ public class HomeActivity extends AppCompatActivity {
                 "https://www.culturacuantica.com.ar/wp-content/uploads/gnome-logo.jpg"};
 
         for (int i = 0; i < titlesFeatured.length; i++) {
-            Project project = new Project(titlesFeatured[i], descFeatured[i], linkFeatured[i], drawables[i]);
+            FeaturedProject project = new FeaturedProject(titlesFeatured[i], descFeatured[i], linkFeatured[i], drawables[i]);
             projects.add(project);
         }
 
@@ -349,13 +364,70 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private List<Project> getProjectsExe(List<Project> projects) {
-        final String[] titlesExe = {"NITH Chatbot", "Online Outpass System", "Arduino Based Fighting Robot", "Self-Playing Mario Bot", "Sophisticated Polling Application", "Exeplore", "VR-Based Multiplayer Application", "Automated Invigilator Duty Scheduler"};
-        final String[] descExe = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "fsdfwfsfafwef", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf"};
-        final String[] linkExe = {"https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode", "https://github.com/octacode"};
-        final String[] linkDrawable = {"http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png", "http://exe.nith.ac.in/images/rishabh.png"};
+        final String[] titlesExe = {
+                "NITH Chatbot",
+                "Online Outpass System",
+                "Arduino Based Fighting Robot",
+                "Self-Playing Mario Bot",
+                "Sophisticated Polling Application",
+                "VR-Based Multiplayer Application",
+                "Automated Invigilator Duty Scheduler"
+        };
+
+        final String[] descExe = {
+                "Chat bot is meant to be used by the student and faculty for the\n" +
+                        "campus needs. The first time user says a Hi, the bot will reply back by asking\n" +
+                        "the user, his/her name and entry and when user wants to know details about\n" +
+                        "any student the bot can reply back by telling name, entry no. and email id\n" +
+                        "where the user can contact the person. The user can ask FAQs related to any\n" +
+                        "institute policy and even ask for telephone numbers. The bot can be further\n" +
+                        "trained for providing the information about events going in the campus. The\n" +
+                        "bot will perform intelligent chat with the user and can get information\n" +
+                        "regarding any topic of the campus.",
+                "We are making an online outpass system. In this we will generate\n" +
+                        "an online outpass form and there will be two records one for student and one\n" +
+                        "for the MMCA. All the requests within a specified time limit will be sent to\n" +
+                        "the warden for approval where she can approve them with a click of a button.\n" +
+                        "It will use: Php, Html, Css, Mysql, Javascript, python, flask",
+                "In this project, we will build a simple robot using Arduino that could move\n" +
+                        "towards the fire and pump out water around it to put down the fire. The main\n" +
+                        "brain of this project is the Arduino, but in-order to sense fire we use the Fire\n" +
+                        "sensor module. These sensors have an IR Receiver (Photodiode) which is\n" +
+                        "used to detect the fire. When fire burns it emits a small amount of Infra-red\n" +
+                        "light, this light will be received by the IR receiver on the sensor module.\n" +
+                        "Then we use an Op-Amp to check for change in voltage across the IR\n" +
+                        "Receiver, so that if a fire is detected the output pin (DO) will give\n" +
+                        "0V(LOW) and if the is no fire the output pin will be 5V(HIGH). We detect\n" +
+                        "the direction of the fire and then we can use the motors to move near the fire\n" +
+                        "by driving our motors through the L293D module. When near a fire we have\n" +
+                        "to put it out using water.",
+                "This project will utilize machine learning to train a program to\n" +
+                        "learn and master playing the Mario game. It will utilize aspects of AI and\n" +
+                        "Neural Networks to achieve a set target in the given level.",
+                "We will show different fields of polling and in the respective fields\n" +
+                        "we will add a log in for candidate which will be opened for a short period of\n" +
+                        "time and candidates will register their candidature. Then on the day of polling\n" +
+                        "a link of respective voting will be opened from which one can directly vote.",
+                "This will be a new addition to the roster of technologies used by\n" +
+                        "Team.EXE. Using cutting edge algorithms and high performance renderers\n" +
+                        "we will bring the world of virtual reality right at the footsteps of the students\n" +
+                        "of NITH.",
+                "It is a software for automatic scheduling of invigilation duties during examination in NITH."
+        };
+
+        final String[] linkDrawable = {
+                "http://exe.nith.ac.in/images/rishabh.png",
+                "http://exe.nith.ac.in/images/rishabh.png",
+                "http://exe.nith.ac.in/images/rishabh.png",
+                "http://exe.nith.ac.in/images/rishabh.png",
+                "http://exe.nith.ac.in/images/rishabh.png",
+                "http://exe.nith.ac.in/images/rishabh.png",
+                "http://exe.nith.ac.in/images/rishabh.png",
+                "http://exe.nith.ac.in/images/rishabh.png"
+        };
 
         for (int i = 0; i < titlesExe.length; i++) {
-            Project project = new Project(titlesExe[i], descExe[i], linkExe[i], linkDrawable[i]);
+            Project project = new Project(titlesExe[i], descExe[i], linkDrawable[i]);
             projects.add(project);
         }
         Collections.shuffle(projects);
