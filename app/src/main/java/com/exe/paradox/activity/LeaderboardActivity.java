@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
@@ -17,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.exe.paradox.R;
 import com.exe.paradox.adapter.LeaderboardAdapter;
@@ -60,6 +62,7 @@ public class LeaderboardActivity extends AppCompatActivity {
                     List<Leaderboard> ranks = response.body().getLeaderboardList();
                     Leaderboard leaderboardOne = ranks.get(0);
                     url1 = leaderboardOne.getPicture();
+                    Log.d("this", url1);
                     Leaderboard leaderboardTwo = ranks.get(1);
                     url2 = leaderboardTwo.getPicture();
                     Leaderboard leaderboardThree = ranks.get(2);
@@ -89,63 +92,53 @@ public class LeaderboardActivity extends AppCompatActivity {
         img1 = findViewById(R.id.image1);
         setValues(name1, level1, score1, img1, one);
 
-        img1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LeaderboardActivity.this, DpActivity.class).putExtra(Intent.EXTRA_TEXT, url1);
-                ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation(LeaderboardActivity.this,
-                                img1,
-                                getString(R.string.transition_string));
-                startActivity(intent, options.toBundle());
-            }
-        });
-
         name2 = findViewById(R.id.name2);
         level2 = findViewById(R.id.level2);
         score2 = findViewById(R.id.score2);
         img2 = findViewById(R.id.image2);
         setValues(name2, level2, score2, img2, two);
 
-        img2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LeaderboardActivity.this, DpActivity.class).putExtra(Intent.EXTRA_TEXT, url2);
-                ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation(LeaderboardActivity.this,
-                                img2,
-                                getString(R.string.transition_string));
-                startActivity(intent, options.toBundle());
-            }
-        });
-
         name3 = findViewById(R.id.name3);
         level3 = findViewById(R.id.level3);
         score3 = findViewById(R.id.score3);
         img3 = findViewById(R.id.image3);
         setValues(name3, level3, score3, img3, three);
-
-        img3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LeaderboardActivity.this, DpActivity.class).putExtra(Intent.EXTRA_TEXT, url3);
-                ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation(LeaderboardActivity.this,
-                                img3,
-                                getString(R.string.transition_string));
-                startActivity(intent, options.toBundle());
-            }
-        });
     }
 
-    private void setValues(TextView name, TextView level, TextView score, ImageView image, Leaderboard leaderboard) {
+    private void setValues(TextView name, TextView level, TextView score, final ImageView image, Leaderboard leaderboard) {
         name.setText(leaderboard.getName().split(" ")[0]);
         level.setText(String.valueOf(leaderboard.getLevel()));
         if (leaderboard.getScore() >= 0)
             score.setText(String.valueOf(leaderboard.getScore()));
         else
             score.setText(String.valueOf("0"));
-        Picasso.get().load(leaderboard.getPicture()).placeholder(R.drawable.user_icon).into(image);
+
+        Picasso.get().load(leaderboard.getPicture()).placeholder(R.drawable.user_icon).into(image, new com.squareup.picasso.Callback() {
+            @Override
+            public void onSuccess() {
+                image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(LeaderboardActivity.this, DpActivity.class).putExtra(Intent.EXTRA_TEXT, url1);
+                        ActivityOptionsCompat options = ActivityOptionsCompat.
+                                makeSceneTransitionAnimation(LeaderboardActivity.this,
+                                        image,
+                                        getString(R.string.transition_string));
+                        startActivity(intent, options.toBundle());
+                    }
+                });
+            }
+
+            @Override
+            public void onError(Exception e) {
+                image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(LeaderboardActivity.this, "No Image, bruh!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 
     @Override
