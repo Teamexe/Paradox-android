@@ -62,8 +62,7 @@
                 android:layout_marginTop="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="1sp"
-                android:background="#efefef"
-                />
+                android:background="#efefef" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -71,6 +70,7 @@
                 android:textSize="16sp"
                 android:layout_marginTop="16sp"
                 android:gravity="center"
+                android:id="@+id/mail_to_us"
                 android:fontFamily="@font/psb"
                 android:text="Write to us" />
         </LinearLayout>
