@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.gjiazhe.panoramaimageview.PanoramaImageView
+        android:id="@+id/panorama_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/mock_drawable"
+        app:piv_enablePanoramaMode="true"
+        app:piv_show_scrollbar="false"
+        app:piv_invertScrollDirection="false" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="300sp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        android:layout_centerInParent="true"
+        app:cardElevation="8sp"
+        app:cardCornerRadius="8sp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="16sp"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ps"
+                android:layout_marginTop="16sp"
+                android:textSize="20sp"
+                android:text="Settings" />
+
+            <View
+                android:layout_marginTop="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="#efefef"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="16sp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20sp"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/ps"
+                    android:text="Notifications" />
+
+                <Switch
+                    android:layout_alignParentEnd="true"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <View
+                android:layout_marginTop="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="#efefef"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="16sp"
+                android:gravity="center"
+                android:fontFamily="@font/psb"
+                android:text="Write to us" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
 </RelativeLayout>

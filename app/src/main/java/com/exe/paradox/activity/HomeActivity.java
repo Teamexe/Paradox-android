@@ -161,6 +161,14 @@ public class HomeActivity extends AppCompatActivity {
 
         if (beta.getImg() != "null")
             Picasso.get().load(beta.getImg()).placeholder(R.drawable.user_icon).into(img);
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
+            }
+        });
+
         name.setText(beta.getDisplayName());
         setAllListeners();
 

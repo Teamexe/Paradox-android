@@ -1,8 +1,6 @@
 package com.exe.paradox.activity;
 
-import android.animation.Animator;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -11,12 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewAnimationUtils;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,7 +41,7 @@ public class LeaderboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_leaderboard);
+        Toolbar toolbar = findViewById(R.id.toolbar_leaderboard);
         setSupportActionBar(toolbar);
         noInternetDialog = new NoInternetDialog.Builder(this).build();
 
