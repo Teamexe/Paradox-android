@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.github.florent37.parallax.ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <android.support.v7.widget.Toolbar
+
+        android:id="@+id/toolbar_member"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fafafa"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:paddingLeft="16dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ps"
+
+            android:gravity="center"
+            android:text="Members"
+            android:textColor="#000"
+            android:textSize="25sp" />
+
+
+    </android.support.v7.widget.Toolbar>
+    <!--Do not change above this-->
+<com.github.florent37.parallax.ScrollView android:layout_below="@id/toolbar_member" xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,28 +33,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:background="#fff"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_members"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/psb"
-                android:text="Members"
-                android:textColor="#00aeef"
-                android:textSize="25sp" />
-        </android.support.v7.widget.Toolbar>
 
         <ImageView
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_below="@id/final_ll"
             android:scaleX="1"
             android:src="@drawable/red_circle"
@@ -56,7 +68,7 @@
             android:scaleX="1"
             android:src="@drawable/red_circle"
             android:tag="parallax=-0.2"
-            android:translationX="-39dp"
+            android:translationX="-150dp"
             android:translationZ="-10dp" />
 
         <ImageView
@@ -67,13 +79,12 @@
             android:scaleX="1"
             android:src="@drawable/red_circle"
             android:tag="parallax=-0.2"
-            android:translationX="-39dp"
+            android:translationX="-150dp"
             android:translationZ="-10dp" />
         <LinearLayout
             android:id="@+id/mentor_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar_members"
             android:orientation="vertical">
 
 
@@ -259,3 +270,4 @@
     </RelativeLayout>
 
 </com.github.florent37.parallax.ScrollView>
+</RelativeLayout>

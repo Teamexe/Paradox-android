@@ -12,13 +12,15 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        card_view:cardCornerRadius="0dp">
+        card_view:cardBackgroundColor="#fafafa"
+        card_view:cardCornerRadius="16dp"
+        card_view:cardElevation="0dp">
 
         <RelativeLayout
             android:id="@+id/relative"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#fff">
+            android:elevation="0dp">
 
             <TextView
                 android:id="@+id/t1"
@@ -41,19 +43,20 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="-8dp"
                 android:fontFamily="@font/psb"
-                android:text="This Question?"
+                android:text="Level"
                 android:textAllCaps="true"
                 android:textColor="#000"
                 android:textSize="28sp" />
 
             <ImageView
                 android:id="@+id/i1"
-                android:onClick="animateIntent"
-                android:transitionName="@string/transition_string"
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
                 android:layout_below="@id/t3"
-                android:src="#ff0000" />
+                android:layout_margin="8dp"
+                android:onClick="animateIntent"
+                android:src="#eee"
+                android:transitionName="@string/transition_string" />
 
             <ProgressBar
                 android:id="@+id/pBar"
@@ -85,7 +88,7 @@
                 android:layout_below="@id/e4"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="8sp"
-                android:background="#00aeef"
+                android:backgroundTint="#00aeef"
                 android:text="Submit"
                 android:textColor="#FFF" />
         </RelativeLayout>

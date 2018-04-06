@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_leaderboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fafafa"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:paddingLeft="16dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ps"
+
+            android:gravity="center"
+            android:text="Leaderboard"
+            android:textColor="#000"
+            android:textSize="25sp" />
+
+
+    </android.support.v7.widget.Toolbar>
+    <!--Do not change above this-->
+<android.support.v4.widget.NestedScrollView android:layout_below="@id/toolbar_leaderboard" android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#eee"
@@ -9,34 +34,12 @@
         android:id="@+id/lroot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#eee">
+        android:background="#fff">
 
-        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_alignParentTop="true"
-            android:id="@+id/toolbar_leaderboard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/psb"
-                    android:text="Leaderboard"
-                    android:textColor="#02bdd5"
-                    android:textSize="25sp" />
-            </RelativeLayout>
-        </android.support.v7.widget.Toolbar>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar_leaderboard"
             android:orientation="vertical">
 
             <LinearLayout
@@ -52,8 +55,9 @@
                     android:layout_marginLeft="8sp"
                     android:layout_marginRight="8sp"
                     android:padding="8dp"
-                    app:cardBackgroundColor="#fff"
-                    app:cardCornerRadius="20dp">
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="#fafafa"
+                    app:cardCornerRadius="8dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -80,7 +84,7 @@
                                 android:elevation="4dp"
                                 android:fontFamily="@font/psb"
                                 android:gravity="center"
-                                android:text="4"
+                                android:text="0"
                                 android:textColor="#fff" />
 
                             <de.hdodenhof.circleimageview.CircleImageView
@@ -130,7 +134,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/psb"
-                                android:text="523"
+                                android:text="0"
                                 android:singleLine="true"
                                 android:textColor="#fff"
                                 android:textSize="25sp" />
@@ -143,10 +147,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8sp"
                     android:layout_marginLeft="8sp"
+                    app:cardElevation="0dp"
                     android:layout_marginRight="8sp"
                     android:padding="8dp"
-                    app:cardBackgroundColor="#fff"
-                    app:cardCornerRadius="20dp">
+                    app:cardBackgroundColor="#fafafa"
+                    app:cardCornerRadius="8dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -174,7 +179,7 @@
                                 android:elevation="4dp"
                                 android:fontFamily="@font/psb"
                                 android:gravity="center"
-                                android:text="4"
+                                android:text="0"
                                 android:textColor="#fff" />
 
                             <de.hdodenhof.circleimageview.CircleImageView
@@ -225,7 +230,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/psb"
-                                android:text="523"
+                                android:text="0"
                                 android:textColor="#fff"
                                 android:textSize="25sp" />
                         </LinearLayout>
@@ -237,10 +242,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8sp"
                     android:layout_marginLeft="8sp"
+                    app:cardElevation="0dp"
                     android:layout_marginRight="8sp"
                     android:padding="8dp"
-                    app:cardBackgroundColor="#fff"
-                    app:cardCornerRadius="20dp">
+                    app:cardBackgroundColor="#fafafa"
+                    app:cardCornerRadius="8dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -268,7 +274,7 @@
                                 android:elevation="4dp"
                                 android:fontFamily="@font/psb"
                                 android:gravity="center"
-                                android:text="4"
+                                android:text="0"
                                 android:textColor="#fff" />
 
                             <de.hdodenhof.circleimageview.CircleImageView
@@ -318,7 +324,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/psb"
-                                android:text="523"
+                                android:text="0"
                                 android:textColor="#fff"
                                 android:singleLine="true"
                                 android:textSize="25sp" />
@@ -339,3 +345,4 @@
 
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>
