@@ -12,4 +12,12 @@ public class Preferences {
     public static void setFirstRun(Context context) {
         context.getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("doki_doki", false).apply();
     }
+
+    public static boolean getNotification(Context context) {
+        return context.getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("notify", true);
+    }
+
+    public static void setNotification(Context context, boolean bool) {
+        context.getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("notify", bool).apply();
+    }
 }

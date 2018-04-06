@@ -10,6 +10,7 @@ import com.exe.paradox.activity.LoginActivity;
 import com.exe.paradox.activity.MainActivity;
 import com.exe.paradox.app.Config;
 import com.exe.paradox.util.NotificationUtils;
+import com.exe.paradox.util.Preferences;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -34,7 +35,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             return;
 
         // Check if message contains a notification payload.
-        if (remoteMessage.getNotification() != null) {
+        if (remoteMessage.getNotification() != null && Preferences.getNotification(getApplicationContext())) {
             Log.e(TAG, "Notification Body: " + remoteMessage.getNotification().getBody());
             handleNotification(remoteMessage.getNotification().getBody());
         }

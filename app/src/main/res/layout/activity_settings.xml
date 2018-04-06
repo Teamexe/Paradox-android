@@ -53,7 +53,9 @@
 
                 <Switch
                     android:layout_alignParentEnd="true"
+                    android:id="@+id/notification_switch"
                     android:textSize="16sp"
+                    android:enabled="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </RelativeLayout>

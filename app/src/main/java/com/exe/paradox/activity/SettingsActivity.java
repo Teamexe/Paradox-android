@@ -9,15 +9,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.exe.paradox.R;
+import com.exe.paradox.util.Preferences;
 import com.gjiazhe.panoramaimageview.GyroscopeObserver;
 import com.gjiazhe.panoramaimageview.PanoramaImageView;
 
 public class SettingsActivity extends AppCompatActivity {
     private GyroscopeObserver gyroscopeObserver;
     private TextView writeToUs;
+    private Switch notificationSwitch;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,17 +36,32 @@ public class SettingsActivity extends AppCompatActivity {
 
         PanoramaImageView panoramaImageView = findViewById(R.id.panorama_image_view);
         writeToUs = findViewById(R.id.mail_to_us);
+        notificationSwitch = findViewById(R.id.notification_switch);
         panoramaImageView.setGyroscopeObserver(gyroscopeObserver);
         writeToUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mailto = "mailto:teamexenith@gmail.com" +
-                        "&subject=" + Uri.encode("Feedback") +
-                        "&body=" + Uri.encode("");
-
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setData(Uri.parse(mailto));
+                emailIntent.setData(Uri.parse("mailto:teamexenith@gmail.com"));
                 startActivity(emailIntent);
+            }
+        });
+
+        if (Preferences.getNotification(this)) {
+            notificationSwitch.setChecked(true);
+        } else {
+            notificationSwitch.setChecked(false);
+        }
+
+        notificationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    Preferences.setNotification(SettingsActivity.this, true);
+                }
+                else {
+                    Preferences.setNotification(SettingsActivity.this, false);
+                }
             }
         });
     }

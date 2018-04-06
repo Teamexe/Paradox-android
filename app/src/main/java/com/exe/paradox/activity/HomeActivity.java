@@ -1,6 +1,8 @@
 package com.exe.paradox.activity;
 
 import android.animation.Animator;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -26,26 +28,33 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.exe.paradox.model.Event;
-import com.exe.paradox.fragment.GPlusFragment;
-import com.exe.paradox.fragment.MyFragment;
-import com.exe.paradox.model.Project;
 import com.exe.paradox.R;
 import com.exe.paradox.adapter.FeaturedAdapter;
 import com.exe.paradox.adapter.ProjectAdapter;
 import com.exe.paradox.api.response.ReferralResponse;
 import com.exe.paradox.api.rest.ApiClient;
 import com.exe.paradox.api.rest.ApiInterface;
+import com.exe.paradox.app.Config;
+import com.exe.paradox.fragment.GPlusFragment;
+import com.exe.paradox.fragment.MyFragment;
+import com.exe.paradox.model.Event;
+import com.exe.paradox.model.Project;
 import com.exe.paradox.util.Constants;
 import com.exe.paradox.util.RecyclerItemClickListener;
 import com.github.florent37.parallax.ScrollView;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
 import com.pixelcan.inkpageindicator.InkPageIndicator;
+import com.shashank.sony.fancydialoglib.Animation;
+import com.shashank.sony.fancydialoglib.FancyAlertDialog;
+import com.shashank.sony.fancydialoglib.FancyAlertDialogListener;
+import com.shashank.sony.fancydialoglib.Icon;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -133,34 +142,13 @@ public class HomeActivity extends AppCompatActivity {
         sign_out = findViewById(R.id.signout);
         //HIDDEN SIGNOUT
         sign_out.setVisibility(View.GONE);
-        final GPlusFragment gPlusFragment = new GPlusFragment();
-        sign_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(HomeActivity.this);
-                alertDialog.setTitle("Log out?");
-                alertDialog.setMessage("Do you really want to log out?");
-                alertDialog.setPositiveButton("Yes, get me out!", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //BECAUSE SIGN_IN TRIGGERS AT ONSTART() OF GPlusFragment so re-login will happen again and again
-                        gPlusFragment.signOut();
-                        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-                        finish();
-                    }
-                });
-                alertDialog.setNegativeButton("I clicked it by mistake, Take me back :)", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                alertDialog.show();
-            }
-        });
 
-        if (beta.getImg() != "null")
+        if (beta.getImg() != "null") {
             Picasso.get().load(beta.getImg()).placeholder(R.drawable.user_icon).into(img);
+        }
+        else {
+            img.setImageDrawable(getResources().getDrawable(R.drawable.default_image));
+        }
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -309,7 +297,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void enterReveal() {
-        ScrollView rootLayout = (ScrollView) findViewById(R.id.holder);
+        ScrollView rootLayout = findViewById(R.id.holder);
         int cx = rootLayout.getWidth() / 2;
         int cy = rootLayout.getHeight() / 2;
 
@@ -375,6 +363,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onDestroy();
         noInternetDialog.onDestroy();
     }
+
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
