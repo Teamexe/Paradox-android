@@ -10,6 +10,7 @@ import com.exe.paradox.activity.LoginActivity;
 import com.exe.paradox.activity.MainActivity;
 import com.exe.paradox.app.Config;
 import com.exe.paradox.util.NotificationUtils;
+import com.exe.paradox.util.Preferences;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 

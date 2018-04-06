@@ -27,6 +27,7 @@ dependencies {
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.12'
     implementation 'com.android.support:appcompat-v7:27.1.0'
     compile 'com.sdsmdg.harjot:rotatingtext:1.0.2'
+    compile 'com.gjiazhe:PanoramaImageView:1.0'
     implementation 'com.github.apl-devs:appintro:v4.2.3'
     compile 'com.github.Shashank02051997:FancyAlertDialog-Android:0.1'
     implementation 'am.appwise.components:NoInternetDialog:1.1.3'

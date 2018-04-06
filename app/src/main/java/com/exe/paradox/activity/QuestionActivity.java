@@ -131,8 +131,8 @@ public class QuestionActivity extends AppCompatActivity {
                                 @Override
                                 public void onResponse(@NonNull Call<LevelResponse> call, @NonNull Response<LevelResponse> response) {
                                     if (response.body().getLevelUrlList().size() > 0) {
-                                        url = "http://exe.nith.ac.in/paradox" + response.body().getLevelUrlList().get(0).getUrl();
-                                        Picasso.get().load("http://exe.nith.ac.in/paradox" + response.body().getLevelUrlList().get(0).getUrl()).into(imageView, new com.squareup.picasso.Callback() {
+                                        url = "https://teamexe.in/paradox" + response.body().getLevelUrlList().get(0).getUrl();
+                                        Picasso.get().load("https://teamexe.in/paradox" + response.body().getLevelUrlList().get(0).getUrl()).into(imageView, new com.squareup.picasso.Callback() {
                                             @Override
                                             public void onSuccess() {
                                                 pBar.setVisibility(View.GONE);

@@ -18,7 +18,6 @@
             android:theme="@style/Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -38,7 +37,7 @@
             android:theme="@style/Transparent" />
         <activity android:name=".activity.ImageZoomActivity" />
         <activity android:name=".activity.DpActivity" />
-        <activity android:name=".activity.DpRecvActivity"></activity>
+        <activity android:name=".activity.ContactActivity" />
 
         <service android:name=".service.MyFirebaseMessagingService">
             <intent-filter>
@@ -51,7 +50,7 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
+        <activity android:name=".activity.MemberDisplayActivity" />
     </application>
 
 </manifest>

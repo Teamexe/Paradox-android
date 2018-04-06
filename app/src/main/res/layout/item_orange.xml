@@ -11,6 +11,7 @@
 
     <ImageView
         android:layout_margin="4dp"
+        android:transitionName="fuckYou"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:id="@+id/image"
