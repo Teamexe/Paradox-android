@@ -1,9 +1,6 @@
 package com.exe.paradox.activity;
 
 import android.animation.Animator;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -15,7 +12,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
@@ -28,7 +24,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -38,7 +33,6 @@ import com.exe.paradox.adapter.ProjectAdapter;
 import com.exe.paradox.api.response.ReferralResponse;
 import com.exe.paradox.api.rest.ApiClient;
 import com.exe.paradox.api.rest.ApiInterface;
-import com.exe.paradox.app.Config;
 import com.exe.paradox.fragment.GPlusFragment;
 import com.exe.paradox.fragment.MyFragment;
 import com.exe.paradox.model.Event;
@@ -47,14 +41,9 @@ import com.exe.paradox.util.Constants;
 import com.exe.paradox.util.RecyclerItemClickListener;
 import com.github.florent37.parallax.ScrollView;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
 import com.pixelcan.inkpageindicator.InkPageIndicator;
-import com.shashank.sony.fancydialoglib.Animation;
-import com.shashank.sony.fancydialoglib.FancyAlertDialog;
-import com.shashank.sony.fancydialoglib.FancyAlertDialogListener;
-import com.shashank.sony.fancydialoglib.Icon;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -145,15 +134,14 @@ public class HomeActivity extends AppCompatActivity {
 
         if (beta.getImg() != "null") {
             Picasso.get().load(beta.getImg()).placeholder(R.drawable.user_icon).into(img);
-        }
-        else {
+        } else {
             img.setImageDrawable(getResources().getDrawable(R.drawable.default_image));
         }
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
+                startActivity(new Intent(HomeActivity.this, ContactActivity.class));
             }
         });
 
@@ -220,9 +208,25 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void populateDrawables() {
-        int drawables[] = {R.drawable.au1, R.drawable.au2, R.drawable.au3, R.drawable.au4, R.drawable.au5, R.drawable.au6, R.drawable.au7};
-        String titles[] = {"One", "Two", "Three", "Four", "Five", "Six", "Seven"};
-        String desc[] = {"werqwer", "sdewafdva", "ewafsfgagEFDDAF", "SFASRF3EFASFDFAAFS", "qdqdsadqwdadad", "sadfasdfwaefcQCD", "FADSFFCDCasdvafdsaf", "ufdhsadflgsajf"};
+        int drawables[] = {R.drawable.au3, R.drawable.au1, R.drawable.au7, R.drawable.au4, R.drawable.au6, R.drawable.au2, R.drawable.au5};
+        String titles[] = {
+                "Game of codes",
+                "Web smash",
+                "Paradox",
+                "Code golf",
+                "Decodance",
+                "Hunt the code",
+                "Big Oh"
+        };
+        String desc[] = {
+                "It is an online coding event that is organized under the umbrella of a coding platform, before NIMBUS. This is a large scale “short” challenge that is open to any participation(global included), giving the participants from the institute a much-needed peek into the online competitive coding community.",
+                "It is an event aimed at recognizing the web-developer community at NITH.Each participant is given a theme/template as an impetus to their project, and they must build upon the provided knowledge to create a webpage/website for the same.",
+                "It is a globally acclaimed event that is organized before as well as during NIMBUS.It is an online level-based game where the participant looks for a “word” that is signified by an image/set of images. Hints are provided periodically to help with the process of thinking in the right direction.It is also open for participation globally.",
+                "It is a coding-based exercise that is organized on an online platform.The participant is given a simple logical problem for which he/she must write an “short” piece of code, decided on the basis of length, time of execution etc. The shortest code that perfectly solves the problem, wins.",
+                "It is a cryptography based event that uses the prevalent encryption methods to weave a path for the user to find a hidden message, which wins them the competition.The participant is given a file which they have to examine thoroughly and find a clue to the next step in the puzzle, and they should also know when to stop too. The one reaching furthest in the chain wins the competition.",
+                "This event is organized via an online platform, chiefly requiring a file-sharing medium.The participant is provided with an executable file and examples for the program that it runs. The participant then must infer the working of the logic and write code to emulate the program.",
+                "It is an online 3-day long coding event that is organized under the umbrella of a coding platform, pre NIMBUS. This is a “long” challenge open to all students of the college,with a set of challenging coding problems."
+        };
         for (int i = 0; i < titles.length; i++) {
             events.add(new Event(titles[i], desc[i], drawables[i]));
         }

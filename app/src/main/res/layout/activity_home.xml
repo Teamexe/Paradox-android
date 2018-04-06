@@ -299,7 +299,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/u1" />
+                    android:src="@drawable/web_paradox" />
             </android.support.v7.widget.CardView>
 
             <!-- EXE website -->
@@ -316,7 +316,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/u3" />
+                    android:src="@drawable/exe_website" />
             </android.support.v7.widget.CardView>
         </LinearLayout>
 

@@ -9,24 +9,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.exe.paradox.R;
-import com.exe.paradox.util.Preferences;
 import com.gjiazhe.panoramaimageview.GyroscopeObserver;
 import com.gjiazhe.panoramaimageview.PanoramaImageView;
 
-public class SettingsActivity extends AppCompatActivity {
+public class ContactActivity extends AppCompatActivity {
     private GyroscopeObserver gyroscopeObserver;
-    private TextView writeToUs;
-    private Switch notificationSwitch;
+    private TextView writeToUs, numAnkit, numShasha;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_contact);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow();
             w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -36,7 +32,8 @@ public class SettingsActivity extends AppCompatActivity {
 
         PanoramaImageView panoramaImageView = findViewById(R.id.panorama_image_view);
         writeToUs = findViewById(R.id.mail_to_us);
-        notificationSwitch = findViewById(R.id.notification_switch);
+        numAnkit = findViewById(R.id.num_ankit);
+        numShasha = findViewById(R.id.num_shasha);
         panoramaImageView.setGyroscopeObserver(gyroscopeObserver);
         writeToUs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,23 +44,25 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        if (Preferences.getNotification(this)) {
-            notificationSwitch.setChecked(true);
-        } else {
-            notificationSwitch.setChecked(false);
-        }
-
-        notificationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        numAnkit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked) {
-                    Preferences.setNotification(SettingsActivity.this, true);
-                }
-                else {
-                    Preferences.setNotification(SettingsActivity.this, false);
-                }
+            public void onClick(View v) {
+                call(numAnkit.getText().toString());
             }
         });
+
+        numShasha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                call(numShasha.getText().toString());
+            }
+        });
+    }
+
+    public void call(String phone) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + phone));
+        startActivity(intent);
     }
 
     @Override

@@ -30,7 +30,7 @@
                 android:fontFamily="@font/ps"
                 android:layout_marginTop="16sp"
                 android:textSize="20sp"
-                android:text="Settings" />
+                android:text="Contact us" />
 
             <View
                 android:layout_marginTop="16sp"
@@ -49,13 +49,36 @@
                     android:layout_centerVertical="true"
                     android:textSize="16sp"
                     android:fontFamily="@font/ps"
-                    android:text="Notifications" />
+                    android:text="Ankit Guleria" />
 
-                <Switch
+                <TextView
                     android:layout_alignParentEnd="true"
-                    android:id="@+id/notification_switch"
+                    android:id="@+id/num_ankit"
                     android:textSize="16sp"
-                    android:enabled="true"
+                    android:textColor="@android:color/holo_blue_bright"
+                    android:text="+919736813939"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="16sp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20sp"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/ps"
+                    android:text="Kumar Shashwat" />
+
+                <TextView
+                    android:layout_alignParentEnd="true"
+                    android:textSize="16sp"
+                    android:id="@+id/num_shasha"
+                    android:textColor="@android:color/holo_blue_bright"
+                    android:text="+917018296471"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </RelativeLayout>
