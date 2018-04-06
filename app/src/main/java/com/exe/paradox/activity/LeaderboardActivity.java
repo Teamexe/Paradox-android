@@ -90,22 +90,22 @@ public class LeaderboardActivity extends AppCompatActivity {
         level1 = findViewById(R.id.level1);
         score1 = findViewById(R.id.score1);
         img1 = findViewById(R.id.image1);
-        setValues(name1, level1, score1, img1, one);
+        setValues(name1, level1, score1, img1, one, url1);
 
         name2 = findViewById(R.id.name2);
         level2 = findViewById(R.id.level2);
         score2 = findViewById(R.id.score2);
         img2 = findViewById(R.id.image2);
-        setValues(name2, level2, score2, img2, two);
+        setValues(name2, level2, score2, img2, two, url2);
 
         name3 = findViewById(R.id.name3);
         level3 = findViewById(R.id.level3);
         score3 = findViewById(R.id.score3);
         img3 = findViewById(R.id.image3);
-        setValues(name3, level3, score3, img3, three);
+        setValues(name3, level3, score3, img3, three, url3);
     }
 
-    private void setValues(TextView name, TextView level, TextView score, final ImageView image, Leaderboard leaderboard) {
+    private void setValues(TextView name, TextView level, TextView score, final ImageView image, Leaderboard leaderboard, final String url) {
         name.setText(leaderboard.getName().split(" ")[0]);
         level.setText(String.valueOf(leaderboard.getLevel()));
         if (leaderboard.getScore() >= 0)
@@ -119,7 +119,7 @@ public class LeaderboardActivity extends AppCompatActivity {
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(LeaderboardActivity.this, DpActivity.class).putExtra(Intent.EXTRA_TEXT, url1);
+                        Intent intent = new Intent(LeaderboardActivity.this, DpActivity.class).putExtra(Intent.EXTRA_TEXT, url);
                         ActivityOptionsCompat options = ActivityOptionsCompat.
                                 makeSceneTransitionAnimation(LeaderboardActivity.this,
                                         image,

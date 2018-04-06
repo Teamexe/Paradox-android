@@ -87,8 +87,7 @@
                                     android:fontFamily="@font/psb"
                                     android:text="Name: "
                                     android:textColor="#000"
-                                    android:textSize="20sp"
-                                    android:visibility="gone" />
+                                    android:textSize="20sp" />
 
                                 <TextView
                                     android:id="@+id/name"
@@ -97,8 +96,7 @@
                                     android:fontFamily="@font/psb"
                                     android:singleLine="true"
                                     android:text="Sexy bacha gupta"
-                                    android:textSize="20sp"
-                                    android:visibility="gone" />
+                                    android:textSize="20sp"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -160,8 +158,7 @@
                                     android:fontFamily="@font/psb"
                                     android:text="Ref Code: "
                                     android:textColor="#000"
-                                    android:textSize="20sp"
-                                    android:visibility="gone" />
+                                    android:textSize="20sp" />
 
                                 <TextView
                                     android:id="@+id/ref_code"
@@ -170,8 +167,7 @@
                                     android:fontFamily="@font/ps"
                                     android:singleLine="true"
                                     android:text="kum12343"
-                                    android:textSize="20sp"
-                                    android:visibility="gone" />
+                                    android:textSize="20sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -360,12 +356,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/psb"
+                            android:visibility="gone"
                             android:text="Time of Registration: "
                             android:textColor="#000"
                             android:textSize="20sp" />
 
                         <TextView
                             android:id="@+id/time"
+                            android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/ps"

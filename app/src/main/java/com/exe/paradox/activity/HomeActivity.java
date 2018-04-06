@@ -85,14 +85,14 @@ public class HomeActivity extends AppCompatActivity {
         paradoxSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://exe/nith.ac.in/paradox")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://teamexe.in/paradox")));
             }
         });
 
         exeSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://exe/nith.ac.in")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://teamexe.in")));
             }
         });
 
