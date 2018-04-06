@@ -51,11 +51,12 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
             @Override
             public void onSuccess() {
 
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                holder.image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             holder.image.setTransitionName("fuckYou");
+                        }
                             Intent intent = new Intent(mContext, DpActivity.class).putExtra(Intent.EXTRA_TEXT, leaderboardList.get(position).getPicture());
 
                             ActivityOptionsCompat options = ActivityOptionsCompat.
@@ -64,7 +65,6 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
                                             mContext.getString(R.string.transition_string));
 
                             mContext.startActivity(intent, options.toBundle());
-                        }
                     }
                 });
             }
