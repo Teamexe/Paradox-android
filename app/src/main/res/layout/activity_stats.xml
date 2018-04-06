@@ -1,408 +1,425 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:plainpie="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.exe.paradox.activity.StatsActivity">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_stats"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="#fafafa"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:paddingLeft="16dp">
 
-        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/toolbar_stats"
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
+            android:fontFamily="@font/ps"
 
-            <RelativeLayout
+            android:gravity="center"
+            android:text="Statistics"
+            android:textColor="#000"
+            android:textSize="25sp" />
+
+
+    </android.support.v7.widget.Toolbar>
+    <!--Do not change above this-->
+    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:plainpie="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_stats"
+        android:background="#fff"
+        tools:context="com.exe.paradox.activity.StatsActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:paddingTop="16dp">
+
+
+            <FrameLayout
+                android:id="@+id/card_holder_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/psb"
-                    android:text="Stats"
-                    android:textColor="#00aeef"
-                    android:textSize="25sp" />
-            </RelativeLayout>
-        </android.support.v7.widget.Toolbar>
-        <!--Do not change above this-->
-        <FrameLayout
-            android:id="@+id/card_holder_one"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar_stats">
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16sp"
-                plainpie:cardBackgroundColor="@color/cardview_light_background"
-                plainpie:cardElevation="8sp">
-
-                <RelativeLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16sp">
+                    android:layout_margin="16dp"
+                    plainpie:cardElevation="0dp"
+                    plainpie:cardBackgroundColor="#fafafa"
+                    plainpie:cardCornerRadius="16dp">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/profile_pic"
-                        android:layout_width="80sp"
-                        android:layout_height="80sp"
-                        android:transitionName="@string/transition_string"
-                        android:layout_centerVertical="true"
-                        android:src="@mipmap/ic_launcher" />
-
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@+id/profile_pic"
-                        android:layout_toRightOf="@+id/profile_pic"
-                        android:orientation="vertical"
-                        android:padding="16sp">
+                        android:padding="8sp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_pic"
+                            android:layout_width="80sp"
+                            android:layout_height="80sp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/ic_launcher"
+                            android:transitionName="@string/transition_string" />
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:layout_marginLeft="16dp"
+                            android:layout_toEndOf="@+id/profile_pic"
+                            android:layout_toRightOf="@+id/profile_pic"
+                            android:orientation="vertical">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:text="Name: "
-                                android:textColor="#000"
-                                android:textSize="20sp" />
+                                android:orientation="horizontal">
 
-                            <TextView
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/psb"
+                                    android:text="Name: "
+                                    android:textColor="#000"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
+
+                                <TextView
+                                    android:id="@+id/name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/psb"
+                                    android:singleLine="true"
+                                    android:text="Sexy bacha gupta"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:id="@+id/name"
-                                android:singleLine="true"
-                                android:text="Sexy bacha gupta"
-                                android:textSize="20sp" />
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/psb"
+                                    android:text="Email: "
+                                    android:textColor="#000"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
+
+                                <TextView
+                                    android:id="@+id/email"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/psb"
+                                    android:singleLine="true"
+                                    android:text="sexy_bacha@gmail.com"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/psb"
+                                    android:text="Score: "
+                                    android:textColor="#000"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/score"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/ps"
+                                    android:singleLine="true"
+                                    android:text="26"
+                                    android:textSize="20sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/psb"
+                                    android:text="Ref Code: "
+                                    android:textColor="#000"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
+
+                                <TextView
+                                    android:id="@+id/ref_code"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/ps"
+                                    android:singleLine="true"
+                                    android:text="kum12343"
+                                    android:textSize="20sp"
+                                    android:visibility="gone" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/psb"
+                                    android:text="No of Ref given: "
+                                    android:textColor="#000"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/ref_given"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/ps"
+                                    android:singleLine="true"
+                                    android:text="3"
+                                    android:textSize="20sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/psb"
+                                    android:text="Level: "
+                                    android:textColor="#000"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/level"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/ps"
+                                    android:text="3"
+                                    android:textSize="20sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/psb"
+                                    android:text="Total Users: "
+                                    android:textColor="#000"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/total"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/ps"
+                                    android:text="3"
+                                    android:textSize="20sp" />
+                            </LinearLayout>
                         </LinearLayout>
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+            </FrameLayout>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:text="Email: "
-                                android:textColor="#000"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:singleLine="true"
-                                android:id="@+id/email"
-                                android:text="sexy_bacha@gmail.com"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:text="Score: "
-                                android:textColor="#000"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:singleLine="true"
-                                android:text="26"
-                                android:id="@+id/score"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:text="Ref Code: "
-                                android:textColor="#000"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:singleLine="true"
-                                android:text="kum12343"
-                                android:id="@+id/ref_code"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:text="No of Ref given: "
-                                android:textColor="#000"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:singleLine="true"
-                                android:text="3"
-                                android:id="@+id/ref_given"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:text="Level: "
-                                android:textColor="#000"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:id="@+id/level"
-                                android:text="3"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:text="Total Users: "
-                                android:textColor="#000"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/psb"
-                                android:id="@+id/total"
-                                android:text="3"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </RelativeLayout>
-            </android.support.v7.widget.CardView>
-        </FrameLayout>
-
-        <RelativeLayout
-            android:id="@+id/background_sv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card_holder_one"
-            android:layout_centerHorizontal="true"
-            android:paddingBottom="40sp">
-
-            <az.plainpie.PieView
-                android:id="@+id/pieView"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="16sp"
-                plainpie:inner_pie_padding="30"
-                plainpie:inner_text_visibility="true"
-                plainpie:percentage_size="70" />
-        </RelativeLayout>
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/content_sv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/background_sv"
-            android:layout_marginBottom="16sp"
-            android:layout_marginLeft="16sp"
-            android:layout_marginRight="16sp"
-            android:layout_marginTop="-40sp"
-            plainpie:cardBackgroundColor="@color/cardview_light_background"
-            plainpie:cardCornerRadius="8sp"
-            plainpie:cardElevation="8sp">
-
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/background_sv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16sp">
-                <!--
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_holder_one"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="40sp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:text="Leaderboard rank: "
-                        android:textColor="#000"
-                        android:textSize="20sp" />
+                <az.plainpie.PieView
+                    android:id="@+id/pieView"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="16sp"
+                    plainpie:inner_pie_padding="30"
+                    plainpie:inner_text_visibility="true"
+                    plainpie:percentage_size="70" />
+            </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:text="12"
-                        android:textSize="20sp" />
-                </LinearLayout>
-                -->
-                <!--
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:text="Maximum score: "
-                        android:textColor="#000"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:id="@+id/max_score"
-                        android:text="56"
-                        android:textSize="20sp" />
-                </LinearLayout>
-                -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/content_sv"
+                plainpie:cardElevation="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/background_sv"
+                android:layout_marginBottom="16sp"
+                android:layout_marginLeft="16sp"
+                android:layout_marginRight="16sp"
+                android:layout_marginTop="-40sp"
+                plainpie:cardBackgroundColor="#fafafa"
+                plainpie:cardCornerRadius="16sp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+                    <!--
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:id="@+id/date"
-                        android:text="Date of registration: "
-                        android:textColor="#000"
-                        android:textSize="20sp" />
+                        android:orientation="horizontal">
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psb"
+                            android:text="Leaderboard rank: "
+                            android:textColor="#000"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psb"
+                            android:text="12"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                    -->
+                    <!--
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:id="@+id/date_show"
-                        android:text="May 23 2019"
-                        android:textSize="20sp" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psb"
+                            android:text="Maximum score: "
+                            android:textColor="#000"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psb"
+                            android:id="@+id/max_score"
+                            android:text="56"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                    -->
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psb"
+                            android:text="Date of registration: "
+                            android:textColor="#000"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/date_show"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ps"
+                            android:text="May 23 2019"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psb"
+                            android:text="Time of Registration: "
+                            android:textColor="#000"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ps"
+                            android:text="bura wakt"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <!--
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psb"
+                            android:text="Referrals given: "
+                            android:textColor="#000"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psb"
+                            android:text="3/5"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                    -->
+                    <!--
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psb"
+                            android:text="Maximum score (referrals): "
+                            android:textColor="#000"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/psb"
+                            android:text="60"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                    -->
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:text="Time of Registration: "
-                        android:textColor="#000"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:id="@+id/time"
-                        android:text="bura wakt"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-                <!--
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:text="Referrals given: "
-                        android:textColor="#000"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:text="3/5"
-                        android:textSize="20sp" />
-                </LinearLayout>
-                -->
-                <!--
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:text="Maximum score (referrals): "
-                        android:textColor="#000"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/psb"
-                        android:text="60"
-                        android:textSize="20sp" />
-                </LinearLayout>
-                -->
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-    </RelativeLayout>
-</android.support.v4.widget.NestedScrollView>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

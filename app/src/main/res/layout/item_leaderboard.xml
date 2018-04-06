@@ -8,8 +8,9 @@
     android:layout_marginLeft="8sp"
     android:layout_marginRight="8sp"
     android:padding="8dp"
-    app:cardBackgroundColor="#fff"
-    app:cardCornerRadius="20dp">
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="#fafafa"
+    app:cardCornerRadius="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"

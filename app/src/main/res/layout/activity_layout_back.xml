@@ -9,13 +9,15 @@
         android:id="@+id/hint_view1"
         android:layout_width="match_parent"
         android:layout_height="480sp"
-        card_view:cardCornerRadius="0dp">
+        card_view:cardElevation="0dp"
+        card_view:cardBackgroundColor="#00aeff"
+        card_view:cardCornerRadius="16dp">
 
         <RelativeLayout
             android:id="@+id/relative"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#00aeff"
+android:elevation="0dp"
             android:gravity="center">
 
             <TextView
