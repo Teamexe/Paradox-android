@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.exe.paradox.R;
@@ -46,6 +48,16 @@ public class MembersActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_members);
+
+        Toolbar toolbar = findViewById(R.id.toolbar_member);
+        toolbar.setNavigationIcon(R.drawable.back_black);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         RecyclerView mentor = findViewById(R.id.recv_mentor);
         RecyclerView finalYear = findViewById(R.id.recv_final);
         RecyclerView thirdYear = findViewById(R.id.recv_third);
