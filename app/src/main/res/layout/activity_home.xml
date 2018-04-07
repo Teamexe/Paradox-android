@@ -154,7 +154,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/reward1" />
+                        android:src="@drawable/reffrals2" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -180,7 +180,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/paradox1" />
+                        android:src="@drawable/paradox2" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -204,7 +204,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/stats1" />
+                        android:src="@drawable/stats2" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -229,7 +229,7 @@
                         android:id="@+id/image_settings"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/reffral1" />
+                        android:src="@drawable/reffrals2" />
 
                     <TextView
                         android:id="@+id/text_settings"
@@ -255,7 +255,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/members1" />
+                        android:src="@drawable/members2" />
 
                     <TextView
                         android:layout_width="wrap_content"
