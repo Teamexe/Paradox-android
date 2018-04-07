@@ -65,6 +65,15 @@ public class QuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_question);
         setSupportActionBar(toolbar);
+
+        toolbar.setNavigationIcon(R.drawable.back_black);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         noInternetDialog = new NoInternetDialog.Builder(this).build();
         hint_number = findViewById(R.id.h);
         answer = findViewById(R.id.e4);

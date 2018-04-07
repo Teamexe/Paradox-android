@@ -42,6 +42,15 @@ public class StatsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stats);
         Toolbar toolbar = findViewById(R.id.toolbar_stats);
         setSupportActionBar(toolbar);
+
+        toolbar.setNavigationIcon(R.drawable.back_black);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         setViews();
         noInternetDialog = new NoInternetDialog.Builder(this).build();
         final GPlusFragment gPlusFragment = new GPlusFragment();
@@ -54,19 +63,28 @@ public class StatsActivity extends AppCompatActivity {
                     if (response.body().getProfileData().size() > 0) {
                         final Profile profile = response.body().getProfileData().get(0);
 
-                        Picasso.get().load(gPlusFragment.getImg()).placeholder(R.drawable.user_icon).into(circleImageView);
-                        circleImageView.setOnClickListener(new View.OnClickListener() {
+                        Picasso.get().load(gPlusFragment.getImg()).placeholder(R.drawable.user_icon).into(circleImageView, new com.squareup.picasso.Callback() {
                             @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent(StatsActivity.this, DpActivity.class).putExtra(Intent.EXTRA_TEXT, profile.getPictureUrl());
-                                String transitionName = getString(R.string.transition_string);
-                                View viewStart = circleImageView;
-                                ActivityOptionsCompat options =
-                                        ActivityOptionsCompat.makeSceneTransitionAnimation(StatsActivity.this,
-                                                viewStart,
-                                                transitionName
-                                        );
-                                ActivityCompat.startActivity(StatsActivity.this, intent, options.toBundle());
+                            public void onSuccess() {
+                                circleImageView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(StatsActivity.this, DpActivity.class).putExtra(Intent.EXTRA_TEXT, profile.getPictureUrl());
+                                        String transitionName = getString(R.string.transition_string);
+                                        View viewStart = circleImageView;
+                                        ActivityOptionsCompat options =
+                                                ActivityOptionsCompat.makeSceneTransitionAnimation(StatsActivity.this,
+                                                        viewStart,
+                                                        transitionName
+                                                );
+                                        ActivityCompat.startActivity(StatsActivity.this, intent, options.toBundle());
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onError(Exception e) {
+                                circleImageView.setImageDrawable(getResources().getDrawable(R.drawable.default_image));
                             }
                         });
 

@@ -16,8 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ps"
-
-            android:gravity="center"
             android:text="Members"
             android:textColor="#000"
             android:textSize="25sp" />

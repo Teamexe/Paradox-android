@@ -16,21 +16,11 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/back_button"
-                android:layout_width="30sp"
-                android:layout_height="30sp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/back_nav" />
-
             <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="16sp"
                 android:fontFamily="@font/ps"
-                android:gravity="center_vertical"
                 android:text="Gullu"
                 android:textColor="#FFF"
                 android:textSize="25sp" />
@@ -38,6 +28,7 @@
     </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
+        android:layout_below="@+id/toolbar_member_display"
         android:layout_width="match_parent"
         android:layout_centerInParent="true"
         android:layout_height="match_parent">

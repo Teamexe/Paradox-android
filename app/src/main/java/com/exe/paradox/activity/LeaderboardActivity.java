@@ -43,6 +43,15 @@ public class LeaderboardActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar_leaderboard);
         setSupportActionBar(toolbar);
+
+        toolbar.setNavigationIcon(R.drawable.back_black);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         noInternetDialog = new NoInternetDialog.Builder(this).build();
 
         ApiInterface apiService =

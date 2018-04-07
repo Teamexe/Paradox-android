@@ -21,9 +21,9 @@ import com.squareup.picasso.Picasso;
 
 public class MemberDisplayActivity extends AppCompatActivity {
 
-    private TextView name, desc;
-    private ImageView backNav;
     Toolbar toolbar;
+    private TextView name, desc;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,15 @@ public class MemberDisplayActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar_member_display);
         setSupportActionBar(toolbar);
+
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.back));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
 
         setViews();
         Member member = getIntent().getParcelableExtra(Intent.EXTRA_TEXT);
@@ -61,10 +70,15 @@ public class MemberDisplayActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     private void setViews() {
         name = findViewById(R.id.name);
         desc = findViewById(R.id.desc);
-        backNav = findViewById(R.id.back_button);
         toolbar = findViewById(R.id.toolbar_member_display);
     }
 }
